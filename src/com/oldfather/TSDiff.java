@@ -9,7 +9,6 @@ import java.util.Date;
 public class TSDiff {
 
 
-
     public static class VintageNode{
 
         public VintageNode parent=null;
