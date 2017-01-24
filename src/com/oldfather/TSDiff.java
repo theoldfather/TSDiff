@@ -21,7 +21,7 @@ public class TSDiff {
             this.s_hash = s_hash;
         }
         public VintageNode(long s_hash, double[] s, VintageNode parent){
-            this.parent=parent;
+            if(parent.hasChanges()) this.parent=parent;
             this.s_hash = s_hash;
             encodeDelta(s,parent.decodeDelta());
         }
@@ -34,7 +34,7 @@ public class TSDiff {
             this.s_hash=s_hash;
             this.offset=offset;
             this.delta=delta;
-            this.parent=parent;
+            if(parent.hasChanges()) this.parent=parent;
         }
 
         public boolean hasChanges(){
