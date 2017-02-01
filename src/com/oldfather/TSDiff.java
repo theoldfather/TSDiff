@@ -16,6 +16,10 @@ public class TSDiff {
         public int offset=0;
         public double[] delta;
 
+        public VintageNode(){
+            // nothing by default
+        }
+
         public VintageNode(long s_hash, double[] s){
             this.delta = s;
             this.s_hash = s_hash;
@@ -23,7 +27,7 @@ public class TSDiff {
         public VintageNode(long s_hash, double[] s, VintageNode parent){
             if(parent.hasChanges()) this.parent=parent;
             this.s_hash = s_hash;
-            encodeDelta(s,parent.decodeDelta());
+            this.encodeDelta(s,parent.decodeDelta());
         }
         public VintageNode(long s_hash, int offset, double[] delta){
             this.s_hash=s_hash;
@@ -49,6 +53,7 @@ public class TSDiff {
             }
         }
 
+        // O(n)
         public void encodeDelta(double[] s2, double[] s1){
 
             try {
@@ -81,6 +86,7 @@ public class TSDiff {
             this.offset=offset;
         }
 
+        // k*n => O(k), where k is the number of prior vintages
         public double[] decodeDelta(){
 
             if(this.isRootNode()){
@@ -129,12 +135,137 @@ public class TSDiff {
             }
             return delta;
         }
+
     }
 
+
+    public static class CompressedVintageNode extends VintageNode{
+
+        public boolean isCompressed=false;
+
+        public CompressedVintageNode(){
+            // nothing by default
+        }
+
+        public CompressedVintageNode(long s_hash, double[] s){
+            super(s_hash,s);
+        }
+        public CompressedVintageNode(long s_hash, double[] s, CompressedVintageNode parent){
+            if(parent.hasChanges()) this.parent=parent;
+            this.s_hash = s_hash;
+            this.encodeDelta(s,parent.decodeDelta());
+        }
+        public CompressedVintageNode(long s_hash, int offset, double[] delta){
+            super(s_hash,offset,delta);
+        }
+        public CompressedVintageNode(long s_hash, int offset, double[] delta, boolean isCompressed, CompressedVintageNode parent){
+            this.s_hash=s_hash;
+            this.offset=offset;
+            this.delta=delta;
+            this.isCompressed=isCompressed;
+            if(parent.hasChanges()) this.parent=parent;
+        }
+
+        // O(n)
+        public static int countRepeated(double[] a){
+            if(a.length<=1){
+                return 0;
+            }else{
+                int sum=0;
+                for(int i=1; i< a.length; i++){
+                    if(a[i-1]==a[i]) sum++;
+                }
+                return sum;
+            }
+        }
+
+        public static boolean shouldCompress(int n, int n_repeated){
+            return n > 2 & n_repeated > n/2;
+        }
+
+        // O(n)
+        public static double[] compress(double[] a,int n_repeated){
+            int n_unique = a.length - n_repeated;
+            double[] out = new double[n_unique*2];
+            int k=0;
+            out[k]=1;
+            out[k+n_unique]=a[0];
+            for(int i=1; i<a.length; i++){
+                if(out[k+n_unique]==a[i]){
+                    out[k]++;
+                }else{
+                    k++;
+                    out[k]=1;
+                    out[k+n_unique]=a[i];
+                }
+            }
+            return out;
+        }
+
+        // r + n => O(n)
+        public static double[] decompress(double[] a){
+            int r = a.length/2; // number of pairs
+            int k=0; // count output elements
+            for(int i=0; i<r; i++) k+=a[i];
+            double[] out = new double[k];
+            int l=0; // index a
+            int o=0; // index out
+            while(o<k){
+                // unroll a into out
+                for(int j=0; j<a[l]; j++){
+                    out[o]=a[l+r];
+                    o++;
+                }
+                l++;
+            }
+            return out;
+        }
+
+        public void encodeDelta(double[] s2, double[] s1){
+            super.encodeDelta(s2,s1);
+            if(this.hasChanges()){
+                int r  = countRepeated(this.delta);
+                if(shouldCompress(this.delta.length,r)){
+                    this.delta = compress(this.delta,r);
+                    this.isCompressed = true;
+                }
+            }
+        }
+        public double[] decodeDelta(){
+            if(this.isCompressed){
+                this.delta = decompress(this.delta);
+                this.isCompressed=false;
+            }
+            return super.decodeDelta();
+        }
+    }
 
 
     // testing the waters
     public static void main(String[] args){
+
+        double[] s = {};
+        double[] t = {0,5,5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0};
+        System.out.println("original.");
+
+        System.out.println(Arrays.toString(s));
+        int n_repeated = CompressedVintageNode.countRepeated(s);
+        if(CompressedVintageNode.shouldCompress(s.length,n_repeated)){
+            System.out.println("compressed.");
+            double[] c = CompressedVintageNode.compress(s,n_repeated);
+            System.out.println(Arrays.toString(c));
+            System.out.println("decompressed.");
+            double[] d = CompressedVintageNode.decompress(c);
+            System.out.println(Arrays.toString(d));
+        }else{
+            System.out.println("not compressed.");
+
+        }
+
+        CompressedVintageNode a = new CompressedVintageNode(1,s);
+        CompressedVintageNode b = new CompressedVintageNode(2,t,a);
+
+        System.out.println(Arrays.toString(b.decodeDelta()));
 
     }
 }
