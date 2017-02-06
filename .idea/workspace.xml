@@ -2,13 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="58ab17ae-ecbc-4e8c-a232-8fd0dceb7e4f" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/test/com/oldfather/CompressedVintageNodeTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/TSDiff_jar/TSDiff.jar" afterPath="$PROJECT_DIR$/out/artifacts/TSDiff_jar/TSDiff.jar" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/oldfather/TSDiff$CompressedVintageNode.class" afterPath="$PROJECT_DIR$/target/classes/com/oldfather/TSDiff$CompressedVintageNode.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/oldfather/TSDiff$VintageNode.class" afterPath="$PROJECT_DIR$/target/classes/com/oldfather/TSDiff$VintageNode.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/oldfather/TSDiff.class" afterPath="$PROJECT_DIR$/target/classes/com/oldfather/TSDiff.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/TSDiff.iml" afterPath="$PROJECT_DIR$/TSDiff.iml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/oldfather/TSDiff.java" afterPath="$PROJECT_DIR$/src/com/oldfather/TSDiff.java" />
     </list>
     <ignored path="TSDiff.iws" />
@@ -44,15 +37,24 @@
       <file leaf-file-name="TSDiff.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/oldfather/TSDiff.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1935">
-              <caret line="169" column="40" lean-forward="false" selection-start-line="169" selection-start-column="40" selection-end-line="169" selection-end-column="40" />
+            <state relative-caret-position="463">
+              <caret line="170" column="28" lean-forward="true" selection-start-line="170" selection-start-column="28" selection-end-line="170" selection-end-column="28" />
               <folding>
+                <element signature="method#VintageNode#4;class#VintageNode#0;class#TSDiff#0" expanded="false" />
                 <element signature="method#cleanup#0;class#VintageNode#0;class#TSDiff#0" expanded="false" />
-                <element signature="e#4466#4467#0" expanded="true" />
-                <element signature="e#4505#4506#0" expanded="true" />
-                <element signature="e#4831#4832#0" expanded="true" />
-                <element signature="e#4881#4882#0" expanded="true" />
+                <element signature="method#encodeDelta#0;class#VintageNode#0;class#TSDiff#0" expanded="false" />
+                <element signature="method#decodeDelta#0;class#VintageNode#0;class#TSDiff#0" expanded="false" />
+                <element signature="method#deltaToDoubleArray#0;class#VintageNode#0;class#TSDiff#0" expanded="false" />
+                <element signature="e#4467#4468#0" expanded="true" />
+                <element signature="e#4506#4507#0" expanded="true" />
+                <element signature="e#4832#4833#0" expanded="true" />
+                <element signature="e#4882#4883#0" expanded="true" />
+                <element signature="method#cleanup#0;class#CompressedVintageNode#0;class#TSDiff#0" expanded="false" />
                 <element signature="method#countRepeated#0;class#CompressedVintageNode#0;class#TSDiff#0" expanded="false" />
+                <element signature="method#compress#0;class#CompressedVintageNode#0;class#TSDiff#0" expanded="false" />
+                <element signature="method#decompress#0;class#CompressedVintageNode#0;class#TSDiff#0" expanded="false" />
+                <element signature="method#encodeDelta#0;class#CompressedVintageNode#0;class#TSDiff#0" expanded="false" />
+                <element signature="method#decodeDelta#0;class#CompressedVintageNode#0;class#TSDiff#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -93,8 +95,8 @@
       <list>
         <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/src/TSDiff.java" />
-        <option value="$PROJECT_DIR$/src/com/oldfather/TSDiff.java" />
         <option value="$PROJECT_DIR$/test/com/oldfather/CompressedVintageNodeTest.java" />
+        <option value="$PROJECT_DIR$/src/com/oldfather/TSDiff.java" />
       </list>
     </option>
   </component>
@@ -106,10 +108,10 @@
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="2350" />
-    <option name="y" value="47" />
+    <option name="x" value="26" />
+    <option name="y" value="23" />
     <option name="width" value="1318" />
-    <option name="height" value="1200" />
+    <option name="height" value="877" />
   </component>
   <component name="ProjectView">
     <navigator currentView="ProjectPane" proportions="" version="1">
@@ -527,7 +529,7 @@
     </history-entry>
   </component>
   <component name="ToolWindowManager">
-    <frame x="2350" y="47" width="1318" height="1200" extended-state="1" />
+    <frame x="26" y="23" width="1318" height="877" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -539,7 +541,7 @@
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.34476534" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.34476534" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -601,12 +603,21 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
+            <element signature="method#VintageNode#4;class#VintageNode#0;class#TSDiff#0" expanded="false" />
             <element signature="method#cleanup#0;class#VintageNode#0;class#TSDiff#0" expanded="false" />
-            <element signature="e#4466#4467#0" expanded="true" />
-            <element signature="e#4505#4506#0" expanded="true" />
-            <element signature="e#4831#4832#0" expanded="true" />
-            <element signature="e#4881#4882#0" expanded="true" />
+            <element signature="method#encodeDelta#0;class#VintageNode#0;class#TSDiff#0" expanded="false" />
+            <element signature="method#decodeDelta#0;class#VintageNode#0;class#TSDiff#0" expanded="false" />
+            <element signature="method#deltaToDoubleArray#0;class#VintageNode#0;class#TSDiff#0" expanded="false" />
+            <element signature="e#4467#4468#0" expanded="true" />
+            <element signature="e#4506#4507#0" expanded="true" />
+            <element signature="e#4832#4833#0" expanded="true" />
+            <element signature="e#4882#4883#0" expanded="true" />
+            <element signature="method#cleanup#0;class#CompressedVintageNode#0;class#TSDiff#0" expanded="false" />
             <element signature="method#countRepeated#0;class#CompressedVintageNode#0;class#TSDiff#0" expanded="false" />
+            <element signature="method#compress#0;class#CompressedVintageNode#0;class#TSDiff#0" expanded="false" />
+            <element signature="method#decompress#0;class#CompressedVintageNode#0;class#TSDiff#0" expanded="false" />
+            <element signature="method#encodeDelta#0;class#CompressedVintageNode#0;class#TSDiff#0" expanded="false" />
+            <element signature="method#decodeDelta#0;class#CompressedVintageNode#0;class#TSDiff#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -624,12 +635,21 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
+            <element signature="method#VintageNode#4;class#VintageNode#0;class#TSDiff#0" expanded="false" />
             <element signature="method#cleanup#0;class#VintageNode#0;class#TSDiff#0" expanded="false" />
-            <element signature="e#4466#4467#0" expanded="true" />
-            <element signature="e#4505#4506#0" expanded="true" />
-            <element signature="e#4831#4832#0" expanded="true" />
-            <element signature="e#4881#4882#0" expanded="true" />
+            <element signature="method#encodeDelta#0;class#VintageNode#0;class#TSDiff#0" expanded="false" />
+            <element signature="method#decodeDelta#0;class#VintageNode#0;class#TSDiff#0" expanded="false" />
+            <element signature="method#deltaToDoubleArray#0;class#VintageNode#0;class#TSDiff#0" expanded="false" />
+            <element signature="e#4467#4468#0" expanded="true" />
+            <element signature="e#4506#4507#0" expanded="true" />
+            <element signature="e#4832#4833#0" expanded="true" />
+            <element signature="e#4882#4883#0" expanded="true" />
+            <element signature="method#cleanup#0;class#CompressedVintageNode#0;class#TSDiff#0" expanded="false" />
             <element signature="method#countRepeated#0;class#CompressedVintageNode#0;class#TSDiff#0" expanded="false" />
+            <element signature="method#compress#0;class#CompressedVintageNode#0;class#TSDiff#0" expanded="false" />
+            <element signature="method#decompress#0;class#CompressedVintageNode#0;class#TSDiff#0" expanded="false" />
+            <element signature="method#encodeDelta#0;class#CompressedVintageNode#0;class#TSDiff#0" expanded="false" />
+            <element signature="method#decodeDelta#0;class#CompressedVintageNode#0;class#TSDiff#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -682,15 +702,24 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/oldfather/TSDiff.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1935">
-          <caret line="169" column="40" lean-forward="false" selection-start-line="169" selection-start-column="40" selection-end-line="169" selection-end-column="40" />
+        <state relative-caret-position="463">
+          <caret line="170" column="28" lean-forward="true" selection-start-line="170" selection-start-column="28" selection-end-line="170" selection-end-column="28" />
           <folding>
+            <element signature="method#VintageNode#4;class#VintageNode#0;class#TSDiff#0" expanded="false" />
             <element signature="method#cleanup#0;class#VintageNode#0;class#TSDiff#0" expanded="false" />
-            <element signature="e#4466#4467#0" expanded="true" />
-            <element signature="e#4505#4506#0" expanded="true" />
-            <element signature="e#4831#4832#0" expanded="true" />
-            <element signature="e#4881#4882#0" expanded="true" />
+            <element signature="method#encodeDelta#0;class#VintageNode#0;class#TSDiff#0" expanded="false" />
+            <element signature="method#decodeDelta#0;class#VintageNode#0;class#TSDiff#0" expanded="false" />
+            <element signature="method#deltaToDoubleArray#0;class#VintageNode#0;class#TSDiff#0" expanded="false" />
+            <element signature="e#4467#4468#0" expanded="true" />
+            <element signature="e#4506#4507#0" expanded="true" />
+            <element signature="e#4832#4833#0" expanded="true" />
+            <element signature="e#4882#4883#0" expanded="true" />
+            <element signature="method#cleanup#0;class#CompressedVintageNode#0;class#TSDiff#0" expanded="false" />
             <element signature="method#countRepeated#0;class#CompressedVintageNode#0;class#TSDiff#0" expanded="false" />
+            <element signature="method#compress#0;class#CompressedVintageNode#0;class#TSDiff#0" expanded="false" />
+            <element signature="method#decompress#0;class#CompressedVintageNode#0;class#TSDiff#0" expanded="false" />
+            <element signature="method#encodeDelta#0;class#CompressedVintageNode#0;class#TSDiff#0" expanded="false" />
+            <element signature="method#decodeDelta#0;class#CompressedVintageNode#0;class#TSDiff#0" expanded="false" />
           </folding>
         </state>
       </provider>

@@ -53,6 +53,12 @@ public class TSDiff {
             }
         }
 
+        public VintageNode getRootNode(){
+            return (this.isRootNode() ? this : this.parent.getRootNode() );
+        }
+
+        public VintageNode getParent(){ return this.parent;  }
+
         // O(n)
         public void encodeDelta(double[] s2, double[] s1){
 
@@ -116,17 +122,12 @@ public class TSDiff {
             return 1 + (this.isRootNode() ? 0 : this.parent.getVintageNumber());
         }
 
-        public VintageNode getRootNode(){
-            return (this.isRootNode() ? this : this.parent.getRootNode() );
-        }
 
         public boolean isRootNode(){
             return (this.parent==null);
         }
 
         public boolean hasParent(){ return !(this.isRootNode()); }
-
-        public VintageNode getParent(){ return this.parent;  }
 
         public Double[] deltaToDoubleArray(){
             Double[] delta = new Double[this.delta.length];
@@ -167,10 +168,23 @@ public class TSDiff {
             if(parent.hasChanges()) this.parent=parent;
         }
 
-        //----overridden from super-----
+        //---- OVERRIDE FROM SUPER -----
+
+        public CompressedVintageNode cleanup(){
+            if(this.hasChanges()){
+                return this.parent;
+            }else{
+                return this;
+            }
+        }
+
         public CompressedVintageNode getRootNode(){
             return (this.isRootNode() ? this : this.parent.getRootNode() );
         }
+
+        public CompressedVintageNode getParent(){ return this.parent;  }
+
+        //---- END OVERRIDES ------------
 
         // O(n)
         public static int countRepeated(double[] a){
