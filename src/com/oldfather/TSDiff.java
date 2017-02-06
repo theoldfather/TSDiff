@@ -142,6 +142,7 @@ public class TSDiff {
     public static class CompressedVintageNode extends VintageNode{
 
         public boolean isCompressed=false;
+        public CompressedVintageNode parent=null;
 
         public CompressedVintageNode(){
             // nothing by default
@@ -164,6 +165,11 @@ public class TSDiff {
             this.delta=delta;
             this.isCompressed=isCompressed;
             if(parent.hasChanges()) this.parent=parent;
+        }
+
+        //----overridden from super-----
+        public CompressedVintageNode getRootNode(){
+            return (this.isRootNode() ? this : this.parent.getRootNode() );
         }
 
         // O(n)
