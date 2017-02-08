@@ -2,7 +2,16 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="58ab17ae-ecbc-4e8c-a232-8fd0dceb7e4f" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/test/com/oldfather/DebugTools.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/test/com/oldfather/VintageNodeTest.java" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/oldfather/TSDiff$CompressedVintageNode.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/oldfather/TSDiff$VintageNode.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/oldfather/TSDiff.class" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/TSDiff_jar/TSDiff.jar" afterPath="$PROJECT_DIR$/out/artifacts/TSDiff_jar/TSDiff.jar" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/test-classes/com/oldfather/CompressedVintageNodeTest.class" afterPath="$PROJECT_DIR$/target/test-classes/com/oldfather/CompressedVintageNodeTest.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/oldfather/TSDiff.java" afterPath="$PROJECT_DIR$/src/com/oldfather/TSDiff.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/com/oldfather/CompressedVintageNodeTest.java" afterPath="$PROJECT_DIR$/test/com/oldfather/CompressedVintageNodeTest.java" />
     </list>
     <ignored path="TSDiff.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -34,40 +43,63 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="TSDiff.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="TSDiff.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/com/oldfather/TSDiff.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="463">
-              <caret line="170" column="28" lean-forward="true" selection-start-line="170" selection-start-column="28" selection-end-line="170" selection-end-column="28" />
+            <state relative-caret-position="-179">
+              <caret line="302" column="17" lean-forward="false" selection-start-line="302" selection-start-column="17" selection-end-line="302" selection-end-column="17" />
               <folding>
+                <element signature="imports" expanded="true" />
                 <element signature="method#VintageNode#4;class#VintageNode#0;class#TSDiff#0" expanded="false" />
                 <element signature="method#cleanup#0;class#VintageNode#0;class#TSDiff#0" expanded="false" />
-                <element signature="method#encodeDelta#0;class#VintageNode#0;class#TSDiff#0" expanded="false" />
-                <element signature="method#decodeDelta#0;class#VintageNode#0;class#TSDiff#0" expanded="false" />
+                <element signature="method#encodeDelta#1;class#VintageNode#0;class#TSDiff#0" expanded="false" />
+                <element signature="e#4599#4600#0" expanded="true" />
+                <element signature="e#4649#4650#0" expanded="true" />
                 <element signature="method#deltaToDoubleArray#0;class#VintageNode#0;class#TSDiff#0" expanded="false" />
-                <element signature="e#4467#4468#0" expanded="true" />
-                <element signature="e#4506#4507#0" expanded="true" />
-                <element signature="e#4832#4833#0" expanded="true" />
-                <element signature="e#4882#4883#0" expanded="true" />
-                <element signature="method#cleanup#0;class#CompressedVintageNode#0;class#TSDiff#0" expanded="false" />
-                <element signature="method#countRepeated#0;class#CompressedVintageNode#0;class#TSDiff#0" expanded="false" />
+                <element signature="e#6584#6585#0" expanded="true" />
+                <element signature="e#6639#6640#0" expanded="true" />
                 <element signature="method#compress#0;class#CompressedVintageNode#0;class#TSDiff#0" expanded="false" />
-                <element signature="method#decompress#0;class#CompressedVintageNode#0;class#TSDiff#0" expanded="false" />
-                <element signature="method#encodeDelta#0;class#CompressedVintageNode#0;class#TSDiff#0" expanded="false" />
-                <element signature="method#decodeDelta#0;class#CompressedVintageNode#0;class#TSDiff#0" expanded="false" />
+                <element signature="e#7933#7934#0" expanded="true" />
+                <element signature="e#8003#8004#0" expanded="true" />
+                <element signature="e#8073#8074#0" expanded="true" />
+                <element signature="e#8147#8148#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="CompressedVintageNodeTest.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="VintageNodeTest.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/test/com/oldfather/VintageNodeTest.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="255">
+              <caret line="17" column="34" lean-forward="true" selection-start-line="17" selection-start-column="34" selection-end-line="17" selection-end-column="34" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#1159#1160#0" expanded="true" />
+                <element signature="e#1194#1195#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="CompressedVintageNodeTest.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/test/com/oldfather/CompressedVintageNodeTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="435">
-              <caret line="29" column="0" lean-forward="false" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
+            <state relative-caret-position="285">
+              <caret line="19" column="31" lean-forward="false" selection-start-line="19" selection-start-column="31" selection-end-line="19" selection-end-column="31" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="DebugTools.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/test/com/oldfather/DebugTools.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="225">
+              <caret line="15" column="5" lean-forward="true" selection-start-line="15" selection-start-column="5" selection-end-line="15" selection-end-column="5" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -77,10 +109,16 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="JUnit4 Test Class" />
+        <option value="Class" />
       </list>
     </option>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>TSDiff.</find>
+      <find>cleanup</find>
+    </findStrings>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -95,6 +133,9 @@
       <list>
         <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/src/TSDiff.java" />
+        <option value="$PROJECT_DIR$/src/com/oldfather/Sequence.java" />
+        <option value="$PROJECT_DIR$/test/com/oldfather/DebugTools.java" />
+        <option value="$PROJECT_DIR$/test/com/oldfather/VintageNodeTest.java" />
         <option value="$PROJECT_DIR$/test/com/oldfather/CompressedVintageNodeTest.java" />
         <option value="$PROJECT_DIR$/src/com/oldfather/TSDiff.java" />
       </list>
@@ -108,9 +149,9 @@
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="26" />
+    <option name="x" value="4" />
     <option name="y" value="23" />
-    <option name="width" value="1318" />
+    <option name="width" value="1436" />
     <option name="height" value="877" />
   </component>
   <component name="ProjectView">
@@ -128,8 +169,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -187,6 +226,8 @@
         </subPane>
       </pane>
       <pane id="Scratches" />
+      <pane id="PackagesPane" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -208,16 +249,21 @@
       <recent name="" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.CompressedVintageNodeTest.getRootNode">
-    <configuration default="false" name="All in TSDiff" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+  <component name="RunManager" selected="JUnit.CompressedVintageNodeTest">
+    <configuration default="false" name="VintageNodeTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="com.oldfather.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
       <module name="TSDiff" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
       <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" />
+      <option name="PACKAGE_NAME" value="com.oldfather" />
+      <option name="MAIN_CLASS_NAME" value="com.oldfather.VintageNodeTest" />
       <option name="METHOD_NAME" />
-      <option name="TEST_OBJECT" value="package" />
+      <option name="TEST_OBJECT" value="class" />
       <option name="VM_PARAMETERS" value="-ea" />
       <option name="PARAMETERS" />
       <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
@@ -230,7 +276,33 @@
       <patterns />
       <method />
     </configuration>
-    <configuration default="false" name="CompressedVintageNodeTest.getRootNode" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration default="false" name="VintageNodeTest.decodeDelta" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="com.oldfather.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <module name="TSDiff" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" value="com.oldfather" />
+      <option name="MAIN_CLASS_NAME" value="com.oldfather.VintageNodeTest" />
+      <option name="METHOD_NAME" value="decodeDelta" />
+      <option name="TEST_OBJECT" value="method" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <envs />
+      <patterns />
+      <method />
+    </configuration>
+    <configuration default="false" name="CompressedVintageNodeTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
         <pattern>
           <option name="PATTERN" value="com.oldfather.*" />
@@ -242,7 +314,59 @@
       <option name="ALTERNATIVE_JRE_PATH" />
       <option name="PACKAGE_NAME" value="com.oldfather" />
       <option name="MAIN_CLASS_NAME" value="com.oldfather.CompressedVintageNodeTest" />
-      <option name="METHOD_NAME" value="getRootNode" />
+      <option name="METHOD_NAME" />
+      <option name="TEST_OBJECT" value="class" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <envs />
+      <patterns />
+      <method />
+    </configuration>
+    <configuration default="false" name="CompressedVintageNodeTest.decodeDelta" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="com.oldfather.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <module name="TSDiff" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" value="com.oldfather" />
+      <option name="MAIN_CLASS_NAME" value="com.oldfather.CompressedVintageNodeTest" />
+      <option name="METHOD_NAME" value="decodeDelta" />
+      <option name="TEST_OBJECT" value="method" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <envs />
+      <patterns />
+      <method />
+    </configuration>
+    <configuration default="false" name="CompressedVintageNodeTest.encodeDelta" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="com.oldfather.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <module name="TSDiff" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" value="com.oldfather" />
+      <option name="MAIN_CLASS_NAME" value="com.oldfather.CompressedVintageNodeTest" />
+      <option name="METHOD_NAME" value="encodeDelta" />
       <option name="TEST_OBJECT" value="method" />
       <option name="VM_PARAMETERS" value="-ea" />
       <option name="PARAMETERS" />
@@ -475,15 +599,21 @@
       <envs />
       <method />
     </configuration>
-    <list size="3">
+    <list size="6">
       <item index="0" class="java.lang.String" itemvalue="Application.Test TSDiff" />
-      <item index="1" class="java.lang.String" itemvalue="JUnit.All in TSDiff" />
-      <item index="2" class="java.lang.String" itemvalue="JUnit.CompressedVintageNodeTest.getRootNode" />
+      <item index="1" class="java.lang.String" itemvalue="JUnit.VintageNodeTest" />
+      <item index="2" class="java.lang.String" itemvalue="JUnit.VintageNodeTest.decodeDelta" />
+      <item index="3" class="java.lang.String" itemvalue="JUnit.CompressedVintageNodeTest" />
+      <item index="4" class="java.lang.String" itemvalue="JUnit.CompressedVintageNodeTest.decodeDelta" />
+      <item index="5" class="java.lang.String" itemvalue="JUnit.CompressedVintageNodeTest.encodeDelta" />
     </list>
     <recent_temporary>
-      <list size="2">
-        <item index="0" class="java.lang.String" itemvalue="JUnit.CompressedVintageNodeTest.getRootNode" />
-        <item index="1" class="java.lang.String" itemvalue="JUnit.All in TSDiff" />
+      <list size="5">
+        <item index="0" class="java.lang.String" itemvalue="JUnit.CompressedVintageNodeTest" />
+        <item index="1" class="java.lang.String" itemvalue="JUnit.VintageNodeTest" />
+        <item index="2" class="java.lang.String" itemvalue="JUnit.CompressedVintageNodeTest.encodeDelta" />
+        <item index="3" class="java.lang.String" itemvalue="JUnit.CompressedVintageNodeTest.decodeDelta" />
+        <item index="4" class="java.lang.String" itemvalue="JUnit.VintageNodeTest.decodeDelta" />
       </list>
     </recent_temporary>
   </component>
@@ -509,51 +639,63 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="All_in_TSDiff - 2017.02.05 at 14h 32m 44s.xml">
-      <configuration name="All in TSDiff" configurationId="JUnit" />
+    <history-entry file="CompressedVintageNodeTest - 2017.02.08 at 13h 10m 54s.xml">
+      <configuration name="CompressedVintageNodeTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="CompressedVintageNodeTest_getRootNode - 2017.02.05 at 16h 05m 21s.xml">
-      <configuration name="CompressedVintageNodeTest.getRootNode" configurationId="JUnit" />
+    <history-entry file="CompressedVintageNodeTest - 2017.02.08 at 13h 15m 06s.xml">
+      <configuration name="CompressedVintageNodeTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="CompressedVintageNodeTest_getRootNode - 2017.02.05 at 16h 06m 44s.xml">
-      <configuration name="CompressedVintageNodeTest.getRootNode" configurationId="JUnit" />
+    <history-entry file="CompressedVintageNodeTest - 2017.02.08 at 13h 30m 14s.xml">
+      <configuration name="CompressedVintageNodeTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="CompressedVintageNodeTest_getRootNode - 2017.02.05 at 16h 39m 12s.xml">
-      <configuration name="CompressedVintageNodeTest.getRootNode" configurationId="JUnit" />
+    <history-entry file="CompressedVintageNodeTest - 2017.02.08 at 13h 32m 20s.xml">
+      <configuration name="CompressedVintageNodeTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="CompressedVintageNodeTest_getRootNode - 2017.02.05 at 16h 40m 34s.xml">
-      <configuration name="CompressedVintageNodeTest.getRootNode" configurationId="JUnit" />
+    <history-entry file="CompressedVintageNodeTest_decodeDelta - 2017.02.08 at 13h 15m 36s.xml">
+      <configuration name="CompressedVintageNodeTest.decodeDelta" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="CompressedVintageNodeTest_getRootNode - 2017.02.05 at 16h 46m 23s.xml">
-      <configuration name="CompressedVintageNodeTest.getRootNode" configurationId="JUnit" />
+    <history-entry file="CompressedVintageNodeTest_decodeDelta - 2017.02.08 at 13h 15m 46s.xml">
+      <configuration name="CompressedVintageNodeTest.decodeDelta" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="CompressedVintageNodeTest_encodeDelta - 2017.02.08 at 13h 18m 25s.xml">
+      <configuration name="CompressedVintageNodeTest.encodeDelta" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="VintageNodeTest - 2017.02.08 at 13h 10m 41s.xml">
+      <configuration name="VintageNodeTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="VintageNodeTest - 2017.02.08 at 13h 30m 10s.xml">
+      <configuration name="VintageNodeTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="VintageNodeTest_decodeDelta - 2017.02.08 at 13h 10m 37s.xml">
+      <configuration name="VintageNodeTest.decodeDelta" configurationId="JUnit" />
     </history-entry>
   </component>
   <component name="ToolWindowManager">
-    <frame x="26" y="23" width="1318" height="877" extended-state="0" />
+    <frame x="4" y="23" width="1436" height="877" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Nl-Palette" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32310468" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.31847134" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.34476534" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.34394905" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2515674" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23385939" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -584,6 +726,47 @@
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="8" column="35" lean-forward="false" selection-start-line="8" selection-start-column="35" selection-end-line="8" selection-end-column="35" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/oldfather/TSDiff.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#VintageNode#4;class#VintageNode#0;class#TSDiff#0" expanded="false" />
+            <element signature="method#cleanup#0;class#VintageNode#0;class#TSDiff#0" expanded="false" />
+            <element signature="method#encodeDelta#1;class#VintageNode#0;class#TSDiff#0" expanded="false" />
+            <element signature="e#4599#4600#0" expanded="true" />
+            <element signature="e#4649#4650#0" expanded="true" />
+            <element signature="method#deltaToDoubleArray#0;class#VintageNode#0;class#TSDiff#0" expanded="false" />
+            <element signature="e#6584#6585#0" expanded="true" />
+            <element signature="e#6639#6640#0" expanded="true" />
+            <element signature="method#compress#0;class#CompressedVintageNode#0;class#TSDiff#0" expanded="false" />
+            <element signature="e#7933#7934#0" expanded="true" />
+            <element signature="e#8003#8004#0" expanded="true" />
+            <element signature="e#8073#8074#0" expanded="true" />
+            <element signature="e#8147#8148#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/com/oldfather/CompressedVintageNodeTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="375">
+          <caret line="29" column="0" lean-forward="false" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
@@ -603,21 +786,20 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
+            <element signature="imports" expanded="true" />
             <element signature="method#VintageNode#4;class#VintageNode#0;class#TSDiff#0" expanded="false" />
             <element signature="method#cleanup#0;class#VintageNode#0;class#TSDiff#0" expanded="false" />
-            <element signature="method#encodeDelta#0;class#VintageNode#0;class#TSDiff#0" expanded="false" />
-            <element signature="method#decodeDelta#0;class#VintageNode#0;class#TSDiff#0" expanded="false" />
+            <element signature="method#encodeDelta#1;class#VintageNode#0;class#TSDiff#0" expanded="false" />
+            <element signature="e#4599#4600#0" expanded="true" />
+            <element signature="e#4649#4650#0" expanded="true" />
             <element signature="method#deltaToDoubleArray#0;class#VintageNode#0;class#TSDiff#0" expanded="false" />
-            <element signature="e#4467#4468#0" expanded="true" />
-            <element signature="e#4506#4507#0" expanded="true" />
-            <element signature="e#4832#4833#0" expanded="true" />
-            <element signature="e#4882#4883#0" expanded="true" />
-            <element signature="method#cleanup#0;class#CompressedVintageNode#0;class#TSDiff#0" expanded="false" />
-            <element signature="method#countRepeated#0;class#CompressedVintageNode#0;class#TSDiff#0" expanded="false" />
+            <element signature="e#6584#6585#0" expanded="true" />
+            <element signature="e#6639#6640#0" expanded="true" />
             <element signature="method#compress#0;class#CompressedVintageNode#0;class#TSDiff#0" expanded="false" />
-            <element signature="method#decompress#0;class#CompressedVintageNode#0;class#TSDiff#0" expanded="false" />
-            <element signature="method#encodeDelta#0;class#CompressedVintageNode#0;class#TSDiff#0" expanded="false" />
-            <element signature="method#decodeDelta#0;class#CompressedVintageNode#0;class#TSDiff#0" expanded="false" />
+            <element signature="e#7933#7934#0" expanded="true" />
+            <element signature="e#8003#8004#0" expanded="true" />
+            <element signature="e#8073#8074#0" expanded="true" />
+            <element signature="e#8147#8148#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -635,21 +817,20 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
+            <element signature="imports" expanded="true" />
             <element signature="method#VintageNode#4;class#VintageNode#0;class#TSDiff#0" expanded="false" />
             <element signature="method#cleanup#0;class#VintageNode#0;class#TSDiff#0" expanded="false" />
-            <element signature="method#encodeDelta#0;class#VintageNode#0;class#TSDiff#0" expanded="false" />
-            <element signature="method#decodeDelta#0;class#VintageNode#0;class#TSDiff#0" expanded="false" />
+            <element signature="method#encodeDelta#1;class#VintageNode#0;class#TSDiff#0" expanded="false" />
+            <element signature="e#4599#4600#0" expanded="true" />
+            <element signature="e#4649#4650#0" expanded="true" />
             <element signature="method#deltaToDoubleArray#0;class#VintageNode#0;class#TSDiff#0" expanded="false" />
-            <element signature="e#4467#4468#0" expanded="true" />
-            <element signature="e#4506#4507#0" expanded="true" />
-            <element signature="e#4832#4833#0" expanded="true" />
-            <element signature="e#4882#4883#0" expanded="true" />
-            <element signature="method#cleanup#0;class#CompressedVintageNode#0;class#TSDiff#0" expanded="false" />
-            <element signature="method#countRepeated#0;class#CompressedVintageNode#0;class#TSDiff#0" expanded="false" />
+            <element signature="e#6584#6585#0" expanded="true" />
+            <element signature="e#6639#6640#0" expanded="true" />
             <element signature="method#compress#0;class#CompressedVintageNode#0;class#TSDiff#0" expanded="false" />
-            <element signature="method#decompress#0;class#CompressedVintageNode#0;class#TSDiff#0" expanded="false" />
-            <element signature="method#encodeDelta#0;class#CompressedVintageNode#0;class#TSDiff#0" expanded="false" />
-            <element signature="method#decodeDelta#0;class#CompressedVintageNode#0;class#TSDiff#0" expanded="false" />
+            <element signature="e#7933#7934#0" expanded="true" />
+            <element signature="e#8003#8004#0" expanded="true" />
+            <element signature="e#8073#8074#0" expanded="true" />
+            <element signature="e#8147#8148#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -690,36 +871,63 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/test/com/oldfather/CompressedVintageNodeTest.java">
+    <entry file="file://$PROJECT_DIR$/src/com/oldfather/Sequence.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="435">
-          <caret line="29" column="0" lean-forward="false" selection-start-line="29" selection-start-column="0" selection-end-line="29" selection-end-column="0" />
+        <state relative-caret-position="60">
+          <caret line="4" column="0" lean-forward="false" selection-start-line="4" selection-start-column="0" selection-end-line="7" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/com/oldfather/DebugTools.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="15" column="5" lean-forward="true" selection-start-line="15" selection-start-column="5" selection-end-line="15" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/com/oldfather/VintageNodeTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="17" column="34" lean-forward="true" selection-start-line="17" selection-start-column="34" selection-end-line="17" selection-end-column="34" />
           <folding>
             <element signature="imports" expanded="true" />
+            <element signature="e#1159#1160#0" expanded="true" />
+            <element signature="e#1194#1195#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/oldfather/TSDiff.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="463">
-          <caret line="170" column="28" lean-forward="true" selection-start-line="170" selection-start-column="28" selection-end-line="170" selection-end-column="28" />
+        <state relative-caret-position="-179">
+          <caret line="302" column="17" lean-forward="false" selection-start-line="302" selection-start-column="17" selection-end-line="302" selection-end-column="17" />
           <folding>
+            <element signature="imports" expanded="true" />
             <element signature="method#VintageNode#4;class#VintageNode#0;class#TSDiff#0" expanded="false" />
             <element signature="method#cleanup#0;class#VintageNode#0;class#TSDiff#0" expanded="false" />
-            <element signature="method#encodeDelta#0;class#VintageNode#0;class#TSDiff#0" expanded="false" />
-            <element signature="method#decodeDelta#0;class#VintageNode#0;class#TSDiff#0" expanded="false" />
+            <element signature="method#encodeDelta#1;class#VintageNode#0;class#TSDiff#0" expanded="false" />
+            <element signature="e#4599#4600#0" expanded="true" />
+            <element signature="e#4649#4650#0" expanded="true" />
             <element signature="method#deltaToDoubleArray#0;class#VintageNode#0;class#TSDiff#0" expanded="false" />
-            <element signature="e#4467#4468#0" expanded="true" />
-            <element signature="e#4506#4507#0" expanded="true" />
-            <element signature="e#4832#4833#0" expanded="true" />
-            <element signature="e#4882#4883#0" expanded="true" />
-            <element signature="method#cleanup#0;class#CompressedVintageNode#0;class#TSDiff#0" expanded="false" />
-            <element signature="method#countRepeated#0;class#CompressedVintageNode#0;class#TSDiff#0" expanded="false" />
+            <element signature="e#6584#6585#0" expanded="true" />
+            <element signature="e#6639#6640#0" expanded="true" />
             <element signature="method#compress#0;class#CompressedVintageNode#0;class#TSDiff#0" expanded="false" />
-            <element signature="method#decompress#0;class#CompressedVintageNode#0;class#TSDiff#0" expanded="false" />
-            <element signature="method#encodeDelta#0;class#CompressedVintageNode#0;class#TSDiff#0" expanded="false" />
-            <element signature="method#decodeDelta#0;class#CompressedVintageNode#0;class#TSDiff#0" expanded="false" />
+            <element signature="e#7933#7934#0" expanded="true" />
+            <element signature="e#8003#8004#0" expanded="true" />
+            <element signature="e#8073#8074#0" expanded="true" />
+            <element signature="e#8147#8148#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/com/oldfather/CompressedVintageNodeTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="19" column="31" lean-forward="false" selection-start-line="19" selection-start-column="31" selection-end-line="19" selection-end-column="31" />
+          <folding>
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>

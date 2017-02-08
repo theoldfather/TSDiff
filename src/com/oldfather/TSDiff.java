@@ -9,25 +9,30 @@ import java.util.Date;
 public class TSDiff {
 
 
-    public static class VintageNode{
+    public static class VintageNode extends Object{
 
         public VintageNode parent=null;
         public long s_hash;
-        public int offset=0;
+        public int offset=-1;
         public double[] delta;
 
         public VintageNode(){
-            // nothing by default
+            // nothing to do here
         }
 
         public VintageNode(long s_hash, double[] s){
-            this.delta = s;
+            this.encodeDelta(s);
             this.s_hash = s_hash;
         }
         public VintageNode(long s_hash, double[] s, VintageNode parent){
-            if(parent.hasChanges()) this.parent=parent;
+            if(parent.hasChanges()){
+                this.parent=parent;
+                this.encodeDelta(s,parent.decodeDelta());
+            }else{
+                this.encodeDelta(s);
+            }
             this.s_hash = s_hash;
-            this.encodeDelta(s,parent.decodeDelta());
+
         }
         public VintageNode(long s_hash, int offset, double[] delta){
             this.s_hash=s_hash;
@@ -42,7 +47,12 @@ public class TSDiff {
         }
 
         public boolean hasChanges(){
-            return !(this.offset==-1 & this.delta==null);
+            if(this.delta!=null){
+                if(this.delta.length>0){
+                    return true;
+                }
+            }
+            return false;
         }
 
         public VintageNode cleanup(){
@@ -54,11 +64,23 @@ public class TSDiff {
         }
 
         public VintageNode getRootNode(){
-            return (this.isRootNode() ? this : this.parent.getRootNode() );
+            if(this.isRootNode()){
+                return this;
+            }else{
+                return this.getParent().getRootNode();
+            }
         }
 
         public VintageNode getParent(){ return this.parent;  }
 
+        public void encodeDelta(double[] s){
+            if(s!=null){
+                if(s.length>0){
+                    this.delta=s;
+                    this.offset=0;
+                }
+            }
+        }
         // O(n)
         public void encodeDelta(double[] s2, double[] s1){
 
@@ -71,15 +93,21 @@ public class TSDiff {
             int n = s2.length;
             double[] delta = null;
             int offset=-1;
+            // iterate of length of s2
+            // split into revisions and updates
             for(int i=0; i<n; i++){
+                // revisions
                 if(i<s1.length){
+                    // does s2 contain revisions to elements of s1?
                     if(s2[i]!=s1[i]){
+                        // if so, mark the offset of the first change
                         if(offset==-1) {
                             offset = i;
                             delta = new double[n-i];
                         }
                         delta[i-offset]=s2[i]-s1[i];
                     }
+                // does s2 contain updates to end of s1
                 }else{
                     if(offset==-1) {
                         offset = i;
@@ -143,22 +171,30 @@ public class TSDiff {
     public static class CompressedVintageNode extends VintageNode{
 
         public boolean isCompressed=false;
-        public CompressedVintageNode parent=null;
 
         public CompressedVintageNode(){
-            // nothing by default
+
         }
 
         public CompressedVintageNode(long s_hash, double[] s){
-            super(s_hash,s);
+            this.encodeDelta(s);
+            this.s_hash = s_hash;
         }
         public CompressedVintageNode(long s_hash, double[] s, CompressedVintageNode parent){
-            if(parent.hasChanges()) this.parent=parent;
+
+            if(parent.hasChanges()){
+                this.parent=parent;
+                this.encodeDelta(s,parent.decodeDelta());
+            }else{
+                this.encodeDelta(s);
+            }
             this.s_hash = s_hash;
-            this.encodeDelta(s,parent.decodeDelta());
+
         }
         public CompressedVintageNode(long s_hash, int offset, double[] delta){
-            super(s_hash,offset,delta);
+            this.s_hash=s_hash;
+            this.offset=offset;
+            this.delta=delta;
         }
         public CompressedVintageNode(long s_hash, int offset, double[] delta, boolean isCompressed, CompressedVintageNode parent){
             this.s_hash=s_hash;
@@ -168,31 +204,17 @@ public class TSDiff {
             if(parent.hasChanges()) this.parent=parent;
         }
 
-        //---- OVERRIDE FROM SUPER -----
 
-        public CompressedVintageNode cleanup(){
-            if(this.hasChanges()){
-                return this.parent;
-            }else{
-                return this;
-            }
-        }
 
-        public CompressedVintageNode getRootNode(){
-            return (this.isRootNode() ? this : this.parent.getRootNode() );
-        }
 
-        public CompressedVintageNode getParent(){ return this.parent;  }
-
-        //---- END OVERRIDES ------------
-
+        //---- START NEW ------------
         // O(n)
         public static int countRepeated(double[] a){
             if(a.length<=1){
                 return 0;
             }else{
                 int sum=0;
-                for(int i=1; i< a.length; i++){
+                for(int i=1; i < a.length; i++){
                     if(a[i-1]==a[i]) sum++;
                 }
                 return sum;
@@ -204,7 +226,7 @@ public class TSDiff {
         }
 
         // O(n)
-        public static double[] compress(double[] a,int n_repeated){
+        public static double[] compress(double[] a, int n_repeated){
             int n_unique = a.length - n_repeated;
             double[] out = new double[n_unique*2];
             int k=0;
@@ -240,7 +262,33 @@ public class TSDiff {
             }
             return out;
         }
+        //---- END NEW ------------
 
+        //---- START OVERRIDES ------------
+        @Override
+        public CompressedVintageNode cleanup(){
+            return (CompressedVintageNode) super.cleanup();
+        }
+        @Override
+        public CompressedVintageNode getRootNode(){
+            return (CompressedVintageNode) super.getRootNode();
+        }
+        @Override
+        public CompressedVintageNode getParent(){ return (CompressedVintageNode) this.parent;  }
+
+        @Override
+        public void encodeDelta(double[] s){
+            super.encodeDelta(s);
+            if(this.hasChanges()){
+                int r  = countRepeated(this.delta);
+                if(shouldCompress(this.delta.length,r)){
+                    this.delta = compress(this.delta,r);
+                    this.isCompressed = true;
+                }
+            }
+        }
+
+        @Override
         public void encodeDelta(double[] s2, double[] s1){
             super.encodeDelta(s2,s1);
             if(this.hasChanges()){
@@ -251,41 +299,41 @@ public class TSDiff {
                 }
             }
         }
+
+        @Override
         public double[] decodeDelta(){
+            double[] delta = this.delta;
+
             if(this.isCompressed){
-                this.delta = decompress(this.delta);
-                this.isCompressed=false;
+                delta = this.decompress(delta);
             }
-            return super.decodeDelta();
-        }
-    }
 
-
-    // testing the waters
-    public static void main(String[] args){
-
-        double[] s = {};
-        double[] t = {0,5,5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0};
-        System.out.println("original.");
-
-        System.out.println(Arrays.toString(s));
-        int n_repeated = CompressedVintageNode.countRepeated(s);
-        if(CompressedVintageNode.shouldCompress(s.length,n_repeated)){
-            System.out.println("compressed.");
-            double[] c = CompressedVintageNode.compress(s,n_repeated);
-            System.out.println(Arrays.toString(c));
-            System.out.println("decompressed.");
-            double[] d = CompressedVintageNode.decompress(c);
-            System.out.println(Arrays.toString(d));
-        }else{
-            System.out.println("not compressed.");
-
+            if(this.isRootNode()){
+                return delta;
+            }else{
+                double[] s1 = this.parent.decodeDelta();
+                if(this.offset==-1){
+                    return s1;
+                }else{
+                    int n = delta.length + this.offset;
+                    double[] s2 = new double[n];
+                    for(int i=0; i<n; i++){
+                        if(i<this.offset){
+                            s2[i]=s1[i];
+                        }else if(i>=this.offset & i<s1.length){
+                            s2[i]=s1[i]+delta[i-this.offset];
+                        }else{
+                            s2[i]=delta[i-this.offset];
+                        }
+                    }
+                    return s2;
+                }
+            }
         }
 
-        CompressedVintageNode a = new CompressedVintageNode(1,s);
-        CompressedVintageNode b = new CompressedVintageNode(2,t,a);
+        //---- END OVERRIDES ------------
 
-        System.out.println(Arrays.toString(b.decodeDelta()));
 
     }
+
 }
