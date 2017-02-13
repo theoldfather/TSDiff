@@ -1,13 +1,9 @@
 package com.oldfather;
 
-import java.util.Arrays;
-import java.util.Date;
-
 /**
  * Created by theoldfather on 1/7/17.
  */
 public class TSDiff {
-
 
     public static class VintageNode extends Object{
 
@@ -166,7 +162,6 @@ public class TSDiff {
         }
 
     }
-
 
     public static class CompressedVintageNode extends VintageNode{
 
