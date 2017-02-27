@@ -9,7 +9,7 @@
     <packaging>jar</packaging>
 
     <name>TSDiff</name>
-    <version>1.0</version>
+    <version>1.0-SNAPSHOT</version>
 
     <dependencies>
         <dependency>
@@ -52,5 +52,13 @@
             </plugin>
         </plugins>
     </build>
+
+    <distributionManagement>
+        <snapshotRepository>
+            <id>snapshots</id>
+            <name>jeremyoldfather-snapshots</name>
+            <url>http://jeremyoldfather.com:8081/artifactory/libs-snapshot-local</url>
+        </snapshotRepository>
+    </distributionManagement>
 
 </project>
