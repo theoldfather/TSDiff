@@ -1,30 +1,40 @@
 package com.oldfather;
 
-import org.junit.Test;
-
-import static org.junit.Assert.*;
-import static org.hamcrest.CoreMatchers.*;
-import org.junit.*;
-
 import com.oldfather.TSDiff.*;
+import org.junit.Test;
 
 import java.util.Arrays;
 import java.util.Random;
 
+import static org.hamcrest.CoreMatchers.equalTo;
+import static org.junit.Assert.assertThat;
+
 /**
  * Created by theoldfather on 2/7/17.
  */
-public class VintageNodeTest {
+public class AlignedVintageNodeTest {
 
     public double[] t0 = {};
     public double[] t1 = range(1);
     public double[] t2 = range(2);
     public double[] t3 = range(3);
 
-    public VintageNode a = new VintageNode(t0.hashCode(),t0);
-    public VintageNode b = new VintageNode(t1.hashCode(),t1,a);
-    public VintageNode c = new VintageNode(t2.hashCode(),t2,b);
-    public VintageNode d = new VintageNode(t3.hashCode(),t3,c);
+    public AlignedVintageNode a = new AlignedVintageNode(t0.hashCode(),t0);
+    public AlignedVintageNode b = new AlignedVintageNode(t1.hashCode(),0,t1,a);
+    public AlignedVintageNode c = new AlignedVintageNode(t2.hashCode(),0,t2,b);
+    public AlignedVintageNode d = new AlignedVintageNode(t3.hashCode(),0,t3,c);
+
+    public double[] t0_1 = {};
+    public double[] t1_1 = {0,1};
+    public double[] t2_1 = {-1,0,1};
+    public double[] t3_1 = {1,2,3};
+    public double[] t4_1 = {4,5,6};
+
+    public AlignedVintageNode a_1 = new AlignedVintageNode(t0_1.hashCode(),t0_1);
+    public AlignedVintageNode b_1 = new AlignedVintageNode(t1_1.hashCode(),0,t1_1,a_1);
+    public AlignedVintageNode c_1 = new AlignedVintageNode(t2_1.hashCode(),-1,t2_1,b_1);
+    public AlignedVintageNode d_1 = new AlignedVintageNode(t3_1.hashCode(),1,t3_1,c_1);
+    public AlignedVintageNode e_1 = new AlignedVintageNode(t4_1.hashCode(),4,t4_1,d_1);
 
     public double[] randSeries(int n){
         double[] s = new double[n];
@@ -51,7 +61,7 @@ public class VintageNodeTest {
     public void checkClass() throws Exception {
         DebugTools.printActiveClassMethodName();
 
-        assertThat("class of node should be VintageNode",c.getClass().getName(),equalTo("com.oldfather.TSDiff$VintageNode"));
+        assertThat("class of node should be AlignedVintageNode",c.getClass().getName(),equalTo("com.oldfather.TSDiff$AlignedVintageNode"));
     }
 
     @Test
@@ -60,7 +70,7 @@ public class VintageNodeTest {
 
         assertThat("an empty delta has no changes",a.hasChanges(),equalTo(false));
 
-        assertThat("an non-empty delta has no changes",b.hasChanges(),equalTo(true));
+        assertThat("an non-empty delta has changes",b.hasChanges(),equalTo(true));
     }
 
     @Test
@@ -105,6 +115,22 @@ public class VintageNodeTest {
 
         System.out.println(Arrays.toString(c.decodeDelta()));
         assertThat(c.decodeDelta(),equalTo(t2));
+
+
+        System.out.println(Arrays.toString(a_1.decodeDelta()));
+        assertThat(a_1.decodeDelta(),equalTo(null));
+
+        System.out.println(Arrays.toString(b_1.decodeDelta()));
+        assertThat(b_1.decodeDelta(),equalTo(t1_1));
+
+        System.out.println(Arrays.toString(c_1.decodeDelta()));
+        assertThat(c_1.decodeDelta(),equalTo(t2_1));
+
+        System.out.println(Arrays.toString(d_1.decodeDelta()));
+        assertThat(d_1.decodeDelta(),equalTo(t3_1));
+
+        System.out.println(Arrays.toString(e_1.decodeDelta()));
+        assertThat(e_1.decodeDelta(),equalTo(t4_1));
 
     }
 
