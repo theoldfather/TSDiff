@@ -8,7 +8,7 @@ import java.util.Arrays;
 public class TSDiff {
 
 
-    public static class VintageNode extends Object {
+    public static class VintageNode  {
 
         public final static double TOL = 1e-12;
 
@@ -296,9 +296,7 @@ public class TSDiff {
             return (CompressedVintageNode) this.parent;
         }
 
-        @Override
-        public void encodeDelta(double[] s) {
-            super.encodeDelta(s);
+        public void applyCompression(){
             if (this.hasChanges()) {
                 int r = countRepeated(this.delta);
                 if (shouldCompress(this.delta.length, r)) {
@@ -309,15 +307,16 @@ public class TSDiff {
         }
 
         @Override
+        public void encodeDelta(double[] s) {
+            super.encodeDelta(s);
+            this.applyCompression();
+        }
+
+
+        @Override
         public void encodeDelta(double[] s2, double[] s1) {
             super.encodeDelta(s2, s1);
-            if (this.hasChanges()) {
-                int r = countRepeated(this.delta);
-                if (shouldCompress(this.delta.length, r)) {
-                    this.delta = compress(this.delta, r);
-                    this.isCompressed = true;
-                }
-            }
+            this.applyCompression();
         }
 
         @Override
@@ -351,7 +350,7 @@ public class TSDiff {
 
     }
 
-    public static class AlignedVintageNode extends Object {
+    public static class AlignedVintageNode  {
 
         public final static double TOL = 1e-12;
 
@@ -378,7 +377,10 @@ public class TSDiff {
             if (parent.hasChanges()) {
                 this.parent = parent;
                 this.encodeDelta(align, s, parent.align, parent.decodeDelta());
-            } else {
+            }else if(!parent.hasChanges() & !parent.isRootNode()) {
+                this.parent = parent.parent;
+                this.encodeDelta(align, s, parent.parent.align, parent.parent.decodeDelta());
+            }else{
                 this.encodeDelta(s);
             }
             this.s_hash = s_hash;
@@ -396,7 +398,7 @@ public class TSDiff {
 
         public AlignedVintageNode(long s_hash, int align, int offset, double[] delta, AlignedVintageNode parent) {
             this(s_hash, align, offset, delta);
-            if (parent.hasChanges()) this.parent = parent;
+            this.parent = parent;
             this.collapseParent();
         }
 
@@ -499,14 +501,12 @@ public class TSDiff {
             // iterate length of longest possible delta
             for (int i = 0; i < n2; i++) {
                 j = mapAtoB(i,a2,a1);
-                d = s2[i];
-                d -= (0 <= j & j < n1 ) ? s1[j] : 0;
-
+                d = s2[i] - ((0 <= j & j < n1 ) ? s1[j] : 0);
                 if (d!=0) {
                     if (!found_offset) {
                         found_offset = true;
                         offset = i;
-                        delta = new double[n2-i];
+                        delta = new double[n2-offset];
                     }
                     delta[i - offset] = d;
                 }
@@ -589,7 +589,10 @@ public class TSDiff {
             if (parent.hasChanges()) {
                 this.parent = parent;
                 this.encodeDelta(align,s,parent.align,parent.decodeDelta());
-            } else {
+            }else if(!parent.hasChanges() & !parent.isRootNode()) {
+                this.parent = parent.parent;
+                this.encodeDelta(align,s,parent.parent.align,parent.parent.decodeDelta());
+            }else{
                 this.encodeDelta(s);
             }
             this.s_hash = s_hash;
@@ -607,7 +610,7 @@ public class TSDiff {
         public CompressedAlignedVintageNode(long s_hash, int align, int offset, double[] delta, boolean isCompressed, CompressedAlignedVintageNode parent) {
             this(s_hash,align,offset,delta);
             this.isCompressed = isCompressed;
-            if (parent.hasChanges()) this.parent = parent;
+            this.parent = parent;
             this.collapseParent();
         }
 
@@ -625,7 +628,6 @@ public class TSDiff {
         public boolean equalTo(CompressedAlignedVintageNode node){
             return super.equalTo(node) & this.isCompressed==node.isCompressed;
         }
-
 
         //---- START NEW ------------
         // O(n)
@@ -702,9 +704,7 @@ public class TSDiff {
             return (CompressedAlignedVintageNode) this.parent;
         }
 
-        @Override
-        public void encodeDelta(double[] s) {
-            super.encodeDelta(s);
+        public void applyCompression(){
             if (this.hasChanges()) {
                 int r = countRepeated(this.delta);
                 if (shouldCompress(this.delta.length, r)) {
@@ -715,15 +715,15 @@ public class TSDiff {
         }
 
         @Override
+        public void encodeDelta(double[] s) {
+            super.encodeDelta(s);
+            this.applyCompression();
+        }
+
+        @Override
         public void encodeDelta(int a2, double[] s2, int a1, double[] s1) {
             super.encodeDelta(a2,s2,a1,s1);
-            if (this.hasChanges()) {
-                int r = countRepeated(this.delta);
-                if (shouldCompress(this.delta.length, r)) {
-                    this.delta = compress(this.delta, r);
-                    this.isCompressed = true;
-                }
-            }
+            this.applyCompression();
         }
 
         @Override

@@ -41,6 +41,7 @@ public class CompressedAlignedVintageNodeTest extends AlignedVintageNodeTest{
     public double[] t3_1 = {1,2,3,3,3};
     public double[] t4_1 = {4,5,6,6,6,6,6,6,6};
     public double[] t5_1 = {4,5,6,6,6,6,6,6,6};
+    public double[] t6_1 = {0,1,2,3};
 
     public CompressedAlignedVintageNode a_1 = new CompressedAlignedVintageNode(t0_1.hashCode(),t0_1);
     public CompressedAlignedVintageNode b_1 = new CompressedAlignedVintageNode(t1_1.hashCode(),0,t1_1,a_1);
@@ -48,6 +49,7 @@ public class CompressedAlignedVintageNodeTest extends AlignedVintageNodeTest{
     public CompressedAlignedVintageNode d_1 = new CompressedAlignedVintageNode(t3_1.hashCode(),1,t3_1,c_1);
     public CompressedAlignedVintageNode e_1 = new CompressedAlignedVintageNode(t4_1.hashCode(),4,t4_1,d_1);
     public CompressedAlignedVintageNode f_1 = new CompressedAlignedVintageNode(t5_1.hashCode(),4,t5_1,e_1);
+    public CompressedAlignedVintageNode g_1 = new CompressedAlignedVintageNode(t6_1.hashCode(),0,t6_1,f_1);
 
 
     @Test
@@ -191,6 +193,11 @@ public class CompressedAlignedVintageNodeTest extends AlignedVintageNodeTest{
         System.out.println(Arrays.toString(f_1.decodeDelta()));
         assertThat(f_1.decodeDelta(),equalTo(t5_1));
         assertThat(f_1.hasChanges(),equalTo(false));
+
+        System.out.println(Arrays.toString(g_1.decodeDelta()));
+        assertThat(g_1.hasChanges(),equalTo(true));
+        assertThat(g_1.decodeDelta(),equalTo(t6_1));
+
 
     }
 
