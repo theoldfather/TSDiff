@@ -123,11 +123,14 @@ public class AlignedVintageNodeTest {
         System.out.println(Arrays.toString(b_1.decodeDelta()));
         assertThat(b_1.decodeDelta(),equalTo(t1_1));
 
-        System.out.println(Arrays.toString(c_1.decodeDelta()));
-        assertThat(c_1.decodeDelta(),equalTo(t2_1));
 
+        System.out.println(Arrays.toString(c_1.decodeDelta()));
+        assertThat("c_1",c_1.decodeDelta(),equalTo(t2_1));
+
+        System.out.println("arr: "+Arrays.toString(t3_1));
+        System.out.println("delta: "+Arrays.toString(d_1.delta));
         System.out.println(Arrays.toString(d_1.decodeDelta()));
-        assertThat(d_1.decodeDelta(),equalTo(t3_1));
+        assertThat("d_1",d_1.decodeDelta(),equalTo(t3_1));
 
         System.out.println(Arrays.toString(e_1.decodeDelta()));
         assertThat(e_1.decodeDelta(),equalTo(t4_1));

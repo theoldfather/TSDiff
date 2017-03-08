@@ -2,54 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="58ab17ae-ecbc-4e8c-a232-8fd0dceb7e4f" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/test/com/oldfather/AlignedVintageNodeTest.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/test/com/oldfather/CompressedAlignedVintageNodeTest.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/artifacts/TSDiff_jar/TSDiff.jar" afterPath="$PROJECT_DIR$/out/artifacts/TSDiff_jar/TSDiff.jar" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/oldfather/TSDiff$CompressedVintageNode.class" afterPath="$PROJECT_DIR$/target/classes/com/oldfather/TSDiff$CompressedVintageNode.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/oldfather/TSDiff$VintageNode.class" afterPath="$PROJECT_DIR$/target/classes/com/oldfather/TSDiff$VintageNode.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/oldfather/TSDiff.class" afterPath="$PROJECT_DIR$/target/classes/com/oldfather/TSDiff.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/original-tsdiff-1.0-SNAPSHOT.jar" afterPath="$PROJECT_DIR$/target/original-tsdiff-1.0-SNAPSHOT.jar" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/test-classes/com/oldfather/VintageNodeTest.class" afterPath="$PROJECT_DIR$/target/test-classes/com/oldfather/VintageNodeTest.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/tsdiff-1.0-SNAPSHOT.jar" afterPath="$PROJECT_DIR$/target/tsdiff-1.0-SNAPSHOT.jar" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/oldfather/TSDiff$AlignedVintageNode.class" afterPath="$PROJECT_DIR$/target/classes/com/oldfather/TSDiff$AlignedVintageNode.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/oldfather/TSDiff$CompressedAlignedVintageNode.class" afterPath="$PROJECT_DIR$/target/classes/com/oldfather/TSDiff$CompressedAlignedVintageNode.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/javadocs/allclasses-frame.html" afterPath="$PROJECT_DIR$/javadocs/allclasses-frame.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/javadocs/allclasses-noframe.html" afterPath="$PROJECT_DIR$/javadocs/allclasses-noframe.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/javadocs/com/oldfather/CompressedVintageNodeTest.html" afterPath="$PROJECT_DIR$/javadocs/com/oldfather/CompressedVintageNodeTest.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/javadocs/com/oldfather/DebugTools.html" afterPath="$PROJECT_DIR$/javadocs/com/oldfather/DebugTools.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/javadocs/com/oldfather/TSDiff.CompressedVintageNode.html" afterPath="$PROJECT_DIR$/javadocs/com/oldfather/TSDiff.CompressedVintageNode.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/javadocs/com/oldfather/TSDiff.VintageNode.html" afterPath="$PROJECT_DIR$/javadocs/com/oldfather/TSDiff.VintageNode.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/javadocs/com/oldfather/TSDiff.html" afterPath="$PROJECT_DIR$/javadocs/com/oldfather/TSDiff.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/javadocs/com/oldfather/VintageNodeTest.html" afterPath="$PROJECT_DIR$/javadocs/com/oldfather/VintageNodeTest.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/javadocs/com/oldfather/package-frame.html" afterPath="$PROJECT_DIR$/javadocs/com/oldfather/package-frame.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/javadocs/com/oldfather/package-summary.html" afterPath="$PROJECT_DIR$/javadocs/com/oldfather/package-summary.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/javadocs/com/oldfather/package-tree.html" afterPath="$PROJECT_DIR$/javadocs/com/oldfather/package-tree.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/javadocs/constant-values.html" afterPath="$PROJECT_DIR$/javadocs/constant-values.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/javadocs/deprecated-list.html" afterPath="$PROJECT_DIR$/javadocs/deprecated-list.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/javadocs/help-doc.html" afterPath="$PROJECT_DIR$/javadocs/help-doc.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/javadocs/index-files/index-1.html" afterPath="$PROJECT_DIR$/javadocs/index-files/index-1.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/javadocs/index-files/index-10.html" afterPath="$PROJECT_DIR$/javadocs/index-files/index-10.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/javadocs/index-files/index-11.html" afterPath="$PROJECT_DIR$/javadocs/index-files/index-11.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/javadocs/index-files/index-12.html" afterPath="$PROJECT_DIR$/javadocs/index-files/index-12.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/javadocs/index-files/index-13.html" afterPath="$PROJECT_DIR$/javadocs/index-files/index-13.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/javadocs/index-files/index-14.html" afterPath="$PROJECT_DIR$/javadocs/index-files/index-14.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/javadocs/index-files/index-15.html" afterPath="$PROJECT_DIR$/javadocs/index-files/index-15.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/javadocs/index-files/index-2.html" afterPath="$PROJECT_DIR$/javadocs/index-files/index-2.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/javadocs/index-files/index-3.html" afterPath="$PROJECT_DIR$/javadocs/index-files/index-3.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/javadocs/index-files/index-4.html" afterPath="$PROJECT_DIR$/javadocs/index-files/index-4.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/javadocs/index-files/index-5.html" afterPath="$PROJECT_DIR$/javadocs/index-files/index-5.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/javadocs/index-files/index-6.html" afterPath="$PROJECT_DIR$/javadocs/index-files/index-6.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/javadocs/index-files/index-7.html" afterPath="$PROJECT_DIR$/javadocs/index-files/index-7.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/javadocs/index-files/index-8.html" afterPath="$PROJECT_DIR$/javadocs/index-files/index-8.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/javadocs/index-files/index-9.html" afterPath="$PROJECT_DIR$/javadocs/index-files/index-9.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/javadocs/index.html" afterPath="$PROJECT_DIR$/javadocs/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/javadocs/overview-tree.html" afterPath="$PROJECT_DIR$/javadocs/overview-tree.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/oldfather/TSDiff.java" afterPath="$PROJECT_DIR$/src/com/oldfather/TSDiff.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/surefire-reports/TEST-com.oldfather.CompressedVintageNodeTest.xml" afterPath="$PROJECT_DIR$/target/surefire-reports/TEST-com.oldfather.CompressedVintageNodeTest.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/surefire-reports/TEST-com.oldfather.VintageNodeTest.xml" afterPath="$PROJECT_DIR$/target/surefire-reports/TEST-com.oldfather.VintageNodeTest.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/surefire-reports/com.oldfather.CompressedVintageNodeTest.txt" afterPath="$PROJECT_DIR$/target/surefire-reports/com.oldfather.CompressedVintageNodeTest.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/surefire-reports/com.oldfather.VintageNodeTest.txt" afterPath="$PROJECT_DIR$/target/surefire-reports/com.oldfather.VintageNodeTest.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/com/oldfather/VintageNodeTest.java" afterPath="$PROJECT_DIR$/test/com/oldfather/VintageNodeTest.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test/com/oldfather/AlignedVintageNodeTest.java" afterPath="$PROJECT_DIR$/test/com/oldfather/AlignedVintageNodeTest.java" />
     </list>
     <ignored path="TSDiff.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -84,8 +42,8 @@
       <file leaf-file-name="TSDiff.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/oldfather/TSDiff.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="15">
-              <caret line="385" column="12" lean-forward="false" selection-start-line="385" selection-start-column="12" selection-end-line="385" selection-end-column="34" />
+            <state relative-caret-position="324">
+              <caret line="537" column="33" lean-forward="false" selection-start-line="537" selection-start-column="33" selection-end-line="537" selection-end-column="33" />
               <folding>
                 <element signature="class#VintageNode#0;class#TSDiff#0" expanded="false" />
                 <element signature="method#VintageNode#4;class#VintageNode#0;class#TSDiff#0" expanded="false" />
@@ -93,6 +51,8 @@
                 <element signature="method#deltaToDoubleArray#0;class#VintageNode#0;class#TSDiff#0" expanded="false" />
                 <element signature="class#CompressedVintageNode#0;class#TSDiff#0" expanded="false" />
                 <element signature="method#AlignedVintageNode#0;class#AlignedVintageNode#0;class#TSDiff#0" expanded="false" />
+                <element signature="e#12013#12014#0" expanded="true" />
+                <element signature="e#12056#12057#0" expanded="true" />
                 <element signature="method#deltaToDoubleArray#0;class#AlignedVintageNode#0;class#TSDiff#0" expanded="false" />
                 <element signature="method#CompressedAlignedVintageNode#0;class#CompressedAlignedVintageNode#0;class#TSDiff#0" expanded="false" />
                 <element signature="method#countRepeated#0;class#CompressedAlignedVintageNode#0;class#TSDiff#0" expanded="false" />
@@ -104,7 +64,7 @@
       <file leaf-file-name="CompressedAlignedVintageNodeTest.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/test/com/oldfather/CompressedAlignedVintageNodeTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="555">
+            <state relative-caret-position="426">
               <caret line="43" column="0" lean-forward="false" selection-start-line="43" selection-start-column="0" selection-end-line="43" selection-end-column="0" />
               <folding>
                 <element signature="docComment;class#CompressedAlignedVintageNodeTest#0" expanded="false" />
@@ -116,12 +76,9 @@
       <file leaf-file-name="AlignedVintageNodeTest.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/test/com/oldfather/AlignedVintageNodeTest.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="960">
-              <caret line="73" column="5" lean-forward="false" selection-start-line="66" selection-start-column="4" selection-end-line="73" selection-end-column="5" />
-              <folding>
-                <element signature="e#1809#1810#0" expanded="false" />
-                <element signature="e#1844#1845#0" expanded="false" />
-              </folding>
+            <state relative-caret-position="165">
+              <caret line="18" column="27" lean-forward="false" selection-start-line="18" selection-start-column="27" selection-end-line="18" selection-end-column="27" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -161,11 +118,17 @@
         <option value="$PROJECT_DIR$/test/com/oldfather/CompressedVintageNodeTest.java" />
         <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/test/com/oldfather/VintageNodeTest.java" />
-        <option value="$PROJECT_DIR$/test/com/oldfather/AlignedVintageNodeTest.java" />
         <option value="$PROJECT_DIR$/test/com/oldfather/CompressedAlignedVintageNodeTest.java" />
+        <option value="$PROJECT_DIR$/test/com/oldfather/AlignedVintageNodeTest.java" />
         <option value="$PROJECT_DIR$/src/com/oldfather/TSDiff.java" />
       </list>
     </option>
+  </component>
+  <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsGulpfileManager">
+    <detection-done>true</detection-done>
+    <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="MavenImportPreferences">
     <option name="importingSettings">
@@ -175,10 +138,10 @@
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="4" />
-    <option name="y" value="96" />
-    <option name="width" value="1436" />
-    <option name="height" value="737" />
+    <option name="x" value="72" />
+    <option name="y" value="61" />
+    <option name="width" value="1328" />
+    <option name="height" value="792" />
   </component>
   <component name="ProjectView">
     <navigator currentView="ProjectPane" proportions="" version="1">
@@ -197,7 +160,6 @@
     <panes>
       <pane id="Scope" />
       <pane id="Scratches" />
-      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -272,10 +234,11 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.last.edited" value="SDKs" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
@@ -285,6 +248,9 @@
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit4" />
     <property name="com.intellij.testIntegration.createTest.CreateTestDialog.includeInheritedMembers" value="true" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="js.eslint.eslintPackage" value="" />
   </component>
   <component name="RecentsManager">
     <key name="CreateTestDialog.RecentsKey">
@@ -297,7 +263,7 @@
       <recent name="" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.CompressedAlignedVintageNodeTest">
+  <component name="RunManager" selected="JUnit.AlignedVintageNodeTest">
     <configuration default="false" name="CompressedAlignedVintageNodeTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
         <pattern>
@@ -350,7 +316,7 @@
       <patterns />
       <method />
     </configuration>
-    <configuration default="false" name="CompressedAlignedVintageNodeTest.getRootNode" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration default="false" name="AlignedVintageNodeTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
         <pattern>
           <option name="PATTERN" value="com.oldfather.*" />
@@ -361,8 +327,34 @@
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
       <option name="ALTERNATIVE_JRE_PATH" />
       <option name="PACKAGE_NAME" value="com.oldfather" />
-      <option name="MAIN_CLASS_NAME" value="com.oldfather.CompressedAlignedVintageNodeTest" />
-      <option name="METHOD_NAME" value="getRootNode" />
+      <option name="MAIN_CLASS_NAME" value="com.oldfather.AlignedVintageNodeTest" />
+      <option name="METHOD_NAME" />
+      <option name="TEST_OBJECT" value="class" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <envs />
+      <patterns />
+      <method />
+    </configuration>
+    <configuration default="false" name="AlignedVintageNodeTest.encodeDelta" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="com.oldfather.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <module name="TSDiff" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" value="com.oldfather" />
+      <option name="MAIN_CLASS_NAME" value="com.oldfather.AlignedVintageNodeTest" />
+      <option name="METHOD_NAME" value="encodeDelta" />
       <option name="TEST_OBJECT" value="method" />
       <option name="VM_PARAMETERS" value="-ea" />
       <option name="PARAMETERS" />
@@ -376,7 +368,7 @@
       <patterns />
       <method />
     </configuration>
-    <configuration default="false" name="CompressedAlignedVintageNodeTest.hasChanges" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration default="false" name="AlignedVintageNodeTest.decodeDelta" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
         <pattern>
           <option name="PATTERN" value="com.oldfather.*" />
@@ -387,34 +379,8 @@
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
       <option name="ALTERNATIVE_JRE_PATH" />
       <option name="PACKAGE_NAME" value="com.oldfather" />
-      <option name="MAIN_CLASS_NAME" value="com.oldfather.CompressedAlignedVintageNodeTest" />
-      <option name="METHOD_NAME" value="hasChanges" />
-      <option name="TEST_OBJECT" value="method" />
-      <option name="VM_PARAMETERS" value="-ea" />
-      <option name="PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="singleModule" />
-      </option>
-      <envs />
-      <patterns />
-      <method />
-    </configuration>
-    <configuration default="false" name="CompressedAlignedVintageNodeTest.getParent" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
-        <pattern>
-          <option name="PATTERN" value="com.oldfather.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <module name="TSDiff" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" value="com.oldfather" />
-      <option name="MAIN_CLASS_NAME" value="com.oldfather.CompressedAlignedVintageNodeTest" />
-      <option name="METHOD_NAME" value="getParent" />
+      <option name="MAIN_CLASS_NAME" value="com.oldfather.AlignedVintageNodeTest" />
+      <option name="METHOD_NAME" value="decodeDelta" />
       <option name="TEST_OBJECT" value="method" />
       <option name="VM_PARAMETERS" value="-ea" />
       <option name="PARAMETERS" />
@@ -513,6 +479,136 @@
       <envs />
       <method />
     </configuration>
+    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <module name="" />
+      <option name="arquillianRunConfiguration">
+        <value>
+          <option name="containerStateName" value="" />
+        </value>
+      </option>
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="METHOD_NAME" />
+      <option name="TEST_OBJECT" value="class" />
+      <option name="VM_PARAMETERS" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <envs />
+      <patterns />
+      <method />
+    </configuration>
+    <configuration default="true" type="ArquillianTestNG" factoryName="">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <module name="" />
+      <option name="arquillianRunConfiguration">
+        <value>
+          <option name="containerStateName" value="" />
+        </value>
+      </option>
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="SUITE_NAME" />
+      <option name="PACKAGE_NAME" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="METHOD_NAME" />
+      <option name="GROUP_NAME" />
+      <option name="TEST_OBJECT" value="CLASS" />
+      <option name="VM_PARAMETERS" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" />
+      <option name="OUTPUT_DIRECTORY" />
+      <option name="ANNOTATION_TYPE" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <option name="USE_DEFAULT_REPORTERS" value="false" />
+      <option name="PROPERTIES_FILE" />
+      <envs />
+      <properties />
+      <listeners />
+      <method />
+    </configuration>
+    <configuration default="true" type="Cold Fusion runner description" factoryName="Cold Fusion" custom_browser="" web_path="">
+      <method />
+    </configuration>
+    <configuration default="true" type="CucumberJavaRunConfigurationType" factoryName="Cucumber java">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <option name="myFilePath" />
+      <option name="GLUE" />
+      <option name="myNameFilter" />
+      <option name="myGeneratedName" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="" />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="FlashRunConfigurationType" factoryName="Flash App">
+      <option name="BCName" value="" />
+      <option name="IOSSimulatorSdkPath" value="" />
+      <option name="adlOptions" value="" />
+      <option name="airProgramParameters" value="" />
+      <option name="appDescriptorForEmulator" value="Android" />
+      <option name="debugTransport" value="USB" />
+      <option name="debuggerSdkRaw" value="BC SDK" />
+      <option name="emulator" value="NexusOne" />
+      <option name="emulatorAdlOptions" value="" />
+      <option name="fastPackaging" value="true" />
+      <option name="fullScreenHeight" value="0" />
+      <option name="fullScreenWidth" value="0" />
+      <option name="launchUrl" value="false" />
+      <option name="launcherParameters">
+        <LauncherParameters>
+          <option name="browser" value="a7bb68e0-33c0-4d6f-a81a-aac1fdb870c8" />
+          <option name="launcherType" value="OSDefault" />
+          <option name="newPlayerInstance" value="false" />
+          <option name="playerPath" value="/Applications/Flash Player Debugger.app" />
+        </LauncherParameters>
+      </option>
+      <option name="mobileRunTarget" value="Emulator" />
+      <option name="moduleName" value="" />
+      <option name="overriddenMainClass" value="" />
+      <option name="overriddenOutputFileName" value="" />
+      <option name="overrideMainClass" value="false" />
+      <option name="runTrusted" value="true" />
+      <option name="screenDpi" value="0" />
+      <option name="screenHeight" value="0" />
+      <option name="screenWidth" value="0" />
+      <option name="url" value="http://" />
+      <option name="usbDebugPort" value="7936" />
+      <method />
+    </configuration>
+    <configuration default="true" type="FlexUnitRunConfigurationType" factoryName="FlexUnit" appDescriptorForEmulator="Android" class_name="" emulatorAdlOptions="" method_name="" package_name="" scope="Class">
+      <option name="BCName" value="" />
+      <option name="launcherParameters">
+        <LauncherParameters>
+          <option name="browser" value="a7bb68e0-33c0-4d6f-a81a-aac1fdb870c8" />
+          <option name="launcherType" value="OSDefault" />
+          <option name="newPlayerInstance" value="false" />
+          <option name="playerPath" value="/Applications/Flash Player Debugger.app" />
+        </LauncherParameters>
+      </option>
+      <option name="moduleName" value="" />
+      <option name="trusted" value="true" />
+      <method />
+    </configuration>
     <configuration default="true" type="GradleRunConfiguration" factoryName="Gradle">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -527,6 +623,14 @@
         </option>
         <option name="vmOptions" />
       </ExternalSystemSettings>
+      <method />
+    </configuration>
+    <configuration default="true" type="GrailsRunConfigurationType" factoryName="Grails">
+      <setting name="vmparams" value="" />
+      <setting name="cmdLine" value="run-app" />
+      <setting name="passParentEnv" value="true" />
+      <setting name="launchBrowser" value="true" />
+      <setting name="launchBrowserUrl" value="" />
       <method />
     </configuration>
     <configuration default="true" type="JUnit" factoryName="JUnit">
@@ -571,6 +675,15 @@
       <envs />
       <method />
     </configuration>
+    <configuration default="true" type="JavaScriptTestRunnerProtractor" factoryName="Protractor">
+      <config-file value="" />
+      <node-interpreter value="project" />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="JavascriptDebugType" factoryName="JavaScript Debug">
+      <method />
+    </configuration>
     <configuration default="true" type="JetRunConfigurationType" factoryName="Kotlin">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
       <option name="MAIN_CLASS_NAME" />
@@ -604,6 +717,46 @@
       <option name="PORT" value="5005" />
       <method />
     </configuration>
+    <configuration default="true" type="ScalaTestRunConfiguration" factoryName="ScalaTest">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <module name="" />
+      <setting name="path" value="" />
+      <setting name="package" value="" />
+      <setting name="vmparams" value="" />
+      <setting name="params" value="" />
+      <setting name="workingDirectory" value="" />
+      <setting name="searchForTest" value="Across module dependencies" />
+      <setting name="testName" value="" />
+      <setting name="testKind" value="Class" />
+      <setting name="showProgressMessages" value="true" />
+      <classRegexps />
+      <testRegexps />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="Specs2RunConfiguration" factoryName="Specs2">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <module name="" />
+      <setting name="path" value="" />
+      <setting name="package" value="" />
+      <setting name="vmparams" value="" />
+      <setting name="params" value="" />
+      <setting name="workingDirectory" value="" />
+      <setting name="searchForTest" value="Across module dependencies" />
+      <setting name="testName" value="" />
+      <setting name="testKind" value="Class" />
+      <setting name="showProgressMessages" value="true" />
+      <classRegexps />
+      <testRegexps />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <module name="" />
+      <envs />
+      <method />
+    </configuration>
     <configuration default="true" type="TestNG" factoryName="TestNG">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
       <module name="" />
@@ -632,6 +785,39 @@
       <listeners />
       <method />
     </configuration>
+    <configuration default="true" type="js.build_tools.gulp" factoryName="Gulp.js">
+      <method />
+    </configuration>
+    <configuration default="true" type="js.build_tools.npm" factoryName="npm">
+      <command value="run" />
+      <scripts />
+      <node-interpreter value="project" />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="osgi.bnd.run" factoryName="Run Launcher">
+      <method />
+    </configuration>
+    <configuration default="true" type="osgi.bnd.run" factoryName="Test Launcher (JUnit)">
+      <method />
+    </configuration>
+    <configuration default="true" type="uTestRunConfiguration" factoryName="utest">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <module name="" />
+      <setting name="path" value="" />
+      <setting name="package" value="" />
+      <setting name="vmparams" value="" />
+      <setting name="params" value="" />
+      <setting name="workingDirectory" value="" />
+      <setting name="searchForTest" value="Across module dependencies" />
+      <setting name="testName" value="" />
+      <setting name="testKind" value="Class" />
+      <setting name="showProgressMessages" value="true" />
+      <classRegexps />
+      <testRegexps />
+      <envs />
+      <method />
+    </configuration>
     <configuration default="false" name="Test TSDiff" type="Application" factoryName="Application">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
       <option name="MAIN_CLASS_NAME" value="com.oldfather.TSDiff" />
@@ -651,16 +837,16 @@
       <item index="0" class="java.lang.String" itemvalue="Application.Test TSDiff" />
       <item index="1" class="java.lang.String" itemvalue="JUnit.CompressedAlignedVintageNodeTest" />
       <item index="2" class="java.lang.String" itemvalue="JUnit.AlignedVintageNodeTest.hasChanges" />
-      <item index="3" class="java.lang.String" itemvalue="JUnit.CompressedAlignedVintageNodeTest.getRootNode" />
-      <item index="4" class="java.lang.String" itemvalue="JUnit.CompressedAlignedVintageNodeTest.hasChanges" />
-      <item index="5" class="java.lang.String" itemvalue="JUnit.CompressedAlignedVintageNodeTest.getParent" />
+      <item index="3" class="java.lang.String" itemvalue="JUnit.AlignedVintageNodeTest" />
+      <item index="4" class="java.lang.String" itemvalue="JUnit.AlignedVintageNodeTest.encodeDelta" />
+      <item index="5" class="java.lang.String" itemvalue="JUnit.AlignedVintageNodeTest.decodeDelta" />
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="JUnit.CompressedAlignedVintageNodeTest" />
-        <item index="1" class="java.lang.String" itemvalue="JUnit.CompressedAlignedVintageNodeTest.getParent" />
-        <item index="2" class="java.lang.String" itemvalue="JUnit.CompressedAlignedVintageNodeTest.getRootNode" />
-        <item index="3" class="java.lang.String" itemvalue="JUnit.CompressedAlignedVintageNodeTest.hasChanges" />
+        <item index="0" class="java.lang.String" itemvalue="JUnit.AlignedVintageNodeTest" />
+        <item index="1" class="java.lang.String" itemvalue="JUnit.CompressedAlignedVintageNodeTest" />
+        <item index="2" class="java.lang.String" itemvalue="JUnit.AlignedVintageNodeTest.decodeDelta" />
+        <item index="3" class="java.lang.String" itemvalue="JUnit.AlignedVintageNodeTest.encodeDelta" />
         <item index="4" class="java.lang.String" itemvalue="JUnit.AlignedVintageNodeTest.hasChanges" />
       </list>
     </recent_temporary>
@@ -683,40 +869,47 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1483830265447</updated>
+      <workItem from="1488644341962" duration="1595000" />
+      <workItem from="1488857895411" duration="353000" />
+      <workItem from="1488859136810" duration="42000" />
+      <workItem from="1488859767105" duration="4902000" />
     </task>
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="CompressedAlignedVintageNodeTest - 2017.03.01 at 21h 18m 06s.xml">
+    <history-entry file="AlignedVintageNodeTest - 2017.03.07 at 21h 16m 05s.xml">
+      <configuration name="AlignedVintageNodeTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="AlignedVintageNodeTest - 2017.03.07 at 21h 17m 41s.xml">
+      <configuration name="AlignedVintageNodeTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="AlignedVintageNodeTest - 2017.03.07 at 21h 18m 34s.xml">
+      <configuration name="AlignedVintageNodeTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="AlignedVintageNodeTest - 2017.03.07 at 21h 21m 25s.xml">
+      <configuration name="AlignedVintageNodeTest" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="AlignedVintageNodeTest_decodeDelta - 2017.03.07 at 21h 10m 46s.xml">
+      <configuration name="AlignedVintageNodeTest.decodeDelta" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="AlignedVintageNodeTest_decodeDelta - 2017.03.07 at 21h 11m 20s.xml">
+      <configuration name="AlignedVintageNodeTest.decodeDelta" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="AlignedVintageNodeTest_decodeDelta - 2017.03.07 at 21h 13m 32s.xml">
+      <configuration name="AlignedVintageNodeTest.decodeDelta" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="AlignedVintageNodeTest_decodeDelta - 2017.03.07 at 21h 15m 32s.xml">
+      <configuration name="AlignedVintageNodeTest.decodeDelta" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="CompressedAlignedVintageNodeTest - 2017.03.07 at 21h 20m 41s.xml">
       <configuration name="CompressedAlignedVintageNodeTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="CompressedAlignedVintageNodeTest - 2017.03.01 at 21h 20m 48s.xml">
+    <history-entry file="CompressedAlignedVintageNodeTest - 2017.03.07 at 21h 21m 10s.xml">
       <configuration name="CompressedAlignedVintageNodeTest" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="CompressedAlignedVintageNodeTest_getParent - 2017.03.01 at 19h 39m 05s.xml">
-      <configuration name="CompressedAlignedVintageNodeTest.getParent" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="CompressedAlignedVintageNodeTest_getParent - 2017.03.01 at 19h 39m 47s.xml">
-      <configuration name="CompressedAlignedVintageNodeTest.getParent" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="CompressedAlignedVintageNodeTest_getParent - 2017.03.01 at 19h 50m 12s.xml">
-      <configuration name="CompressedAlignedVintageNodeTest.getParent" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="CompressedAlignedVintageNodeTest_getParent - 2017.03.01 at 20h 43m 52s.xml">
-      <configuration name="CompressedAlignedVintageNodeTest.getParent" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="CompressedAlignedVintageNodeTest_getParent - 2017.03.01 at 20h 44m 32s.xml">
-      <configuration name="CompressedAlignedVintageNodeTest.getParent" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="CompressedAlignedVintageNodeTest_getParent - 2017.03.01 at 20h 45m 53s.xml">
-      <configuration name="CompressedAlignedVintageNodeTest.getParent" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="CompressedAlignedVintageNodeTest_getParent - 2017.03.01 at 20h 58m 40s.xml">
-      <configuration name="CompressedAlignedVintageNodeTest.getParent" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="CompressedAlignedVintageNodeTest_getParent - 2017.03.01 at 21h 17m 55s.xml">
-      <configuration name="CompressedAlignedVintageNodeTest.getParent" configurationId="JUnit" />
-    </history-entry>
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="6892000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -728,30 +921,32 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="4" y="96" width="1436" height="737" extended-state="1" />
-    <editor active="false" />
+    <frame x="72" y="61" width="1328" height="792" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32913843" sideWeight="0.4971223" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Nl-Palette" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32266667" sideWeight="0.5504518" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.4651163" sideWeight="0.4139168" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.4813278" sideWeight="0.42093372" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4651163" sideWeight="0.58608323" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32913843" sideWeight="0.4971223" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.4813278" sideWeight="0.5790663" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32913843" sideWeight="0.4971223" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18292683" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1995482" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -760,13 +955,15 @@
       <window_info id="MaxCompute Job Explorer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="MaxCompute Project Explorer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="DB Browser" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.31464967" sideWeight="0.48852223" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="MaxCompute Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Running Info" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Running Result" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
     </layout>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="processedProjectFiles" value="true" />
   </component>
   <component name="Vcs.Log.UiProperties">
     <option name="RECENTLY_FILTERED_USER_GROUPS">
@@ -788,6 +985,136 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/src/com/oldfather/TSDiff.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="7515">
+          <caret line="501" column="27" lean-forward="true" selection-start-line="501" selection-start-column="27" selection-end-line="501" selection-end-column="27" />
+          <folding>
+            <element signature="class#VintageNode#0;class#TSDiff#0" expanded="false" />
+            <element signature="method#VintageNode#4;class#VintageNode#0;class#TSDiff#0" expanded="false" />
+            <element signature="method#cleanup#0;class#VintageNode#0;class#TSDiff#0" expanded="false" />
+            <element signature="method#deltaToDoubleArray#0;class#VintageNode#0;class#TSDiff#0" expanded="false" />
+            <element signature="class#CompressedVintageNode#0;class#TSDiff#0" expanded="false" />
+            <element signature="method#AlignedVintageNode#0;class#AlignedVintageNode#0;class#TSDiff#0" expanded="false" />
+            <element signature="e#12013#12014#0" expanded="true" />
+            <element signature="e#12056#12057#0" expanded="true" />
+            <element signature="method#deltaToDoubleArray#0;class#AlignedVintageNode#0;class#TSDiff#0" expanded="false" />
+            <element signature="method#CompressedAlignedVintageNode#0;class#CompressedAlignedVintageNode#0;class#TSDiff#0" expanded="false" />
+            <element signature="method#countRepeated#0;class#CompressedAlignedVintageNode#0;class#TSDiff#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/com/oldfather/CompressedAlignedVintageNodeTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="525">
+          <caret line="43" column="0" lean-forward="false" selection-start-line="43" selection-start-column="0" selection-end-line="43" selection-end-column="0" />
+          <folding>
+            <element signature="docComment;class#CompressedAlignedVintageNodeTest#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/com/oldfather/AlignedVintageNodeTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="960">
+          <caret line="73" column="5" lean-forward="false" selection-start-line="66" selection-start-column="4" selection-end-line="73" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="9" column="0" lean-forward="false" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/oldfather/TSDiff.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="class#VintageNode#0;class#TSDiff#0" expanded="false" />
+            <element signature="method#VintageNode#4;class#VintageNode#0;class#TSDiff#0" expanded="false" />
+            <element signature="method#cleanup#0;class#VintageNode#0;class#TSDiff#0" expanded="false" />
+            <element signature="method#deltaToDoubleArray#0;class#VintageNode#0;class#TSDiff#0" expanded="false" />
+            <element signature="class#CompressedVintageNode#0;class#TSDiff#0" expanded="false" />
+            <element signature="method#AlignedVintageNode#0;class#AlignedVintageNode#0;class#TSDiff#0" expanded="false" />
+            <element signature="e#12013#12014#0" expanded="true" />
+            <element signature="e#12056#12057#0" expanded="true" />
+            <element signature="method#deltaToDoubleArray#0;class#AlignedVintageNode#0;class#TSDiff#0" expanded="false" />
+            <element signature="method#CompressedAlignedVintageNode#0;class#CompressedAlignedVintageNode#0;class#TSDiff#0" expanded="false" />
+            <element signature="method#countRepeated#0;class#CompressedAlignedVintageNode#0;class#TSDiff#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/com/oldfather/CompressedAlignedVintageNodeTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="525">
+          <caret line="43" column="0" lean-forward="false" selection-start-line="43" selection-start-column="0" selection-end-line="43" selection-end-column="0" />
+          <folding>
+            <element signature="docComment;class#CompressedAlignedVintageNodeTest#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/com/oldfather/AlignedVintageNodeTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="960">
+          <caret line="73" column="5" lean-forward="false" selection-start-line="66" selection-start-column="4" selection-end-line="73" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="9" column="0" lean-forward="false" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/oldfather/TSDiff.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="class#VintageNode#0;class#TSDiff#0" expanded="false" />
+            <element signature="method#VintageNode#4;class#VintageNode#0;class#TSDiff#0" expanded="false" />
+            <element signature="method#cleanup#0;class#VintageNode#0;class#TSDiff#0" expanded="false" />
+            <element signature="method#deltaToDoubleArray#0;class#VintageNode#0;class#TSDiff#0" expanded="false" />
+            <element signature="class#CompressedVintageNode#0;class#TSDiff#0" expanded="false" />
+            <element signature="method#AlignedVintageNode#0;class#AlignedVintageNode#0;class#TSDiff#0" expanded="false" />
+            <element signature="e#12013#12014#0" expanded="true" />
+            <element signature="e#12056#12057#0" expanded="true" />
+            <element signature="method#deltaToDoubleArray#0;class#AlignedVintageNode#0;class#TSDiff#0" expanded="false" />
+            <element signature="method#CompressedAlignedVintageNode#0;class#CompressedAlignedVintageNode#0;class#TSDiff#0" expanded="false" />
+            <element signature="method#countRepeated#0;class#CompressedAlignedVintageNode#0;class#TSDiff#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/com/oldfather/CompressedAlignedVintageNodeTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="525">
+          <caret line="43" column="0" lean-forward="false" selection-start-line="43" selection-start-column="0" selection-end-line="43" selection-end-column="0" />
+          <folding>
+            <element signature="docComment;class#CompressedAlignedVintageNodeTest#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test/com/oldfather/AlignedVintageNodeTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="960">
+          <caret line="73" column="5" lean-forward="false" selection-start-line="66" selection-start-column="4" selection-end-line="73" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -815,6 +1142,8 @@
             <element signature="method#deltaToDoubleArray#0;class#VintageNode#0;class#TSDiff#0" expanded="false" />
             <element signature="class#CompressedVintageNode#0;class#TSDiff#0" expanded="false" />
             <element signature="method#AlignedVintageNode#0;class#AlignedVintageNode#0;class#TSDiff#0" expanded="false" />
+            <element signature="e#12013#12014#0" expanded="true" />
+            <element signature="e#12056#12057#0" expanded="true" />
             <element signature="method#deltaToDoubleArray#0;class#AlignedVintageNode#0;class#TSDiff#0" expanded="false" />
             <element signature="method#CompressedAlignedVintageNode#0;class#CompressedAlignedVintageNode#0;class#TSDiff#0" expanded="false" />
             <element signature="method#countRepeated#0;class#CompressedAlignedVintageNode#0;class#TSDiff#0" expanded="false" />
@@ -866,6 +1195,8 @@
             <element signature="method#deltaToDoubleArray#0;class#VintageNode#0;class#TSDiff#0" expanded="false" />
             <element signature="class#CompressedVintageNode#0;class#TSDiff#0" expanded="false" />
             <element signature="method#AlignedVintageNode#0;class#AlignedVintageNode#0;class#TSDiff#0" expanded="false" />
+            <element signature="e#12013#12014#0" expanded="true" />
+            <element signature="e#12056#12057#0" expanded="true" />
             <element signature="method#deltaToDoubleArray#0;class#AlignedVintageNode#0;class#TSDiff#0" expanded="false" />
             <element signature="method#CompressedAlignedVintageNode#0;class#CompressedAlignedVintageNode#0;class#TSDiff#0" expanded="false" />
             <element signature="method#countRepeated#0;class#CompressedAlignedVintageNode#0;class#TSDiff#0" expanded="false" />
@@ -917,6 +1248,8 @@
             <element signature="method#deltaToDoubleArray#0;class#VintageNode#0;class#TSDiff#0" expanded="false" />
             <element signature="class#CompressedVintageNode#0;class#TSDiff#0" expanded="false" />
             <element signature="method#AlignedVintageNode#0;class#AlignedVintageNode#0;class#TSDiff#0" expanded="false" />
+            <element signature="e#12013#12014#0" expanded="true" />
+            <element signature="e#12056#12057#0" expanded="true" />
             <element signature="method#deltaToDoubleArray#0;class#AlignedVintageNode#0;class#TSDiff#0" expanded="false" />
             <element signature="method#CompressedAlignedVintageNode#0;class#CompressedAlignedVintageNode#0;class#TSDiff#0" expanded="false" />
             <element signature="method#countRepeated#0;class#CompressedAlignedVintageNode#0;class#TSDiff#0" expanded="false" />
@@ -968,6 +1301,8 @@
             <element signature="method#deltaToDoubleArray#0;class#VintageNode#0;class#TSDiff#0" expanded="false" />
             <element signature="class#CompressedVintageNode#0;class#TSDiff#0" expanded="false" />
             <element signature="method#AlignedVintageNode#0;class#AlignedVintageNode#0;class#TSDiff#0" expanded="false" />
+            <element signature="e#12013#12014#0" expanded="true" />
+            <element signature="e#12056#12057#0" expanded="true" />
             <element signature="method#deltaToDoubleArray#0;class#AlignedVintageNode#0;class#TSDiff#0" expanded="false" />
             <element signature="method#CompressedAlignedVintageNode#0;class#CompressedAlignedVintageNode#0;class#TSDiff#0" expanded="false" />
             <element signature="method#countRepeated#0;class#CompressedAlignedVintageNode#0;class#TSDiff#0" expanded="false" />
@@ -1010,6 +1345,8 @@
             <element signature="method#deltaToDoubleArray#0;class#VintageNode#0;class#TSDiff#0" expanded="false" />
             <element signature="class#CompressedVintageNode#0;class#TSDiff#0" expanded="false" />
             <element signature="method#AlignedVintageNode#0;class#AlignedVintageNode#0;class#TSDiff#0" expanded="false" />
+            <element signature="e#12013#12014#0" expanded="true" />
+            <element signature="e#12056#12057#0" expanded="true" />
             <element signature="method#deltaToDoubleArray#0;class#AlignedVintageNode#0;class#TSDiff#0" expanded="false" />
             <element signature="method#CompressedAlignedVintageNode#0;class#CompressedAlignedVintageNode#0;class#TSDiff#0" expanded="false" />
             <element signature="method#countRepeated#0;class#CompressedAlignedVintageNode#0;class#TSDiff#0" expanded="false" />
@@ -1036,6 +1373,8 @@
             <element signature="method#deltaToDoubleArray#0;class#VintageNode#0;class#TSDiff#0" expanded="false" />
             <element signature="class#CompressedVintageNode#0;class#TSDiff#0" expanded="false" />
             <element signature="method#AlignedVintageNode#0;class#AlignedVintageNode#0;class#TSDiff#0" expanded="false" />
+            <element signature="e#12013#12014#0" expanded="true" />
+            <element signature="e#12056#12057#0" expanded="true" />
             <element signature="method#deltaToDoubleArray#0;class#AlignedVintageNode#0;class#TSDiff#0" expanded="false" />
             <element signature="method#CompressedAlignedVintageNode#0;class#CompressedAlignedVintageNode#0;class#TSDiff#0" expanded="false" />
             <element signature="method#countRepeated#0;class#CompressedAlignedVintageNode#0;class#TSDiff#0" expanded="false" />
@@ -1112,27 +1451,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/com/oldfather/TSDiff.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="385" column="12" lean-forward="false" selection-start-line="385" selection-start-column="12" selection-end-line="385" selection-end-column="34" />
-          <folding>
-            <element signature="class#VintageNode#0;class#TSDiff#0" expanded="false" />
-            <element signature="method#VintageNode#4;class#VintageNode#0;class#TSDiff#0" expanded="false" />
-            <element signature="method#cleanup#0;class#VintageNode#0;class#TSDiff#0" expanded="false" />
-            <element signature="method#deltaToDoubleArray#0;class#VintageNode#0;class#TSDiff#0" expanded="false" />
-            <element signature="class#CompressedVintageNode#0;class#TSDiff#0" expanded="false" />
-            <element signature="method#AlignedVintageNode#0;class#AlignedVintageNode#0;class#TSDiff#0" expanded="false" />
-            <element signature="method#deltaToDoubleArray#0;class#AlignedVintageNode#0;class#TSDiff#0" expanded="false" />
-            <element signature="method#CompressedAlignedVintageNode#0;class#CompressedAlignedVintageNode#0;class#TSDiff#0" expanded="false" />
-            <element signature="method#countRepeated#0;class#CompressedAlignedVintageNode#0;class#TSDiff#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/test/com/oldfather/CompressedAlignedVintageNodeTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="555">
+        <state relative-caret-position="426">
           <caret line="43" column="0" lean-forward="false" selection-start-line="43" selection-start-column="0" selection-end-line="43" selection-end-column="0" />
           <folding>
             <element signature="docComment;class#CompressedAlignedVintageNodeTest#0" expanded="false" />
@@ -1142,11 +1463,28 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/test/com/oldfather/AlignedVintageNodeTest.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="960">
-          <caret line="73" column="5" lean-forward="false" selection-start-line="66" selection-start-column="4" selection-end-line="73" selection-end-column="5" />
+        <state relative-caret-position="165">
+          <caret line="18" column="27" lean-forward="false" selection-start-line="18" selection-start-column="27" selection-end-line="18" selection-end-column="27" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/com/oldfather/TSDiff.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="324">
+          <caret line="537" column="33" lean-forward="false" selection-start-line="537" selection-start-column="33" selection-end-line="537" selection-end-column="33" />
           <folding>
-            <element signature="e#1809#1810#0" expanded="false" />
-            <element signature="e#1844#1845#0" expanded="false" />
+            <element signature="class#VintageNode#0;class#TSDiff#0" expanded="false" />
+            <element signature="method#VintageNode#4;class#VintageNode#0;class#TSDiff#0" expanded="false" />
+            <element signature="method#cleanup#0;class#VintageNode#0;class#TSDiff#0" expanded="false" />
+            <element signature="method#deltaToDoubleArray#0;class#VintageNode#0;class#TSDiff#0" expanded="false" />
+            <element signature="class#CompressedVintageNode#0;class#TSDiff#0" expanded="false" />
+            <element signature="method#AlignedVintageNode#0;class#AlignedVintageNode#0;class#TSDiff#0" expanded="false" />
+            <element signature="e#12013#12014#0" expanded="true" />
+            <element signature="e#12056#12057#0" expanded="true" />
+            <element signature="method#deltaToDoubleArray#0;class#AlignedVintageNode#0;class#TSDiff#0" expanded="false" />
+            <element signature="method#CompressedAlignedVintageNode#0;class#CompressedAlignedVintageNode#0;class#TSDiff#0" expanded="false" />
+            <element signature="method#countRepeated#0;class#CompressedAlignedVintageNode#0;class#TSDiff#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1212,6 +1550,18 @@
               <list>
                 <option value="0.2" />
                 <option value="0.6" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ProjectJDKs.UI">
+        <settings>
+          <last-edited>1.8</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
               </list>
             </option>
           </splitter-proportions>

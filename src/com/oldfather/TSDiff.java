@@ -400,6 +400,10 @@ public class TSDiff {
             this.collapseParent();
         }
 
+        public static int mapAtoB(int i, int a0, int b0){
+            return(i - (a0-b0));
+        }
+
         public void fromNode(AlignedVintageNode node){
             this.s_hash = node.s_hash;
             this.align = node.align;
@@ -485,25 +489,24 @@ public class TSDiff {
 
             double[] delta = null;
             int offset = 0;
+            int j;
             double d;
             boolean found_offset = false;
 
-            int e1 = s1.length + a1 - 1;
-            int e2 = s2.length + a2 - 1;
-
-            int a = Math.min(a1, a2); // minimum position relative to zero
-            int e = Math.max(e1, e2); // maximum position relative to zero
-            int n = e - a + 1; // length of longest possible delta
+            int n1 = s1.length;
+            int n2 = s2.length;
 
             // iterate length of longest possible delta
-            for (int i = 0; i < n; i++) {
-                d =  ((a2 - a <= i & i <= e2 - a) ? s2[i - a2 + a] : 0 )
-                    - ((a1 - a <= i & i <= e1 - a) ? s1[i - a1 + a] : 0);
+            for (int i = 0; i < n2; i++) {
+                j = mapAtoB(i,a2,a1);
+                d = s2[i];
+                d -= (0 <= j & j < n1 ) ? s1[j] : 0;
+
                 if (d!=0) {
                     if (!found_offset) {
                         found_offset = true;
                         offset = i;
-                        delta = new double[n-i];
+                        delta = new double[n2-i];
                     }
                     delta[i - offset] = d;
                 }
@@ -526,18 +529,16 @@ public class TSDiff {
                 if (!this.hasChanges()) {
                     return s1;
                 } else {
-
                     int a1 = this.parent.align;
                     int a2 = this.align;
-                    int a = Math.min(a1, a2); // minimum position relative to zero
-                    int e2 = a + this.offset + this.delta.length  - 1;
                     int n1 = s1.length;
-                    int n2 = e2 - a2 + 1;
-
+                    int n2 = this.delta.length + this.offset;
+                    int j;
                     double[] s2 = new double[n2];
                     for (int i = 0; i < n2; i++) {
-                        s2[i] = (( this.offset <= i + (a2-a) ) ? this.delta[i + (a2-a) - this.offset] : 0)
-                                + (( (0 <= i + (a2-a1)) & (i + (a2-a1) < n1) ) ? s1[i + (a2-a1)] : 0);
+                        j = mapAtoB(i,a2,a1);
+                        s2[i] = (this.offset <= i) ? this.delta[i-this.offset] : 0;
+                        s2[i] += (0 <= j & j < n1) ? s1[j] : 0;
                     }
                     return s2;
                 }
@@ -741,20 +742,16 @@ public class TSDiff {
                 if (!this.hasChanges()) {
                     return s1;
                 } else {
-
                     int a1 = this.parent.align;
                     int a2 = this.align;
-                    int a = Math.min(a1, a2); // minimum position relative to zero
-                    int e2 = a + this.offset + delta.length  - 1;
                     int n1 = s1.length;
-                    int n2 = e2 - a2 + 1;
-
-
+                    int n2 = delta.length + this.offset;
+                    int j;
                     double[] s2 = new double[n2];
                     for (int i = 0; i < n2; i++) {
-                        s2[i] =   (( this.offset <= i + (a2-a) ) ? delta[i + (a2-a) - this.offset] : 0)
-                                + (( (0 <= i + (a2-a1)) & (i + (a2-a1) < n1) ) ? s1[i + (a2-a1)] : 0);
-
+                        j = mapAtoB(i,a2,a1);
+                        s2[i] = (this.offset <= i) ? delta[i-this.offset] : 0;
+                        s2[i] += (0 <= j & j < n1) ? s1[j] : 0;
                     }
                     return s2;
                 }
