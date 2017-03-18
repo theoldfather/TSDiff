@@ -376,17 +376,17 @@ public class TSDiff {
         public AlignedVintageNode(long s_hash, int align, double[] s, AlignedVintageNode parent) {
             if (parent.hasChanges()) {
                 this.parent = parent;
+                this.collapseParent();
                 this.encodeDelta(align, s, parent.align, parent.decodeDelta());
             }else if(!parent.hasChanges() & !parent.isRootNode()) {
                 this.parent = parent.parent;
+                this.collapseParent();
                 this.encodeDelta(align, s, parent.parent.align, parent.parent.decodeDelta());
             }else{
                 this.encodeDelta(s);
             }
             this.s_hash = s_hash;
             this.align = align;
-            this.collapseParent();
-
         }
 
         public AlignedVintageNode(long s_hash, int align, int offset, double[] delta) {
@@ -588,16 +588,17 @@ public class TSDiff {
         public CompressedAlignedVintageNode(long s_hash, int align, double[] s, CompressedAlignedVintageNode parent) {
             if (parent.hasChanges()) {
                 this.parent = parent;
+                this.collapseParent();
                 this.encodeDelta(align,s,parent.align,parent.decodeDelta());
             }else if(!parent.hasChanges() & !parent.isRootNode()) {
                 this.parent = parent.parent;
+                this.collapseParent();
                 this.encodeDelta(align,s,parent.parent.align,parent.parent.decodeDelta());
             }else{
                 this.encodeDelta(s);
             }
             this.s_hash = s_hash;
             this.align = align;
-            this.collapseParent();
         }
 
         public CompressedAlignedVintageNode(long s_hash, int align, int offset, double[] delta) {
@@ -637,7 +638,7 @@ public class TSDiff {
             } else {
                 int sum = 0;
                 for (int i = 1; i < a.length; i++) {
-                    if ( a[i - 1]==a[i] ) sum++;
+                    if ( a[i]==a[i - 1] ) sum++;
                 }
                 return sum;
             }
@@ -731,7 +732,7 @@ public class TSDiff {
             double[] delta = this.delta;
 
             if (this.isCompressed) {
-                delta = this.decompress(delta);
+                delta = decompress(delta);
             }
 
             if (this.isRootNode()) {

@@ -31,6 +31,7 @@ public class AlignedVintageNodeTest {
     public double[] t4_1 = {3,4,5,6,6,6,6,6,6,6};
     public double[] t5_1 = {3,4,5,6,6,6,6,6,6,6};
     public double[] t6_1 = {0,1,2,3,4,5};
+    public double[] t7_1 = {-1,0,1,2,3,4,5,6,6,6,6,6,6,6,7};
 
     public AlignedVintageNode a_1 = new AlignedVintageNode(t0_1.hashCode(),t0_1);
     public AlignedVintageNode b_1 = new AlignedVintageNode(t1_1.hashCode(),0,t1_1,a_1);
@@ -39,6 +40,7 @@ public class AlignedVintageNodeTest {
     public AlignedVintageNode e_1 = new AlignedVintageNode(t4_1.hashCode(),3,t4_1,d_1);
     public AlignedVintageNode f_1 = new AlignedVintageNode(t5_1.hashCode(),3,t5_1,e_1);
     public AlignedVintageNode g_1 = new AlignedVintageNode(t6_1.hashCode(),0,t6_1,f_1);
+    public AlignedVintageNode h_1 = new AlignedVintageNode(t7_1.hashCode(),0,t7_1,g_1);
 
     public double[] randSeries(int n){
         double[] s = new double[n];
@@ -120,7 +122,6 @@ public class AlignedVintageNodeTest {
         System.out.println(Arrays.toString(c.decodeDelta()));
         assertThat(c.decodeDelta(),equalTo(t2));
 
-
         System.out.println(Arrays.toString(a_1.decodeDelta()));
         assertThat(a_1.decodeDelta(),equalTo(null));
 
@@ -144,6 +145,11 @@ public class AlignedVintageNodeTest {
         System.out.println(Arrays.toString(g_1.decodeDelta()));
         assertThat(g_1.hasChanges(),equalTo(true));
         assertThat(g_1.decodeDelta(),equalTo(t6_1));
+
+        System.out.println(Arrays.toString(h_1.delta));
+        System.out.println(Arrays.toString(h_1.decodeDelta()));
+        assertThat(h_1.hasChanges(),equalTo(true));
+        assertThat(h_1.decodeDelta(),equalTo(t7_1));
 
     }
 
