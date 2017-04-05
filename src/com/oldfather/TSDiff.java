@@ -223,63 +223,6 @@ public class TSDiff {
         }
 
 
-        //---- START NEW ------------
-        // O(n)
-        public static int countRepeated(double[] a) {
-            if (a.length <= 1) {
-                return 0;
-            } else {
-                int sum = 0;
-                for (int i = 1; i < a.length; i++) {
-                    if ( Math.abs(a[i - 1] - a[i]) < TOL ) sum++;
-                }
-                return sum;
-            }
-        }
-
-        public static boolean shouldCompress(int n, int n_repeated) {
-            return n > 2 & n_repeated > n / 2;
-        }
-
-        // O(n)
-        public static double[] compress(double[] a, int n_repeated) {
-            int n_unique = a.length - n_repeated;
-            double[] out = new double[n_unique * 2];
-            int k = 0;
-            out[k] = 1;
-            out[k + n_unique] = a[0];
-            for (int i = 1; i < a.length; i++) {
-                if (Math.abs(out[k + n_unique] - a[i]) < TOL) {
-                    out[k]++;
-                } else {
-                    k++;
-                    out[k] = 1;
-                    out[k + n_unique] = a[i];
-                }
-            }
-            return out;
-        }
-
-        // r + n => O(n)
-        public static double[] decompress(double[] a) {
-            int r = a.length / 2; // number of pairs
-            int k = 0; // count output elements
-            for (int i = 0; i < r; i++) k += a[i];
-            double[] out = new double[k];
-            int l = 0; // index a
-            int o = 0; // index out
-            while (o < k) {
-                // unroll a into out
-                for (int j = 0; j < a[l]; j++) {
-                    out[o] = a[l + r];
-                    o++;
-                }
-                l++;
-            }
-            return out;
-        }
-        //---- END NEW ------------
-
         //---- START OVERRIDES ------------
         @Override
         public CompressedVintageNode cleanup() {
@@ -298,9 +241,9 @@ public class TSDiff {
 
         public void applyCompression(){
             if (this.hasChanges()) {
-                int r = countRepeated(this.delta);
-                if (shouldCompress(this.delta.length, r)) {
-                    this.delta = compress(this.delta, r);
+                int r = RLE.countRepeated(this.delta);
+                if (RLE.shouldCompress(this.delta.length, r)) {
+                    this.delta = RLE.compress(this.delta, r);
                     this.isCompressed = true;
                 }
             }
@@ -324,7 +267,7 @@ public class TSDiff {
             double[] delta = this.delta;
 
             if (this.isCompressed) {
-                delta = this.decompress(delta);
+                delta = RLE.decompress(delta);
             }
 
             if (this.isRootNode()) {
@@ -630,9 +573,97 @@ public class TSDiff {
             return super.equalTo(node) & this.isCompressed==node.isCompressed;
         }
 
-        //---- START NEW ------------
+
+        @Override
+        public CompressedAlignedVintageNode cleanup() {
+            return (CompressedAlignedVintageNode) super.cleanup();
+        }
+
+        @Override
+        public CompressedAlignedVintageNode getRootNode() {
+            return (CompressedAlignedVintageNode) super.getRootNode();
+        }
+
+        @Override
+        public CompressedAlignedVintageNode getParent() {
+            return (CompressedAlignedVintageNode) this.parent;
+        }
+
+        public void applyCompression(){
+            if (this.hasChanges()) {
+                int r = RLE.countRepeated(this.delta);
+                if (RLE.shouldCompress(this.delta.length, r)) {
+                    this.delta = RLE.compress(this.delta, r);
+                    this.isCompressed = true;
+                }
+            }
+        }
+
+        @Override
+        public void encodeDelta(double[] s) {
+            super.encodeDelta(s);
+            this.applyCompression();
+        }
+
+        @Override
+        public void encodeDelta(int a2, double[] s2, int a1, double[] s1) {
+            super.encodeDelta(a2,s2,a1,s1);
+            this.applyCompression();
+        }
+
+        @Override
+        public double[] decodeDelta() {
+            double[] delta = this.delta;
+
+            if (this.isCompressed) {
+                delta = RLE.decompress(delta);
+            }
+
+            if (this.isRootNode()) {
+                return delta;
+            } else {
+                double[] s1 = this.parent.decodeDelta();
+
+                if (!this.hasChanges()) {
+                    return s1;
+                } else {
+                    int a1 = this.parent.align;
+                    int a2 = this.align;
+                    int n1 = s1.length;
+                    int n2 = delta.length + this.offset;
+                    int j;
+                    double[] s2 = new double[n2];
+                    for (int i = 0; i < n2; i++) {
+                        j = mapAtoB(i,a2,a1);
+                        s2[i] = (this.offset <= i) ? delta[i-this.offset] : 0;
+                        s2[i] += (0 <= j & j < n1) ? s1[j] : 0;
+                    }
+                    return s2;
+                }
+            }
+        }
+
+    }
+
+    public static class RLE{
+
+        public final static double TOL = 1e-12;
+
         // O(n)
         public static int countRepeated(double[] a) {
+            if (a.length <= 1) {
+                return 0;
+            } else {
+                int sum = 0;
+                for (int i = 1; i < a.length; i++) {
+                    if (Math.abs(a[i] - a[i - 1])<TOL) sum++;
+                }
+                return sum;
+            }
+        }
+
+        // O(n)
+        public static int countRepeated(int[] a) {
             if (a.length <= 1) {
                 return 0;
             } else {
@@ -652,6 +683,25 @@ public class TSDiff {
         public static double[] compress(double[] a, int n_repeated) {
             int n_unique = a.length - n_repeated;
             double[] out = new double[n_unique * 2];
+            int k = 0;
+            out[k] = 1;
+            out[k + n_unique] = a[0];
+            for (int i = 1; i < a.length; i++) {
+                if (Math.abs(out[k + n_unique]-a[i])<TOL) {
+                    out[k]++;
+                } else {
+                    k++;
+                    out[k] = 1;
+                    out[k + n_unique] = a[i];
+                }
+            }
+            return out;
+        }
+
+        // O(n)
+        public static int[] compress(int[] a, int n_repeated) {
+            int n_unique = a.length - n_repeated;
+            int[] out = new int[n_unique * 2];
             int k = 0;
             out[k] = 1;
             out[k + n_unique] = a[0];
@@ -685,83 +735,25 @@ public class TSDiff {
             }
             return out;
         }
-        //---- END NEW ------------
 
-        //---- START OVERRIDES ------------
-
-
-        @Override
-        public CompressedAlignedVintageNode cleanup() {
-            return (CompressedAlignedVintageNode) super.cleanup();
-        }
-
-        @Override
-        public CompressedAlignedVintageNode getRootNode() {
-            return (CompressedAlignedVintageNode) super.getRootNode();
-        }
-
-        @Override
-        public CompressedAlignedVintageNode getParent() {
-            return (CompressedAlignedVintageNode) this.parent;
-        }
-
-        public void applyCompression(){
-            if (this.hasChanges()) {
-                int r = countRepeated(this.delta);
-                if (shouldCompress(this.delta.length, r)) {
-                    this.delta = compress(this.delta, r);
-                    this.isCompressed = true;
+        // r + n => O(n)
+        public static int[] decompress(int[] a) {
+            int r = a.length / 2; // number of pairs
+            int k = 0; // count output elements
+            for (int i = 0; i < r; i++) k += a[i];
+            int[] out = new int[k];
+            int l = 0; // index a
+            int o = 0; // index out
+            while (o < k) {
+                // unroll 'a' into out
+                for (int j = 0; j < a[l]; j++) {
+                    out[o] = a[l + r];
+                    o++;
                 }
+                l++;
             }
+            return out;
         }
-
-        @Override
-        public void encodeDelta(double[] s) {
-            super.encodeDelta(s);
-            this.applyCompression();
-        }
-
-        @Override
-        public void encodeDelta(int a2, double[] s2, int a1, double[] s1) {
-            super.encodeDelta(a2,s2,a1,s1);
-            this.applyCompression();
-        }
-
-        @Override
-        public double[] decodeDelta() {
-            double[] delta = this.delta;
-
-            if (this.isCompressed) {
-                delta = decompress(delta);
-            }
-
-            if (this.isRootNode()) {
-                return delta;
-            } else {
-                double[] s1 = this.parent.decodeDelta();
-
-                if (!this.hasChanges()) {
-                    return s1;
-                } else {
-                    int a1 = this.parent.align;
-                    int a2 = this.align;
-                    int n1 = s1.length;
-                    int n2 = delta.length + this.offset;
-                    int j;
-                    double[] s2 = new double[n2];
-                    for (int i = 0; i < n2; i++) {
-                        j = mapAtoB(i,a2,a1);
-                        s2[i] = (this.offset <= i) ? delta[i-this.offset] : 0;
-                        s2[i] += (0 <= j & j < n1) ? s1[j] : 0;
-                    }
-                    return s2;
-                }
-            }
-        }
-
-        //---- END OVERRIDES ------------
-
-
     }
 
 }
