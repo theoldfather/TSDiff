@@ -1,6 +1,5 @@
-.idea
-.idea/*
-out/*
-target/*
+.idea/
+out/
+target/
 .DS_Store
 */.DS_Store
