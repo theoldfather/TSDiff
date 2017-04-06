@@ -3,7 +3,7 @@ package com.oldfather;
 import java.util.Arrays;
 
 /**
- * Created by theoldfather on 1/7/17.
+ * A library for efficiently storing and retrieving vintages of time series
  */
 public class TSDiff {
 
@@ -92,7 +92,7 @@ public class TSDiff {
          * Encodes a delta for <i>s2</i> given <i>s1</i>. Asserts the length of <i>s2</i> is greater than or equal to that of <i>s1</i>,
          * otherwise we will get an error.
          * <p>
-         * <b>Complixity:</b> O(n)
+         * @algo.complexity O(n)
          *
          * @param s2 The new node for which we would like to generate a delta
          * @param s1 The previous node to be differenced against
@@ -161,7 +161,7 @@ public class TSDiff {
         }
 
         public int getVintageNumber() {
-            return 1 + (this.isRootNode() ? 0 : this.parent.getVintageNumber());
+            return 1 + (this.isRootNode() ? 0 : this.getParent().getVintageNumber());
         }
 
 
@@ -222,65 +222,6 @@ public class TSDiff {
             if (parent.hasChanges()) this.parent = parent;
         }
 
-
-        //---- START NEW ------------
-        // O(n)
-        public static int countRepeated(double[] a) {
-            if (a.length <= 1) {
-                return 0;
-            } else {
-                int sum = 0;
-                for (int i = 1; i < a.length; i++) {
-                    if ( Math.abs(a[i - 1] - a[i]) < TOL ) sum++;
-                }
-                return sum;
-            }
-        }
-
-        public static boolean shouldCompress(int n, int n_repeated) {
-            return n > 2 & n_repeated > n / 2;
-        }
-
-        // O(n)
-        public static double[] compress(double[] a, int n_repeated) {
-            int n_unique = a.length - n_repeated;
-            double[] out = new double[n_unique * 2];
-            int k = 0;
-            out[k] = 1;
-            out[k + n_unique] = a[0];
-            for (int i = 1; i < a.length; i++) {
-                if (Math.abs(out[k + n_unique] - a[i]) < TOL) {
-                    out[k]++;
-                } else {
-                    k++;
-                    out[k] = 1;
-                    out[k + n_unique] = a[i];
-                }
-            }
-            return out;
-        }
-
-        // r + n => O(n)
-        public static double[] decompress(double[] a) {
-            int r = a.length / 2; // number of pairs
-            int k = 0; // count output elements
-            for (int i = 0; i < r; i++) k += a[i];
-            double[] out = new double[k];
-            int l = 0; // index a
-            int o = 0; // index out
-            while (o < k) {
-                // unroll a into out
-                for (int j = 0; j < a[l]; j++) {
-                    out[o] = a[l + r];
-                    o++;
-                }
-                l++;
-            }
-            return out;
-        }
-        //---- END NEW ------------
-
-        //---- START OVERRIDES ------------
         @Override
         public CompressedVintageNode cleanup() {
             return (CompressedVintageNode) super.cleanup();
@@ -298,9 +239,9 @@ public class TSDiff {
 
         public void applyCompression(){
             if (this.hasChanges()) {
-                int r = countRepeated(this.delta);
-                if (shouldCompress(this.delta.length, r)) {
-                    this.delta = compress(this.delta, r);
+                int r = RLE.countRepeated(this.delta);
+                if (RLE.shouldCompress(this.delta.length, r)) {
+                    this.delta = RLE.compress(this.delta, r);
                     this.isCompressed = true;
                 }
             }
@@ -324,7 +265,7 @@ public class TSDiff {
             double[] delta = this.delta;
 
             if (this.isCompressed) {
-                delta = this.decompress(delta);
+                delta = RLE.decompress(delta);
             }
 
             if (this.isRootNode()) {
@@ -344,12 +285,11 @@ public class TSDiff {
                 }
             }
         }
-
-        //---- END OVERRIDES ------------
-
-
     }
 
+    /**
+     * VintageNode that maintains alignment
+     */
     public static class AlignedVintageNode  {
 
         public final static double TOL = 1e-12;
@@ -360,13 +300,21 @@ public class TSDiff {
         public int offset;
         public double[] delta=null;
 
+        /**
+         * Empty Constructor
+         */
         public AlignedVintageNode(){
 
         }
 
+        /**
+         * Constructor that clones another <code>AlignedVintageNode</code>
+         * @param node
+         */
         public AlignedVintageNode(AlignedVintageNode node) {
             this.fromNode(node);
         }
+
 
         public AlignedVintageNode(long s_hash, double[] s) {
             this.encodeDelta(s);
@@ -402,6 +350,15 @@ public class TSDiff {
             this.collapseParent();
         }
 
+
+        /**
+         * Maps <code>i</code>, an index in the space of <code>a</code>, to an index in the space of <code>b</code>.
+         *
+         * @param i an index in the space of <code>a</code>
+         * @param a0 the alignment of a
+         * @param b0 the alignment of b
+         * @return an index in the space of <code>b</code>
+         */
         public static int mapAtoB(int i, int a0, int b0){
             return(i - (a0-b0));
         }
@@ -415,7 +372,7 @@ public class TSDiff {
         }
 
         /**
-         * Check for equality with <i>node</i> contemporaneously.
+         * Check for equality with <code>node</code> contemporaneously.
          *
          * @param node     Node for comparison
          * @return  True if nodes match on all contemporaneous characteristics.
@@ -428,6 +385,7 @@ public class TSDiff {
 
         }
 
+
         public void collapseParent(){
             if(!this.isRootNode()){
                 if(!this.parent.isRootNode()){
@@ -438,6 +396,10 @@ public class TSDiff {
             }
         }
 
+        /**
+         * Does this node contain information not found in the previous vintage?
+         * @return <code>True</code> if this node has new information
+         */
         public boolean hasChanges() {
             if (this.delta != null) {
                 if (this.delta.length > 0) {
@@ -447,14 +409,26 @@ public class TSDiff {
             return false;
         }
 
+        /**
+         * Cleans-up vintages that do not contain changes
+         * @return the nearest leaf node with changes
+         */
         public AlignedVintageNode cleanup() {
-            if (!this.hasChanges()) {
-                return this.parent;
-            } else {
+            if (this.hasChanges()) {
                 return this;
+            } else {
+                if(this.hasParent()){
+                    return this.getParent().cleanup();
+                }else{
+                    return this.getParent();
+                }
             }
         }
 
+        /**
+         * Gets the root node of this list
+         * @return the root node
+         */
         public AlignedVintageNode getRootNode() {
             if (this.isRootNode()) {
                 return this;
@@ -463,10 +437,18 @@ public class TSDiff {
             }
         }
 
+        /**
+         * Gets the parent node of the current node
+         * @return the parent node
+         */
         public AlignedVintageNode getParent() {
             return this.parent;
         }
 
+        /**
+         * Encodes the trivial case where this node is the root.
+         * @param s the root vintage series
+         */
         public void encodeDelta(double[] s) {
             if (s != null) {
                 if (s.length > 0) {
@@ -477,14 +459,15 @@ public class TSDiff {
             }
         }
 
-
         /**
          * Encodes a delta for <i>s2</i> given <i>s1</i>. Assumes that the union of <i>s1</i> and <i>s2</i> contains no missing elements.
          *
-         * <b>Complexity:</b> O(n)
+         * @algo.complexity  O(n)
          *
-         * @param s2 The new node for which we would like to generate a delta
-         * @param s1 The previous node to be differenced against
+         * @param a2 Alignment of the new vintage, <code>s2</code>.
+         * @param s2 New vintage series for which we would like to generate a delta.
+         * @param a1 Alignment of the previous vintage, <code>s1</code>.
+         * @param s1 Previous vintage series to be differenced against.
          */
         // O(n)
         public void encodeDelta(int a2, double[] s2, int a1, double[] s1) {
@@ -517,6 +500,13 @@ public class TSDiff {
             }
         }
 
+        /**
+         * Decodes a vintage series the vintage node instance.
+         *
+         * @algo.complexity k*mean(n), where k is the number of vintages and mean(n) is the average vintage length.
+         *
+         * @return A decoded vintage series
+         */
         // k*n => O(k), where k is the number of prior vintages
         public double[] decodeDelta() {
 
@@ -545,19 +535,35 @@ public class TSDiff {
             }
         }
 
+
+        /**
+         * Gives the index of the current vintage
+         * @return The index of the current vintage, eg. the root node returns 1, the next 2, and so on
+         */
         public int getVintageNumber() {
             return 1 + (this.isRootNode() ? 0 : this.parent.getVintageNumber());
         }
 
-
+        /**
+         * Checks if this node is the root
+         * @return True if this instance has no parent         *
+         */
         public boolean isRootNode() {
             return (this.parent == null);
         }
 
+        /**
+         * Checks if this node has a parent
+         * @return True if this instance is not a root node.
+         */
         public boolean hasParent() {
             return !(this.isRootNode());
         }
 
+        /**
+         * Converts the delta double[] to Double[]
+         * @return delta as Double[]
+         */
         public Double[] deltaToDoubleArray() {
             Double[] delta = new Double[this.delta.length];
             for (int i = 0; i < this.delta.length; i++) {
@@ -630,6 +636,7 @@ public class TSDiff {
             return super.equalTo(node) & this.isCompressed==node.isCompressed;
         }
 
+<<<<<<< HEAD
         //---- START NEW ------------
         // O(n)
         public static int countRepeated(double[] a) {
@@ -689,6 +696,8 @@ public class TSDiff {
 
         //---- START OVERRIDES ------------
 
+=======
+>>>>>>> 5d8690a25ef2c386cdb638c3261e37b2ddf58e5b
 
         @Override
         public CompressedAlignedVintageNode cleanup() {
@@ -707,9 +716,9 @@ public class TSDiff {
 
         public void applyCompression(){
             if (this.hasChanges()) {
-                int r = countRepeated(this.delta);
-                if (shouldCompress(this.delta.length, r)) {
-                    this.delta = compress(this.delta, r);
+                int r = RLE.countRepeated(this.delta);
+                if (RLE.shouldCompress(this.delta.length, r)) {
+                    this.delta = RLE.compress(this.delta, r);
                     this.isCompressed = true;
                 }
             }
@@ -732,7 +741,11 @@ public class TSDiff {
             double[] delta = this.delta;
 
             if (this.isCompressed) {
+<<<<<<< HEAD
                 delta = decompress(delta);
+=======
+                delta = RLE.decompress(delta);
+>>>>>>> 5d8690a25ef2c386cdb638c3261e37b2ddf58e5b
             }
 
             if (this.isRootNode()) {
@@ -759,9 +772,179 @@ public class TSDiff {
             }
         }
 
-        //---- END OVERRIDES ------------
+    }
+
+    /**
+     * Provides Run-Length Encoding
+     */
+    public static class RLE{
+
+        /**
+         * Tolerance for double-comparison
+         */
+        public final static double TOL = 1e-12;
 
 
+        /**
+         * Counts the number of repeated elements in a <code>double[]</code>.
+         *
+         * @param a a <code>double[]</code>
+         * @return The number of duplicate elements (excluding the first instance).
+         * @algo.complexity O(n)
+         */
+        // O(n)
+        public static int countRepeated(double[] a) {
+            if (a.length <= 1) {
+                return 0;
+            } else {
+                int sum = 0;
+                for (int i = 1; i < a.length; i++) {
+                    if (Math.abs(a[i] - a[i - 1])<TOL) sum++;
+                }
+                return sum;
+            }
+        }
+
+        /**
+         * Counts the number of repeated elements in a <code>int[]</code>.
+         *
+         * @param a a <code>int[]</code>
+         * @return The number of duplicate elements (excluding the first instance).
+         * @algo.complexity O(n)
+         */
+        // O(n)
+        public static int countRepeated(int[] a) {
+            if (a.length <= 1) {
+                return 0;
+            } else {
+                int sum = 0;
+                for (int i = 1; i < a.length; i++) {
+                    if ( a[i]==a[i - 1] ) sum++;
+                }
+                return sum;
+            }
+        }
+
+        /**
+         * Decision rule for RLE compression
+         * @param n Length of series
+         * @param n_repeated Number of repeated elements in the series
+         * @return  True if compression would lead to space reduction.
+         *
+         * @algo.complexity O(1)
+         */
+        public static boolean shouldCompress(int n, int n_repeated) {
+            return n > 2 & n_repeated > n / 2;
+        }
+
+        /**
+         * Compress an array
+         *
+         * @param a array to be compressed
+         * @param n_repeated number of repeated elements
+         * @return a compressed array
+         *
+         * @algo.complexity O(n)
+         */
+        // O(n)
+        public static double[] compress(double[] a, int n_repeated) {
+            int n_unique = a.length - n_repeated;
+            double[] out = new double[n_unique * 2];
+            int k = 0;
+            out[k] = 1;
+            out[k + n_unique] = a[0];
+            for (int i = 1; i < a.length; i++) {
+                if (Math.abs(out[k + n_unique]-a[i])<TOL) {
+                    out[k]++;
+                } else {
+                    k++;
+                    out[k] = 1;
+                    out[k + n_unique] = a[i];
+                }
+            }
+            return out;
+        }
+
+        /**
+         * Compress an array
+         *
+         * @param a array to be compressed
+         * @param n_repeated number of repeated elements
+         * @return a compressed array
+         *
+         * @algo.complexity O(n)
+         */
+        // O(n)
+        public static int[] compress(int[] a, int n_repeated) {
+            int n_unique = a.length - n_repeated;
+            int[] out = new int[n_unique * 2];
+            int k = 0;
+            out[k] = 1;
+            out[k + n_unique] = a[0];
+            for (int i = 1; i < a.length; i++) {
+                if (out[k + n_unique]==a[i]) {
+                    out[k]++;
+                } else {
+                    k++;
+                    out[k] = 1;
+                    out[k + n_unique] = a[i];
+                }
+            }
+            return out;
+        }
+
+
+        /**
+         * Decompressed RLE-type compressed <code>double[]</code>
+         * @param a a compressed <code>double[]</code>
+         * @return a decompressed <code>double[]</code>
+         *
+         * @algo.complexity O(n)
+         */
+        // r + n => O(n)
+        public static double[] decompress(double[] a) {
+            int r = a.length / 2; // number of pairs
+            int k = 0; // count output elements
+            for (int i = 0; i < r; i++) k += a[i];
+            double[] out = new double[k];
+            int l = 0; // index a
+            int o = 0; // index out
+            while (o < k) {
+                // unroll 'a' into out
+                for (int j = 0; j < a[l]; j++) {
+                    out[o] = a[l + r];
+                    o++;
+                }
+                l++;
+            }
+            return out;
+        }
+
+        /**
+         * Decompressed RLE-type compressed <code>int[]</code>
+         * @param a a compressed <code>int[]</code>
+         * @return a decompressed <code>int[]</code>
+         *
+         * @algo.complexity O(n)
+         */
+        // r + n => O(n)
+        public static int[] decompress(int[] a) {
+            int r = a.length / 2; // number of pairs
+            int k = 0; // count output elements
+            for (int i = 0; i < r; i++) k += a[i];
+            int[] out = new int[k];
+            int l = 0; // index a
+            int o = 0; // index out
+            while (o < k) {
+                // unroll 'a' into out
+                for (int j = 0; j < a[l]; j++) {
+                    out[o] = a[l + r];
+                    o++;
+                }
+                l++;
+            }
+            return out;
+        }
     }
 
 }
