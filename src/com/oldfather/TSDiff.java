@@ -345,6 +345,15 @@ public class TSDiff {
             this.collapseParent();
         }
 
+
+        /**
+         * Maps <code>i</code>, an index in the space of <code>a</code>, to an index in the space of <code>b</code>.
+         *
+         * @param i an index in the space of <code>a</code>
+         * @param a0 the alignment of a
+         * @param b0 the alignment of b
+         * @return an index in the space of <code>b</code>
+         */
         public static int mapAtoB(int i, int a0, int b0){
             return(i - (a0-b0));
         }
@@ -358,7 +367,7 @@ public class TSDiff {
         }
 
         /**
-         * Check for equality with <i>node</i> contemporaneously.
+         * Check for equality with <code>node</code> contemporaneously.
          *
          * @param node     Node for comparison
          * @return  True if nodes match on all contemporaneous characteristics.
@@ -424,10 +433,12 @@ public class TSDiff {
         /**
          * Encodes a delta for <i>s2</i> given <i>s1</i>. Assumes that the union of <i>s1</i> and <i>s2</i> contains no missing elements.
          *
-         * <b>Complexity:</b> O(n)
+         * @algo.complexity  O(n)
          *
-         * @param s2 The new node for which we would like to generate a delta
-         * @param s1 The previous node to be differenced against
+         * @param a2 Alignment of the new vintage, <code>s2</code>.
+         * @param s2 New vintage series for which we would like to generate a delta.
+         * @param a1 Alignment of the previous vintage, <code>s1</code>.
+         * @param s1 Previous vintage series to be differenced against.
          */
         // O(n)
         public void encodeDelta(int a2, double[] s2, int a1, double[] s1) {
@@ -460,6 +471,13 @@ public class TSDiff {
             }
         }
 
+        /**
+         * Decodes a vintage series the vintage node instance.
+         *
+         * @algo.complexity k*mean(n), where k is the number of vintages and mean(n) is the average vintage length.
+         *
+         * @return A decoded vintage series
+         */
         // k*n => O(k), where k is the number of prior vintages
         public double[] decodeDelta() {
 
@@ -491,7 +509,6 @@ public class TSDiff {
         public int getVintageNumber() {
             return 1 + (this.isRootNode() ? 0 : this.parent.getVintageNumber());
         }
-
 
         public boolean isRootNode() {
             return (this.parent == null);
@@ -645,10 +662,24 @@ public class TSDiff {
 
     }
 
+    /**
+     * Provides Run-Length Encoding
+     */
     public static class RLE{
 
+        /**
+         * Tolerance for double-comparison
+         */
         public final static double TOL = 1e-12;
 
+
+        /**
+         * Counts the number of repeated elements in a <code>double[]</code>.
+         *
+         * @param a a <code>double[]</code>
+         * @return The number of duplicate elements (excluding the first instance).
+         * @algo.complexity O(n)
+         */
         // O(n)
         public static int countRepeated(double[] a) {
             if (a.length <= 1) {
@@ -662,6 +693,13 @@ public class TSDiff {
             }
         }
 
+        /**
+         * Counts the number of repeated elements in a <code>int[]</code>.
+         *
+         * @param a a <code>int[]</code>
+         * @return The number of duplicate elements (excluding the first instance).
+         * @algo.complexity O(n)
+         */
         // O(n)
         public static int countRepeated(int[] a) {
             if (a.length <= 1) {
@@ -675,10 +713,27 @@ public class TSDiff {
             }
         }
 
+        /**
+         * Decision rule for RLE compression
+         * @param n Length of series
+         * @param n_repeated Number of repeated elements in the series
+         * @return  True if compression would lead to space reduction.
+         *
+         * @algo.complexity O(1)
+         */
         public static boolean shouldCompress(int n, int n_repeated) {
             return n > 2 & n_repeated > n / 2;
         }
 
+        /**
+         * Compress an array
+         *
+         * @param a array to be compressed
+         * @param n_repeated number of repeated elements
+         * @return a compressed array
+         *
+         * @algo.complexity O(n)
+         */
         // O(n)
         public static double[] compress(double[] a, int n_repeated) {
             int n_unique = a.length - n_repeated;
@@ -698,6 +753,15 @@ public class TSDiff {
             return out;
         }
 
+        /**
+         * Compress an array
+         *
+         * @param a array to be compressed
+         * @param n_repeated number of repeated elements
+         * @return a compressed array
+         *
+         * @algo.complexity O(n)
+         */
         // O(n)
         public static int[] compress(int[] a, int n_repeated) {
             int n_unique = a.length - n_repeated;
@@ -717,6 +781,14 @@ public class TSDiff {
             return out;
         }
 
+
+        /**
+         * Decompressed RLE-type compressed <code>double[]</code>
+         * @param a a compressed <code>double[]</code>
+         * @return a decompressed <code>double[]</code>
+         *
+         * @algo.complexity O(n)
+         */
         // r + n => O(n)
         public static double[] decompress(double[] a) {
             int r = a.length / 2; // number of pairs
@@ -736,6 +808,13 @@ public class TSDiff {
             return out;
         }
 
+        /**
+         * Decompressed RLE-type compressed <code>int[]</code>
+         * @param a a compressed <code>int[]</code>
+         * @return a decompressed <code>int[]</code>
+         *
+         * @algo.complexity O(n)
+         */
         // r + n => O(n)
         public static int[] decompress(int[] a) {
             int r = a.length / 2; // number of pairs
