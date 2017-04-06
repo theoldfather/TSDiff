@@ -636,68 +636,6 @@ public class TSDiff {
             return super.equalTo(node) & this.isCompressed==node.isCompressed;
         }
 
-<<<<<<< HEAD
-        //---- START NEW ------------
-        // O(n)
-        public static int countRepeated(double[] a) {
-            if (a.length <= 1) {
-                return 0;
-            } else {
-                int sum = 0;
-                for (int i = 1; i < a.length; i++) {
-                    if ( a[i]==a[i - 1] ) sum++;
-                }
-                return sum;
-            }
-        }
-
-        public static boolean shouldCompress(int n, int n_repeated) {
-            return n > 2 & n_repeated > n / 2;
-        }
-
-        // O(n)
-        public static double[] compress(double[] a, int n_repeated) {
-            int n_unique = a.length - n_repeated;
-            double[] out = new double[n_unique * 2];
-            int k = 0;
-            out[k] = 1;
-            out[k + n_unique] = a[0];
-            for (int i = 1; i < a.length; i++) {
-                if (out[k + n_unique]==a[i]) {
-                    out[k]++;
-                } else {
-                    k++;
-                    out[k] = 1;
-                    out[k + n_unique] = a[i];
-                }
-            }
-            return out;
-        }
-
-        // r + n => O(n)
-        public static double[] decompress(double[] a) {
-            int r = a.length / 2; // number of pairs
-            int k = 0; // count output elements
-            for (int i = 0; i < r; i++) k += a[i];
-            double[] out = new double[k];
-            int l = 0; // index a
-            int o = 0; // index out
-            while (o < k) {
-                // unroll 'a' into out
-                for (int j = 0; j < a[l]; j++) {
-                    out[o] = a[l + r];
-                    o++;
-                }
-                l++;
-            }
-            return out;
-        }
-        //---- END NEW ------------
-
-        //---- START OVERRIDES ------------
-
-=======
->>>>>>> 5d8690a25ef2c386cdb638c3261e37b2ddf58e5b
 
         @Override
         public CompressedAlignedVintageNode cleanup() {
@@ -740,12 +678,8 @@ public class TSDiff {
         public double[] decodeDelta() {
             double[] delta = this.delta;
 
-            if (this.isCompressed) {
-<<<<<<< HEAD
-                delta = decompress(delta);
-=======
+            if (this.isCompressed) {<<<
                 delta = RLE.decompress(delta);
->>>>>>> 5d8690a25ef2c386cdb638c3261e37b2ddf58e5b
             }
 
             if (this.isRootNode()) {
