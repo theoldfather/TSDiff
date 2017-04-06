@@ -20,7 +20,6 @@ public class CompressedAlignedVintageNodeTest extends AlignedVintageNodeTest{
     public double[] t2 = range(2);
     public double[] t3 = range(3);
 
-
     public CompressedAlignedVintageNode a = new CompressedAlignedVintageNode(t0.hashCode(),t0);
     public CompressedAlignedVintageNode b = new CompressedAlignedVintageNode(t1.hashCode(),0,t1,a);
     public CompressedAlignedVintageNode c = new CompressedAlignedVintageNode(t2.hashCode(),0,t2,b);

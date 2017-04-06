@@ -3,7 +3,7 @@ package com.oldfather;
 import java.util.Arrays;
 
 /**
- * Created by theoldfather on 1/7/17.
+ * A library for efficiently storing and retrieving vintages of time series
  */
 public class TSDiff {
 
@@ -92,7 +92,7 @@ public class TSDiff {
          * Encodes a delta for <i>s2</i> given <i>s1</i>. Asserts the length of <i>s2</i> is greater than or equal to that of <i>s1</i>,
          * otherwise we will get an error.
          * <p>
-         * <b>Complixity:</b> O(n)
+         * @algo.complexity O(n)
          *
          * @param s2 The new node for which we would like to generate a delta
          * @param s1 The previous node to be differenced against
@@ -161,7 +161,7 @@ public class TSDiff {
         }
 
         public int getVintageNumber() {
-            return 1 + (this.isRootNode() ? 0 : this.parent.getVintageNumber());
+            return 1 + (this.isRootNode() ? 0 : this.getParent().getVintageNumber());
         }
 
 
@@ -222,8 +222,6 @@ public class TSDiff {
             if (parent.hasChanges()) this.parent = parent;
         }
 
-
-        //---- START OVERRIDES ------------
         @Override
         public CompressedVintageNode cleanup() {
             return (CompressedVintageNode) super.cleanup();
@@ -287,12 +285,11 @@ public class TSDiff {
                 }
             }
         }
-
-        //---- END OVERRIDES ------------
-
-
     }
 
+    /**
+     * VintageNode that maintains alignment
+     */
     public static class AlignedVintageNode  {
 
         public final static double TOL = 1e-12;
@@ -303,13 +300,21 @@ public class TSDiff {
         public int offset;
         public double[] delta=null;
 
+        /**
+         * Empty Constructor
+         */
         public AlignedVintageNode(){
 
         }
 
+        /**
+         * Constructor that clones another <code>AlignedVintageNode</code>
+         * @param node
+         */
         public AlignedVintageNode(AlignedVintageNode node) {
             this.fromNode(node);
         }
+
 
         public AlignedVintageNode(long s_hash, double[] s) {
             this.encodeDelta(s);
@@ -380,6 +385,7 @@ public class TSDiff {
 
         }
 
+
         public void collapseParent(){
             if(!this.isRootNode()){
                 if(!this.parent.isRootNode()){
@@ -390,6 +396,10 @@ public class TSDiff {
             }
         }
 
+        /**
+         * Does this node contain information not found in the previous vintage?
+         * @return <code>True</code> if this node has new information
+         */
         public boolean hasChanges() {
             if (this.delta != null) {
                 if (this.delta.length > 0) {
@@ -399,14 +409,26 @@ public class TSDiff {
             return false;
         }
 
+        /**
+         * Cleans-up vintages that do not contain changes
+         * @return the nearest leaf node with changes
+         */
         public AlignedVintageNode cleanup() {
-            if (!this.hasChanges()) {
-                return this.parent;
-            } else {
+            if (this.hasChanges()) {
                 return this;
+            } else {
+                if(this.hasParent()){
+                    return this.getParent().cleanup();
+                }else{
+                    return this.getParent();
+                }
             }
         }
 
+        /**
+         * Gets the root node of this list
+         * @return the root node
+         */
         public AlignedVintageNode getRootNode() {
             if (this.isRootNode()) {
                 return this;
@@ -415,10 +437,18 @@ public class TSDiff {
             }
         }
 
+        /**
+         * Gets the parent node of the current node
+         * @return the parent node
+         */
         public AlignedVintageNode getParent() {
             return this.parent;
         }
 
+        /**
+         * Encodes the trivial case where this node is the root.
+         * @param s the root vintage series
+         */
         public void encodeDelta(double[] s) {
             if (s != null) {
                 if (s.length > 0) {
@@ -428,7 +458,6 @@ public class TSDiff {
                 }
             }
         }
-
 
         /**
          * Encodes a delta for <i>s2</i> given <i>s1</i>. Assumes that the union of <i>s1</i> and <i>s2</i> contains no missing elements.
@@ -506,18 +535,35 @@ public class TSDiff {
             }
         }
 
+
+        /**
+         * Gives the index of the current vintage
+         * @return The index of the current vintage, eg. the root node returns 1, the next 2, and so on
+         */
         public int getVintageNumber() {
             return 1 + (this.isRootNode() ? 0 : this.parent.getVintageNumber());
         }
 
+        /**
+         * Checks if this node is the root
+         * @return True if this instance has no parent         *
+         */
         public boolean isRootNode() {
             return (this.parent == null);
         }
 
+        /**
+         * Checks if this node has a parent
+         * @return True if this instance is not a root node.
+         */
         public boolean hasParent() {
             return !(this.isRootNode());
         }
 
+        /**
+         * Converts the delta double[] to Double[]
+         * @return delta as Double[]
+         */
         public Double[] deltaToDoubleArray() {
             Double[] delta = new Double[this.delta.length];
             for (int i = 0; i < this.delta.length; i++) {
