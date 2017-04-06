@@ -678,7 +678,7 @@ public class TSDiff {
         public double[] decodeDelta() {
             double[] delta = this.delta;
 
-            if (this.isCompressed) {<<<
+            if (this.isCompressed) {
                 delta = RLE.decompress(delta);
             }
 
