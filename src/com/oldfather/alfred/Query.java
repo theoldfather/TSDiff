@@ -18,7 +18,7 @@ import java.util.Map;
 /**
  * Created by theoldfather on 4/8/17.
  */
-public class AlfredQuery {
+public class Query {
     public final String fred_uri = "https://api.stlouisfed.org/fred";
     WebTarget fred;
     Invocation.Builder fred_http;
@@ -27,7 +27,7 @@ public class AlfredQuery {
     List<String> paths;
     HashMap<String,String> queryParams = new HashMap<>(10);
 
-    private AlfredQuery(String apiKey, String fileType, List<String> paths, HashMap<String,String> queryParams){
+    private Query(String apiKey, String fileType, List<String> paths, HashMap<String,String> queryParams){
         this.apiKey = apiKey;
         this.fileType = fileType;
         this.paths = paths;
@@ -71,8 +71,8 @@ public class AlfredQuery {
             return this;
         }
 
-        public AlfredQuery createQuery(){
-            return new AlfredQuery(_api_key,_fileType, _paths, _queryParams);
+        public Query createQuery(){
+            return new Query(_api_key,_fileType, _paths, _queryParams);
         }
     }
 

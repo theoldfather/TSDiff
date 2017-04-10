@@ -7,7 +7,7 @@ import java.util.List;
 /**
  * Created by theoldfather on 4/8/17.
  */
-public class ObservationsSetJaxb{
+public class Observations {
     public String realtime_start;
     public String realtime_end;
     public String observation_start;
@@ -20,23 +20,23 @@ public class ObservationsSetJaxb{
     public int count;
     public int offset;
     public int limit;
-    public List<ObservationJaxb> observations;
+    public List<Observation> observations;
 
 
-    public ObservationsSetJaxb(){}
-    public ObservationsSetJaxb(@JsonProperty("realtime_start")String realtime_start,
-                              @JsonProperty("realtime_end")String realtime_end,
-                              @JsonProperty("observation_start")String observation_start,
-                              @JsonProperty("observation_end")String observation_end,
-                              @JsonProperty("units")String units,
-                              @JsonProperty("output_type")int output_type,
-                              @JsonProperty("file_type")String file_type,
-                              @JsonProperty("order_by")String order_by,
-                              @JsonProperty("sort_order")String sort_order,
-                              @JsonProperty("count")int count,
-                              @JsonProperty("offset")int offset,
-                              @JsonProperty("limit")int limit,
-                              @JsonProperty("observations")List<ObservationJaxb> observations){
+    public Observations(){}
+    public Observations(@JsonProperty("realtime_start")String realtime_start,
+                        @JsonProperty("realtime_end")String realtime_end,
+                        @JsonProperty("observation_start")String observation_start,
+                        @JsonProperty("observation_end")String observation_end,
+                        @JsonProperty("units")String units,
+                        @JsonProperty("output_type")int output_type,
+                        @JsonProperty("file_type")String file_type,
+                        @JsonProperty("order_by")String order_by,
+                        @JsonProperty("sort_order")String sort_order,
+                        @JsonProperty("count")int count,
+                        @JsonProperty("offset")int offset,
+                        @JsonProperty("limit")int limit,
+                        @JsonProperty("observations")List<Observation> observations){
         this.realtime_start = realtime_start;
         this.realtime_end = realtime_end;
         this.observation_start = observation_start;

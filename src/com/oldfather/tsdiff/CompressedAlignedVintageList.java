@@ -1,10 +1,8 @@
 package com.oldfather.tsdiff;
 
-import com.oldfather.tsdiff.CompressedAlignedVintageNode;
+import com.oldfather.datetime.DateParser;
 
-import java.security.Timestamp;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
 
 /**
@@ -95,18 +93,23 @@ public class CompressedAlignedVintageList {
     }
 
     public double[] getVintageSeries(String queryDateStr, String pattern){
-        SimpleDateFormat format = new SimpleDateFormat(pattern);
-        Date queryDate = null;
-        try{
-            queryDate = format.parse(queryDateStr);
-        }catch(ParseException e){
-            e.printStackTrace();
-        }
-        return this.getVintageSeries(queryDate.getTime());
+        return this.getVintageSeries((new DateParser(queryDateStr)).getTime());
     }
 
     public boolean isEmpty(){
         return (this.head==null);
+    }
+
+    public class Aligner{
+
+        public Date rootStartDate;
+        public String freq;
+
+        public Aligner(Date rootStartDate, String freq){
+            this.rootStartDate = rootStartDate;
+            this.freq = freq;
+        }
+
     }
 
     public class AlignmentException extends RuntimeException{
