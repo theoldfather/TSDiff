@@ -20,7 +20,7 @@ public class DateParser {
     }
 
     public DateParser(String dateStr){
-        this(dateStr,"YYYY-MM-DD");
+        this(dateStr,"yyyy-MM-dd");
     }
 
     public Date getDate(){

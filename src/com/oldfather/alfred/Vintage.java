@@ -6,6 +6,7 @@ import com.oldfather.datetime.DateParser;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Date;
 import java.util.List;
 
@@ -27,10 +28,11 @@ public class Vintage {
     public void filterObs(List<Observation> obsList, String date){
         List<Observation> _obsList = new ArrayList<>();
         for(Observation ob: obsList){
-            _obsList.add(ob);
+            if(ob.contains(date)){
+                _obsList.add(ob);
+            }
         }
-        _obsList.removeIf(o -> !((o.realtime_start.compareTo(date)<=0) &
-                0<=(o.realtime_end.compareTo(date))) );
+        Collections.sort(_obsList);
         this.obsList = _obsList;
     }
 

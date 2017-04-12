@@ -99,6 +99,11 @@ public class CompressedAlignedVintageNode extends AlignedVintageNode {
         return (CompressedAlignedVintageNode) this.parent;
     }
 
+    @Override
+    public CompressedAlignedVintageNode getVintage(long queryHash){
+        return (CompressedAlignedVintageNode)super.getVintage(queryHash);
+    }
+
     public void applyCompression(){
         if (this.hasChanges()) {
             int r = RLE.countRepeated(this.delta);

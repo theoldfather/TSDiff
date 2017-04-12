@@ -7,7 +7,7 @@ import java.util.List;
 /**
  * Created by theoldfather on 4/8/17.
  */
-public class Observation {
+public class Observation implements Comparable<Observation> {
     public String realtime_start;
     public String realtime_end;
     public String date;
@@ -23,6 +23,14 @@ public class Observation {
         this.date = date;
         this.value = value;
 
+    }
+
+    public boolean contains(String date){
+        return (this.realtime_start.compareTo(date)<=0) & (0<=this.realtime_end.compareTo(date));
+    }
+
+    public int compareTo(Observation o){
+        return this.date.compareTo(o.date);
     }
 }
 

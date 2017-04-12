@@ -289,6 +289,18 @@ public class AlignedVintageNode  {
         return delta;
     }
 
+    public AlignedVintageNode getVintage(long queryHash){
+        if(queryHash >= s_hash){
+            return this;
+        }else{
+            if(this.hasParent()){
+                return parent;
+            }else{
+                return null;
+            }
+        }
+    }
+
     public double[] getVintageSeries(long queryHash){
         if(queryHash >= s_hash){
             return decodeDelta();
@@ -300,5 +312,6 @@ public class AlignedVintageNode  {
             }
         }
     }
+
 
 }

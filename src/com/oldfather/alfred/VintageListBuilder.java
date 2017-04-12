@@ -6,9 +6,12 @@ import com.oldfather.alfred.schemas.Series;
 import com.oldfather.alfred.schemas.VintageDates;
 import com.oldfather.datetime.DateParser;
 import com.oldfather.tsdiff.CompressedAlignedVintageList;
+import com.oldfather.tsdiff.CompressedAlignedVintageList.FrequencyMap;
+import com.oldfather.tsdiff.CompressedAlignedVintageNode;
+import jersey.repackaged.com.google.common.collect.Lists;
 
 import javax.ws.rs.core.Response;
-import java.util.List;
+import java.util.*;
 
 /**
  * Builds a CompressedAlignedVintageList from vintages of an ALFRED series
@@ -19,17 +22,29 @@ public class VintageListBuilder {
     List<String> vintage_dates;
     Series seriesMeta;
     CompressedAlignedVintageList vintageList = new CompressedAlignedVintageList();
-
+    FrequencyMap<String> fm;
 
     public VintageListBuilder(String series_id){
         this.series_id = series_id;
+        this.setFrequencyMap();
         this.getSeriesMeta();
+        this.getObservations();
         this.getVintageDates();
-        this.getObs();
+
         this.createVintageList();
     }
 
-    private void getVintageDates(){
+    private void setFrequencyMap(){
+        FrequencyMap<String> fm = (new FrequencyMap<String>(5))
+                .put("Y","Yearly")
+                .put("Q","Quarterly")
+                .put("M","Monthly")
+                .put("W","Weekly")
+                .put("D","Daily");
+        this.fm = fm;
+    }
+
+    /*private void getVintageDates(){
         Response res = (new Query.QueryBuilder())
                 .setApiKey("6190fad6f8ed0bb43338ac0cbc56c51b")
                 .setFileType("json")
@@ -39,6 +54,16 @@ public class VintageListBuilder {
                 .createQuery().execute();
 
         this.vintage_dates  = res.readEntity(VintageDates.class).vintage_dates;
+    }*/
+
+    private void getVintageDates(){
+        Set<String> vintageDatesSet = new HashSet<>(10);
+        for(Observation ob : this.obsSet.observations){
+            vintageDatesSet.add(ob.realtime_start);
+        }
+        List<String> vintage_dates = Lists.newArrayList(vintageDatesSet);
+        Collections.sort(vintage_dates);
+        this.vintage_dates  = vintage_dates;
     }
 
     private void getSeriesMeta(){
@@ -53,7 +78,7 @@ public class VintageListBuilder {
 
     }
 
-    private void getObs(){
+    private void getObservations(){
         Response res = (new Query.QueryBuilder())
              .setApiKey("6190fad6f8ed0bb43338ac0cbc56c51b")
              .setFileType("json")
@@ -67,11 +92,12 @@ public class VintageListBuilder {
         this.obsSet = res.readEntity(Observations.class);
     }
 
-    private void createVintageList(){
+    private void createVintageList() {
         List<Observation> obsList = obsSet.observations;
-        for(String date : vintage_dates){
-            Vintage vintage = new Vintage(obsList,date);
-            vintageList.insert((new DateParser(date)).getTime(),0,vintage.series);
+        String freq = fm.toAligner(seriesMeta.seriess.get(0).frequency_short);
+        for (String date : vintage_dates) {
+            Vintage vintage = new Vintage(obsList, date);
+            vintageList.insert((new DateParser(date)).getTime(), vintage.startDate, freq, vintage.series);
         }
     }
 
