@@ -12,13 +12,10 @@ import java.util.Arrays;
 public class Scratch {
 
     public static void main(String[] args){
-        VintageListBuilder vlb = new VintageListBuilder("GDPC1");
+        VintageListBuilder vlb = new VintageListBuilder("A191RL1A225NBEA");
         CompressedAlignedVintageList vl = vlb.getVintageList();
-        CompressedAlignedVintageNode vn = vl.getVintage("1992-12-23");
-        System.out.println(Arrays.toString(vlb.getVintageList().getHeadSeries()));
-        System.out.println(Arrays.toString(vlb.getVintageList().getVintageSeries("2014-07-28")));
+        CompressedAlignedVintageNode vn = vl.getVintage("2014-12-12");
 
-        System.out.println((new DateParser("2014-07-28")).getDate().toString());
-
+        System.out.println(Arrays.toString(vn.decodeDelta()));
     }
 }

@@ -5,10 +5,7 @@ import com.oldfather.datetime.DateParser;
 import java.time.LocalDate;
 import java.time.ZoneId;
 import java.time.temporal.ChronoUnit;
-import java.util.Calendar;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 import java.util.Map.Entry;
 /**
  * Created by theoldfather on 4/8/17.
@@ -17,7 +14,7 @@ public class CompressedAlignedVintageList {
     CompressedAlignedVintageNode head = null;
     double[] series = null;
     boolean keepState = true;
-    Aligner aligner = null;
+    public Aligner aligner = null;
 
     /**
      * Constructs an empty CompressedAlignedVintageList that tracks the head series.
@@ -34,6 +31,13 @@ public class CompressedAlignedVintageList {
         this.keepState = keepState;
     }
 
+    /**
+     * Constructs a CompressedAlignedVintagesList by fully initializing a root node.
+     * @param s_hash the sortable hash identifying the vintage
+     * @param startDate the start date for the vintage
+     * @param freq the frequency of the series
+     * @param series the observed values of the series for this vintage
+     */
     public CompressedAlignedVintageList(long s_hash, Date startDate, String freq, double[] series){
         this.insert(s_hash, startDate, freq, series);
     }
@@ -43,7 +47,7 @@ public class CompressedAlignedVintageList {
             this.aligner = new Aligner(startDate,freq);
             this.insert(s_hash, series);
         }else{
-            insert(s_hash,startDate,series);
+            this.insert(s_hash,startDate,series);
         }
     }
 
@@ -59,7 +63,7 @@ public class CompressedAlignedVintageList {
     public void insert(long s_hash, Date startDate, double[] series){
         CompressedAlignedVintageNode node;
 
-        int align = aligner.getAlignment(startDate);
+        int align = this.aligner.getAlignment(startDate);
         if(this.keepState){
             node = new CompressedAlignedVintageNode(s_hash, align, series, this.head, this.series);
         }else{
@@ -126,8 +130,7 @@ public class CompressedAlignedVintageList {
 
     // work on this...
     public Date getVintageStartDate(String queryDateStr){
-        long queryHash = (new DateParser(queryDateStr)).getDate().getTime();
-        return aligner.getStartDate(head.getVintage(queryHash).align);
+        return aligner.getStartDate(this.getVintage(queryDateStr).align);
     }
 
     public String getFreq(){
@@ -211,7 +214,7 @@ public class CompressedAlignedVintageList {
         }
 
         public LocalDate inQuarters(int align){
-            return rootStartLocalDate.plus(align*3,ChronoUnit.MONTHS);
+            return this.inMonths(align*3);
         }
 
         public LocalDate inYears(int align){

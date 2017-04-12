@@ -291,11 +291,14 @@ public class AlignedVintageNode  {
 
     public AlignedVintageNode getVintage(long queryHash){
         if(queryHash >= s_hash){
+            System.out.println("found");
             return this;
         }else{
             if(this.hasParent()){
-                return parent;
+                System.out.println("parent");
+                return this.parent.getVintage(queryHash);
             }else{
+                System.out.println("none");
                 return null;
             }
         }

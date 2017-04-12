@@ -63,6 +63,7 @@ public class VintageListBuilder {
         }
         List<String> vintage_dates = Lists.newArrayList(vintageDatesSet);
         Collections.sort(vintage_dates);
+        System.out.printf("first: %s, last: %s\n", vintage_dates.get(0),vintage_dates.get(vintage_dates.size()-1));
         this.vintage_dates  = vintage_dates;
     }
 
