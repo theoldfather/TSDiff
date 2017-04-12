@@ -36,7 +36,7 @@ public class VintageListBuilder {
 
     private void setFrequencyMap(){
         FrequencyMap<String> fm = (new FrequencyMap<String>(5))
-                .put("Y","Yearly")
+                .put("Y","Annual")
                 .put("Q","Quarterly")
                 .put("M","Monthly")
                 .put("W","Weekly")

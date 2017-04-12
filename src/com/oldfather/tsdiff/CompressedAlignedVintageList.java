@@ -42,47 +42,55 @@ public class CompressedAlignedVintageList {
         this.insert(s_hash, startDate, freq, series);
     }
 
-    public void insert(long s_hash, Date startDate, String freq, double[] series){
-        if(isEmpty()){
+    public boolean insert(long s_hash, Date startDate, String freq, double[] series){
+        if(this.isEmpty()){
             this.aligner = new Aligner(startDate,freq);
-            this.insert(s_hash, series);
-        }else{
-            this.insert(s_hash,startDate,series);
+            return this.insert(s_hash, series);
+        }else if(this.isValidHash(s_hash)){
+            return this.insert(s_hash,startDate,series);
         }
+        return false;
     }
 
-    public void insert(long s_hash, double[] series){
+    public boolean insert(long s_hash, double[] series){
         CompressedAlignedVintageNode node;
         if(this.isEmpty()){
             node = new CompressedAlignedVintageNode(s_hash, series);
-            this.moveHead(node,series);
+            return this.moveHead(node,series);
         }
+        return false;
     }
 
 
-    public void insert(long s_hash, Date startDate, double[] series){
-        CompressedAlignedVintageNode node;
-
-        int align = this.aligner.getAlignment(startDate);
-        if(this.keepState){
-            node = new CompressedAlignedVintageNode(s_hash, align, series, this.head, this.series);
-        }else{
-            node = new CompressedAlignedVintageNode(s_hash, align, series, this.head);
+    public boolean insert(long s_hash, Date startDate, double[] series){
+        if(this.isValidHash(s_hash)){
+            CompressedAlignedVintageNode node;
+            int align = this.aligner.getAlignment(startDate);
+            if(this.keepState){
+                node = new CompressedAlignedVintageNode(s_hash, align, series, this.head, this.series);
+            }else{
+                node = new CompressedAlignedVintageNode(s_hash, align, series, this.head);
+            }
+            return this.moveHead(node,series);
         }
-        this.moveHead(node,series);
+        return false;
     }
 
+    public boolean isValidHash(long s_hash){
+        return s_hash >= head.s_hash;
+    }
 
-    public void moveHead(CompressedAlignedVintageNode node, double[] series){
+    public boolean moveHead(CompressedAlignedVintageNode node, double[] series){
         if(node!=null){
             if(node.hasChanges()){
                 this.head = node;
                 if(this.keepState){
                     this.series = series;
                 }
+                return true;
             }
         }
-
+        return false;
     }
 
     public CompressedAlignedVintageNode getHead(){
@@ -159,7 +167,7 @@ public class CompressedAlignedVintageList {
             LocalDate startLocalDate = dateToLocalDate(startDate);
             int alignment;
             switch(this.freq){
-                case "Yearly": alignment = inYears(startLocalDate); break;
+                case "Annual": alignment = inYears(startLocalDate); break;
                 case "Quarterly": alignment = inQuarters(startLocalDate); break;
                 case "Monthly": alignment = inMonths(startLocalDate); break;
                 case "Weekly": alignment = inWeeks(startLocalDate); break;
@@ -171,10 +179,17 @@ public class CompressedAlignedVintageList {
         public Date getStartDate(int align){
             LocalDate startLocalDate;
             switch(this.freq){
-                case "Yearly": startLocalDate = inYears(align); break;
+                case "Annual": startLocalDate = inYears(align); break;
                 case "Quarterly": startLocalDate = inQuarters(align); break;
                 case "Monthly": startLocalDate = inMonths(align); break;
                 case "Weekly": startLocalDate = inWeeks(align); break;
+                case "Weekly (Mon)": startLocalDate = inWeeks(align); break;
+                case "Weekly (Tue)": startLocalDate = inWeeks(align); break;
+                case "Weekly (Wed)": startLocalDate = inWeeks(align); break;
+                case "Weekly (Thu)": startLocalDate = inWeeks(align); break;
+                case "Weekly (Fri)": startLocalDate = inWeeks(align); break;
+                case "Weekly (Sat)": startLocalDate = inWeeks(align); break;
+                case "Weekly (Sun)": startLocalDate = inWeeks(align); break;
                 default: startLocalDate = inDays(align); break;
             }
             return java.sql.Date.valueOf(startLocalDate);
