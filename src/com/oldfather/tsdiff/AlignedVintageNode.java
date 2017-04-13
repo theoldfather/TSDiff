@@ -119,9 +119,7 @@ public class AlignedVintageNode  {
      */
     public boolean hasChanges() {
         if (this.delta != null) {
-            if (this.delta.length > 0) {
-                return true;
-            }
+            return true;
         }
         return false;
     }
@@ -211,6 +209,16 @@ public class AlignedVintageNode  {
                 delta[i - offset] = d;
             }
         }
+        // check case where delta should be empty and still saved
+        // ie, when the start date shifts forward, but all values are identical to previous vintage
+        int last_i = n2-1;
+        j = mapAtoB(last_i,a2,a1);
+        if(a2>a1 & !found_offset & (0 <= j & j < n1) ){
+            delta = new double[0];
+            offset = last_i;
+            found_offset = true;
+        }
+
         if (found_offset) {
             this.delta = delta;
             this.offset = offset;
@@ -291,11 +299,9 @@ public class AlignedVintageNode  {
 
     public AlignedVintageNode getVintage(long queryHash){
         if(queryHash >= s_hash){
-            System.out.println("found");
             return this;
         }else{
             if(this.hasParent()){
-                System.out.println("parent");
                 return this.parent.getVintage(queryHash);
             }else{
                 System.out.println("none");

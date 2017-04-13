@@ -196,15 +196,15 @@ public class CompressedAlignedVintageList {
         }
 
         public int inDays(LocalDate startDate){
-            return (int)ChronoUnit.DAYS.between(startDate,this.rootStartLocalDate);
+            return (int)ChronoUnit.DAYS.between(this.rootStartLocalDate, startDate);
         }
 
         public int inWeeks(LocalDate startDate){
-            return (int)ChronoUnit.MONTHS.between(startDate,this.rootStartLocalDate);
+            return (int)ChronoUnit.WEEKS.between(this.rootStartLocalDate, startDate);
         }
 
         public int inMonths(LocalDate startDate){
-            return (int)ChronoUnit.WEEKS.between(startDate,this.rootStartLocalDate);
+            return (int)ChronoUnit.MONTHS.between(this.rootStartLocalDate, startDate);
         }
 
         public int inQuarters(LocalDate startDate){
@@ -212,12 +212,12 @@ public class CompressedAlignedVintageList {
         }
 
         public int inYears(LocalDate startDate){
-            return (int)ChronoUnit.YEARS.between(startDate,this.rootStartLocalDate);
+            return (int)ChronoUnit.YEARS.between(this.rootStartLocalDate, startDate);
         }
 
 
         public LocalDate inDays(int align){
-            return rootStartLocalDate.plus(align,ChronoUnit.YEARS);
+            return rootStartLocalDate.plus(align,ChronoUnit.DAYS);
         }
 
         public LocalDate inWeeks(int align){
@@ -233,7 +233,7 @@ public class CompressedAlignedVintageList {
         }
 
         public LocalDate inYears(int align){
-            return rootStartLocalDate.plus(align*3,ChronoUnit.YEARS);
+            return rootStartLocalDate.plus(align,ChronoUnit.YEARS);
         }
 
         public LocalDate dateToLocalDate(Date date){
