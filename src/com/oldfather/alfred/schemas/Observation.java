@@ -10,9 +10,7 @@ import java.util.List;
 /**
  * Created by theoldfather on 4/8/17.
  */
-public class Observation implements Comparable<Observation> {
-    public String realtime_start;
-    public String realtime_end;
+public class Observation extends RealTime implements Comparable<Observation> {
     public String date;
     public String value;
 
@@ -21,15 +19,9 @@ public class Observation implements Comparable<Observation> {
                        @JsonProperty("realtime_end")String realtime_end,
                        @JsonProperty("date")String date,
                        @JsonProperty("value")String value){
-        this.realtime_start = realtime_start;
-        this.realtime_end = realtime_end;
+        super(realtime_start,realtime_end);
         this.date = date;
         this.value = value;
-
-    }
-
-    public boolean contains(String date){
-        return (this.realtime_start.compareTo(date)<=0) & (0<=this.realtime_end.compareTo(date));
     }
 
     public int compareTo(Observation o){

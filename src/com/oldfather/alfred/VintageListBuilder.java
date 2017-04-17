@@ -2,12 +2,10 @@ package com.oldfather.alfred;
 
 import com.oldfather.alfred.schemas.Observation;
 import com.oldfather.alfred.schemas.Observations;
-import com.oldfather.alfred.schemas.Series;
-import com.oldfather.alfred.schemas.VintageDates;
+import com.oldfather.alfred.schemas.SeriesSet;
 import com.oldfather.datetime.DateParser;
 import com.oldfather.tsdiff.CompressedAlignedVintageList;
 import com.oldfather.tsdiff.CompressedAlignedVintageList.FrequencyMap;
-import com.oldfather.tsdiff.CompressedAlignedVintageNode;
 import jersey.repackaged.com.google.common.collect.Lists;
 
 import javax.ws.rs.core.Response;
@@ -17,21 +15,48 @@ import java.util.*;
  * Builds a CompressedAlignedVintageList from vintages of an ALFRED series
  */
 public class VintageListBuilder {
+    String api_key;
     String series_id;
     Observations obsSet;
     List<String> vintage_dates;
-    Series seriesMeta;
+    SeriesSet seriesMeta;
     CompressedAlignedVintageList vintageList = new CompressedAlignedVintageList();
     FrequencyMap<String> fm;
 
-    public VintageListBuilder(String series_id){
+    public VintageListBuilder(){
+        this.setAPIKey(System.getenv("FRED_API_KEY"));
+    }
+
+    public VintageListBuilder(String series_id, String api_key){
+        this.setAPIKey(api_key);
         this.series_id = series_id;
+        this.buildList();
+    }
+
+    public VintageListBuilder(String series_id){
+        this.setAPIKey(System.getenv("FRED_API_KEY"));
+        this.series_id = series_id;
+        this.buildList();
+    }
+
+    public CompressedAlignedVintageList getVintageList(String series_id){
+        this.series_id = series_id;
+        this.buildList();
+        return this.vintageList;
+    }
+
+    private void buildList(){
         this.setFrequencyMap();
         this.getSeriesMeta();
         this.getObservations();
         this.getVintageDates();
-
         this.createVintageList();
+    }
+
+    public void setAPIKey(String api_key){
+        if(this.api_key==null){
+            this.api_key = api_key;
+        }
     }
 
     private void setFrequencyMap(){
@@ -43,18 +68,6 @@ public class VintageListBuilder {
                 .put("D","Daily");
         this.fm = fm;
     }
-
-    /*private void getVintageDates(){
-        Response res = (new Query.QueryBuilder())
-                .setApiKey("6190fad6f8ed0bb43338ac0cbc56c51b")
-                .setFileType("json")
-                .addPath("series")
-                .addPath("vintagedates")
-                .addQueryParam("series_id",this.series_id)
-                .createQuery().execute();
-
-        this.vintage_dates  = res.readEntity(VintageDates.class).vintage_dates;
-    }*/
 
     private void getVintageDates(){
         Set<String> vintageDatesSet = new HashSet<>(10);
@@ -68,25 +81,26 @@ public class VintageListBuilder {
     }
 
     private void getSeriesMeta(){
+        if(this.api_key==null) throw new RuntimeException("Fred API Key not found. Try setting FRED_API_KEY.");
         Response res = (new Query.QueryBuilder())
-                .setApiKey("6190fad6f8ed0bb43338ac0cbc56c51b")
+                .setApiKey(this.api_key)
                 .setFileType("json")
                 .addPath("series")
                 .addQueryParam("series_id",this.series_id)
                 .createQuery().execute()
                 ;
-        this.seriesMeta = res.readEntity(Series.class);
+        this.seriesMeta = res.readEntity(SeriesSet.class);
 
     }
 
     private void getObservations(){
+        if(this.api_key==null) throw new RuntimeException("Fred API Key not found. Try setting FRED_API_KEY.");
         Response res = (new Query.QueryBuilder())
-             .setApiKey("6190fad6f8ed0bb43338ac0cbc56c51b")
+             .setApiKey(this.api_key)
              .setFileType("json")
              .addPath("series")
              .addPath("observations")
              .addQueryParam("series_id",this.series_id)
-             .addQueryParam("realtime_start","1776-07-04")
              .addQueryParam("realtime_end","9999-12-31")
              .createQuery().execute()
              ;

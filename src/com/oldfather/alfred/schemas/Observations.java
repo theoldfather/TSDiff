@@ -7,19 +7,12 @@ import java.util.List;
 /**
  * Created by theoldfather on 4/8/17.
  */
-public class Observations {
-    public String realtime_start;
-    public String realtime_end;
+public class Observations extends RealTimeSet {
     public String observation_start;
     public String observation_end;
     public String units;
     public int output_type;
     public String file_type;
-    public String order_by;
-    public String sort_order;
-    public int count;
-    public int offset;
-    public int limit;
     public List<Observation> observations;
 
 
@@ -37,18 +30,12 @@ public class Observations {
                         @JsonProperty("offset")int offset,
                         @JsonProperty("limit")int limit,
                         @JsonProperty("observations")List<Observation> observations){
-        this.realtime_start = realtime_start;
-        this.realtime_end = realtime_end;
+        super(realtime_start,realtime_end,order_by,sort_order,count,offset,limit);
         this.observation_start = observation_start;
         this.observation_end = observation_end;
         this.units = units;
         this.output_type = output_type;
         this.file_type = file_type;
-        this.order_by = order_by;
-        this.sort_order = sort_order;
-        this.count = count;
-        this.offset = offset;
-        this.limit = limit;
         this.observations = observations;
     }
 

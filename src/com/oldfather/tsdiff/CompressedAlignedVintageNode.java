@@ -1,13 +1,12 @@
 package com.oldfather.tsdiff;
 
-import com.oldfather.TSDiff.RLE;
-
 /**
  * Created by theoldfather on 4/8/17.
  */
 public class CompressedAlignedVintageNode extends AlignedVintageNode {
 
     public boolean isCompressed = false;
+    public RLE rle = new RLE(1e-12);
 
     public CompressedAlignedVintageNode(){
 
@@ -106,9 +105,9 @@ public class CompressedAlignedVintageNode extends AlignedVintageNode {
 
     public void applyCompression(){
         if (this.hasChanges()) {
-            int r = RLE.countRepeated(this.delta);
-            if (RLE.shouldCompress(this.delta.length, r)) {
-                this.delta = RLE.compress(this.delta, r);
+            int n_runs = rle.countRuns(this.delta);
+            if (rle.shouldCompress(this.delta.length, n_runs)) {
+                this.delta = rle.compress(this.delta, n_runs);
                 this.isCompressed = true;
             }
         }
@@ -131,7 +130,7 @@ public class CompressedAlignedVintageNode extends AlignedVintageNode {
         double[] delta = this.delta;
 
         if (this.isCompressed) {
-            delta = RLE.decompress(delta);
+            delta = rle.decompress(delta);
         }
 
         if (this.isRootNode()) {

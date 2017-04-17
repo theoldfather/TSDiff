@@ -8,10 +8,8 @@ import java.util.List ;
 /**
  * Created by theoldfather on 4/9/17.
  */
-public class SeriesS {
-    public String id; 
-    public String realtime_start; 
-    public String realtime_end; 
+public class SeriesS extends RealTime {
+    public String id;
     public String title; 
     public String observation_start; 
     public String observation_end; 
@@ -25,10 +23,7 @@ public class SeriesS {
     public int popularity; 
     public String notes; 
 
-    public SeriesS(){
-
-    }
-
+    public SeriesS(){}
     public SeriesS(@JsonProperty("id")String id,
                    @JsonProperty("realtime_start")String realtime_start,
                    @JsonProperty("realtime_end")String realtime_end,
@@ -45,9 +40,8 @@ public class SeriesS {
                    @JsonProperty("popularity")int popularity,
                    @JsonProperty("notes")String notes
                    ){
-        this.id =                          id ;                         
-        this.realtime_start =              realtime_start ;             
-        this.realtime_end =                realtime_end ;               
+        super(realtime_start,realtime_end);
+        this.id =                          id ;
         this.title =                       title ;                      
         this.observation_start =           observation_start ;          
         this.observation_end =             observation_end ;            

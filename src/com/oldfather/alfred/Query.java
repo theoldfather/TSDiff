@@ -1,6 +1,7 @@
 package com.oldfather.alfred;
 
 import com.fasterxml.jackson.jaxrs.json.JacksonJaxbJsonProvider;
+import org.glassfish.jersey.apache.connector.ApacheClientProperties;
 import org.glassfish.jersey.client.ClientConfig;
 
 import javax.ws.rs.client.Client;
@@ -14,6 +15,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import static org.glassfish.jersey.client.ClientProperties.PROXY_URI;
+
 
 /**
  * Created by theoldfather on 4/8/17.
@@ -25,9 +28,9 @@ public class Query {
     String apiKey;
     String fileType;
     List<String> paths;
-    HashMap<String,String> queryParams = new HashMap<>(10);
+    HashMap<String,Object> queryParams = new HashMap<>(10);
 
-    private Query(String apiKey, String fileType, List<String> paths, HashMap<String,String> queryParams){
+    private Query(String apiKey, String fileType, List<String> paths, HashMap<String,Object> queryParams){
         this.apiKey = apiKey;
         this.fileType = fileType;
         this.paths = paths;
@@ -38,7 +41,7 @@ public class Query {
         private String _api_key;
         private String _fileType;
         private List<String> _paths = new ArrayList<>();
-        private HashMap<String,String> _queryParams = new HashMap<>(10);
+        private HashMap<String,Object> _queryParams = new HashMap<>(10);
 
         public QueryBuilder(){
 
@@ -71,6 +74,11 @@ public class Query {
             return this;
         }
 
+        public QueryBuilder addQueryParam(String arg, Integer value){
+            this._queryParams.put(arg,value);
+            return this;
+        }
+
         public Query createQuery(){
             return new Query(_api_key,_fileType, _paths, _queryParams);
         }
@@ -89,7 +97,11 @@ public class Query {
 
         // add query parameters for the get request
         for(Map.Entry param: queryParams.entrySet()){
-            fred = fred.queryParam(param.getKey().toString(),param.getValue().toString());
+            if(param.getKey().toString().compareTo("release_id")==0){
+                fred = fred.queryParam(param.getKey().toString(),(Integer) param.getValue());
+            }else{
+                fred = fred.queryParam(param.getKey().toString(),param.getValue().toString());
+            }
         }
         this.fred = fred;
     }

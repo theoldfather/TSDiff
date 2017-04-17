@@ -33,6 +33,7 @@
     <orderEntry type="library" name="Maven: org.glassfish.grizzly:grizzly-framework:2.3.28" level="project" />
     <orderEntry type="library" name="Maven: org.glassfish.grizzly:grizzly-http:2.3.28" level="project" />
     <orderEntry type="library" name="Maven: org.glassfish.grizzly:connection-pool:2.3.28" level="project" />
+    <orderEntry type="library" name="Maven: org.glassfish.jersey.connectors:jersey-apache-connector:2.25.1" level="project" />
     <orderEntry type="library" name="Maven: org.glassfish.jersey.connectors:jersey-jetty-connector:2.25.1" level="project" />
     <orderEntry type="library" name="Maven: org.eclipse.jetty:jetty-client:9.2.14.v20151106" level="project" />
     <orderEntry type="library" name="Maven: org.eclipse.jetty:jetty-http:9.2.14.v20151106" level="project" />
