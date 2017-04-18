@@ -6,7 +6,6 @@ import java.time.LocalDate;
 import java.time.ZoneId;
 import java.time.temporal.ChronoUnit;
 import java.util.*;
-import java.util.Map.Entry;
 /**
  * Created by theoldfather on 4/8/17.
  */
@@ -83,14 +82,56 @@ public class CompressedAlignedVintageList {
     public boolean moveHead(CompressedAlignedVintageNode node, double[] series){
         if(node!=null){
             if(node.hasChanges()){
-                this.head = node;
-                if(this.keepState){
-                    this.series = series;
+                if(!this.isEmpty()){
+                    if(!this.head.equalTo(node)){
+                        this.setHead(node,series);
+                        return true;
+                    }
+                    return false;
                 }
+                this.setHead(node,series);
                 return true;
             }
         }
         return false;
+    }
+
+    public void setHead(CompressedAlignedVintageNode node, double[] series){
+        this.head = node;
+        if(this.keepState){
+            this.series = series;
+        }
+    }
+
+    public void mergeVintage(long s_hash, Date startDate, String freq, double[] series){
+        // get angry if this there is an attempt to mix frequencies
+        if(freq!=aligner.freq) throw new RuntimeException("The frequency of the vintage to be merged does not match the current frequency.");
+
+        if(isEmpty()){
+            this.insert(s_hash,startDate,freq,series);
+        }else if(s_hash >= head.s_hash){
+            this.insert(s_hash,startDate,freq,series);
+        }else{
+            LinkedList<CompressedAlignedVintageNode> future = new LinkedList<>();
+            CompressedAlignedVintageNode node = this.getHead();
+            while(s_hash < node.s_hash){
+                future.add(node);
+                node = node.getParent();
+                if(node==null) break;
+            }
+
+            if(node==null){
+                // rebase with this as root
+            }else{
+                // 1. encode to node
+                int align = this.aligner.getAlignment(startDate);
+                CompressedAlignedVintageNode new_node = new CompressedAlignedVintageNode(s_hash, align, series, node);
+                // 2. encode previous node to this one to this one
+                future.getLast().encodeDelta(future.getLast().align,future.getLast().decodeDelta(),align,series);
+                future.getLast().parent = new_node;
+            }
+        }
+
     }
 
     public CompressedAlignedVintageNode getHead(){
@@ -171,6 +212,13 @@ public class CompressedAlignedVintageList {
                 case "Quarterly": alignment = inQuarters(startLocalDate); break;
                 case "Monthly": alignment = inMonths(startLocalDate); break;
                 case "Weekly": alignment = inWeeks(startLocalDate); break;
+                case "Weekly (Mon)": alignment = inWeeks(startLocalDate); break;
+                case "Weekly (Tue)": alignment = inWeeks(startLocalDate); break;
+                case "Weekly (Wed)": alignment = inWeeks(startLocalDate); break;
+                case "Weekly (Thu)": alignment = inWeeks(startLocalDate); break;
+                case "Weekly (Fri)": alignment = inWeeks(startLocalDate); break;
+                case "Weekly (Sat)": alignment = inWeeks(startLocalDate); break;
+                case "Weekly (Sun)": alignment = inWeeks(startLocalDate); break;
                 default: alignment = inDays(startLocalDate); break;
             }
             return alignment;

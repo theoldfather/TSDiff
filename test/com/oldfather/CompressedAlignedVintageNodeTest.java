@@ -1,6 +1,6 @@
 package com.oldfather;
 
-import com.oldfather.TSDiff.CompressedAlignedVintageNode;
+import com.oldfather.tsdiff.CompressedAlignedVintageNode;
 import com.oldfather.TSDiff.RLE;
 import org.junit.Test;
 
@@ -58,7 +58,7 @@ public class CompressedAlignedVintageNodeTest extends AlignedVintageNodeTest{
         DebugTools.printActiveClassMethodName();
 
         System.out.println(c.getClass().getName());
-        assertThat(c.getClass().getName(),equalTo("com.oldfather.TSDiff$CompressedAlignedVintageNode"));
+        assertThat(c.getClass().getName(),equalTo("com.oldfather.tsdiff.CompressedAlignedVintageNode"));
     }
 
     @Test

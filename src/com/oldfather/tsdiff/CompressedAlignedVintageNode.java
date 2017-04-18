@@ -16,55 +16,59 @@ public class CompressedAlignedVintageNode extends AlignedVintageNode {
         this.fromNode(node);
     }
 
+    /**
+     * Constructor for root node
+     * @param s_hash a sortable hash unique to the vintage
+     * @param s the time series of the vintage
+     */
     public CompressedAlignedVintageNode(long s_hash,  double[] s) {
         this.encodeDelta(s);
         this.s_hash = s_hash;
     }
 
     public CompressedAlignedVintageNode(long s_hash, int align, double[] s, CompressedAlignedVintageNode parent) {
-        if (parent.hasChanges()) {
-            this.parent = parent;
-            this.collapseParent();
-            this.encodeDelta(align,s,parent.align,parent.decodeDelta());
-        }else if(!parent.hasChanges() & !parent.isRootNode()) {
-            this.parent = parent.parent;
-            this.collapseParent();
-            this.encodeDelta(align,s,parent.parent.align,parent.parent.decodeDelta());
+        this.s_hash = s_hash;
+        this.parent = parent.cleanup();
+        this.collapseParent();
+        if(this.hasParent()){
+            this.encodeDelta(align,s,this.getParent().align,this.getParent().decodeDelta());
         }else{
             this.encodeDelta(s);
         }
-        this.s_hash = s_hash;
-        this.align = align;
     }
 
     public CompressedAlignedVintageNode(long s_hash, int align, double[] s, CompressedAlignedVintageNode parent, double[] parent_s) {
-        if (parent.hasChanges()) {
-            this.parent = parent;
-            this.collapseParent();
-            this.encodeDelta(align,s,parent.align,parent_s);
-        }else if(!parent.hasChanges() & !parent.isRootNode()) {
-            this.parent = parent.parent;
-            this.collapseParent();
-            this.encodeDelta(align,s,parent.parent.align,parent.parent.decodeDelta());
-        }else{
-            this.encodeDelta(s);
-        }
         this.s_hash = s_hash;
-        this.align = align;
+        this.parent = parent.cleanup();
+        this.collapseParent();
+        if(this.hasParent()){
+            if(this.getParent().equalTo(parent)){
+                this.encodeDelta(align,s,this.getParent().align,parent_s);
+            }else{
+                this.encodeDelta(align,s,this.getParent().align,this.getParent().decodeDelta());
+            }
+        }
     }
 
-    public CompressedAlignedVintageNode(long s_hash, int align, int offset, double[] delta) {
+    /**
+     * Constructor for loading a root node from storage
+     * @param s_hash
+     * @param align
+     * @param offset
+     * @param delta
+     */
+    public CompressedAlignedVintageNode(long s_hash, int align, int offset, double[] delta, boolean isCompressed) {
         this.s_hash = s_hash;
         this.align = align;
         this.offset = offset;
         this.delta = delta;
+        this.isCompressed = isCompressed;
     }
 
+
     public CompressedAlignedVintageNode(long s_hash, int align, int offset, double[] delta, boolean isCompressed, CompressedAlignedVintageNode parent) {
-        this(s_hash,align,offset,delta);
-        this.isCompressed = isCompressed;
+        this(s_hash,align,offset,delta,isCompressed);
         this.parent = parent;
-        this.collapseParent();
     }
 
     public void fromNode(CompressedAlignedVintageNode node){

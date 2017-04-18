@@ -39,19 +39,14 @@ public class AlignedVintageNode  {
     }
 
     public AlignedVintageNode(long s_hash, int align, double[] s, AlignedVintageNode parent) {
-        if (parent.hasChanges()) {
-            this.parent = parent;
-            this.collapseParent();
-            this.encodeDelta(align, s, parent.align, parent.decodeDelta());
-        }else if(!parent.hasChanges() & !parent.isRootNode()) {
-            this.parent = parent.parent;
-            this.collapseParent();
-            this.encodeDelta(align, s, parent.parent.align, parent.parent.decodeDelta());
+        this.s_hash = s_hash; // must set s_hash first so we can check it during collapse
+        this.parent = parent.cleanup();
+        this.collapseParent();
+        if(hasParent()){
+            this.encodeDelta(align, s, this.getParent().align, this.getParent().decodeDelta());
         }else{
             this.encodeDelta(s);
         }
-        this.s_hash = s_hash;
-        this.align = align;
     }
 
     public AlignedVintageNode(long s_hash, int align, int offset, double[] delta) {
@@ -64,7 +59,6 @@ public class AlignedVintageNode  {
     public AlignedVintageNode(long s_hash, int align, int offset, double[] delta, AlignedVintageNode parent) {
         this(s_hash, align, offset, delta);
         this.parent = parent;
-        this.collapseParent();
     }
 
 
@@ -95,22 +89,27 @@ public class AlignedVintageNode  {
      * @return  True if nodes match on all contemporaneous characteristics.
      */
     public boolean equalTo(AlignedVintageNode node){
-        return this.s_hash==node.s_hash
-                & this.align==node.align
-                & this.offset==node.offset
-                & Arrays.equals(this.delta,node.delta);
-
-    }
-
-
-    public void collapseParent(){
-        if(!this.isRootNode()){
-            if(!this.parent.isRootNode()){
-                if(this.s_hash == this.parent.s_hash){
-                    this.parent = this.parent.parent;
+        if(this.s_hash==node.s_hash){
+            if(this.align==node.align){
+                if(this.offset==node.offset){
+                    return Arrays.equals(this.delta,node.delta);
                 }
             }
         }
+        return false;
+    }
+
+
+    public boolean collapseParent(){
+        boolean collapsed = false;
+        if(this.hasParent()){
+            while(this.s_hash == this.parent.s_hash){
+                this.parent = this.parent.parent;
+                collapsed = true;
+                if(this.isRootNode()) break;
+            }
+        }
+        return collapsed;
     }
 
     /**
@@ -118,10 +117,7 @@ public class AlignedVintageNode  {
      * @return <code>True</code> if this node has new information
      */
     public boolean hasChanges() {
-        if (this.delta != null) {
-            return true;
-        }
-        return false;
+        return (this.delta != null);
     }
 
     /**
@@ -166,6 +162,7 @@ public class AlignedVintageNode  {
      */
     public void encodeDelta(double[] s) {
         if (s != null) {
+            // no reason for a root node to ever be empty
             if (s.length > 0) {
                 this.delta = s;
                 this.offset = 0;
@@ -222,6 +219,7 @@ public class AlignedVintageNode  {
         if (found_offset) {
             this.delta = delta;
             this.offset = offset;
+            this.align = a2;
         }
     }
 

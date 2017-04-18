@@ -1,6 +1,6 @@
 package com.oldfather;
 
-import com.oldfather.TSDiff.*;
+import com.oldfather.tsdiff.*;
 import org.junit.Test;
 
 import java.util.Arrays;
@@ -42,6 +42,13 @@ public class AlignedVintageNodeTest {
     public AlignedVintageNode g_1 = new AlignedVintageNode(t6_1.hashCode(),0,t6_1,f_1);
     public AlignedVintageNode h_1 = new AlignedVintageNode(t7_1.hashCode(),0,t7_1,g_1);
 
+    public double[] collapse0 = new double[]{.1,.2,.3,.4};
+    public double[] collapse1 = new double[]{.2,.3,.4,.5};
+
+    AlignedVintageNode col0 = new AlignedVintageNode(0L, collapse0);
+    AlignedVintageNode col1 = new AlignedVintageNode(0L, 0, collapse1, col0);
+
+    // Test helper methods
     public double[] randSeries(int n){
         double[] s = new double[n];
         Random rand = new Random();
@@ -64,10 +71,15 @@ public class AlignedVintageNodeTest {
     }
 
     @Test
+    public void collapseParent() throws Exception{
+        assertThat("col1 should collapse col0 since they have the same s_hash.",col1.isRootNode(),equalTo(true));
+    }
+
+    @Test
     public void checkClass() throws Exception {
         DebugTools.printActiveClassMethodName();
 
-        assertThat("class of node should be AlignedVintageNode",c.getClass().getName(),equalTo("com.oldfather.TSDiff$AlignedVintageNode"));
+        assertThat("class of node should be AlignedVintageNode",c.getClass().getName(),equalTo("com.oldfather.tsdiff.AlignedVintageNode"));
     }
 
     @Test
