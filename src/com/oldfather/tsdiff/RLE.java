@@ -1,5 +1,6 @@
 package com.oldfather.tsdiff;
 
+
 /**
  * Provides Run-Length Encoding
  */
@@ -24,6 +25,10 @@ public class RLE{
     }
 
 
+    private boolean isEqual(double a, double b){
+        return Math.abs(a-b) < this.TOL;
+    }
+
     /**
      * Counts the number of repeated elements in a <code>double[]</code>.
      *
@@ -38,7 +43,7 @@ public class RLE{
         } else {
             int sum = 1; // i=0 is the first run
             for (int i = 1; i < a.length; i++) {
-                if (Math.abs(a[i] - a[i - 1])>TOL) sum++;
+                if (!isEqual(a[i],a[i - 1])) sum++;
             }
             return sum;
         }
@@ -52,7 +57,7 @@ public class RLE{
      *
      * @algo.complexity O(1)
      */
-    public static boolean shouldCompress(int n, int n_runs) {
+    public boolean shouldCompress(int n, int n_runs) {
         return n > 2 & (2*n_runs < n);
     }
 
@@ -72,7 +77,7 @@ public class RLE{
         out[k] = 1;
         out[k + n_runs] = a[0];
         for (int i = 1; i < a.length; i++) {
-            if (Math.abs(out[k + n_runs]-a[i])<TOL) {
+            if (isEqual(a[i-1],a[i])) {
                 out[k]++;
             } else {
                 k++;
