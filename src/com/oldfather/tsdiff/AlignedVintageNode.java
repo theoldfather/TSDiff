@@ -66,12 +66,12 @@ public class AlignedVintageNode  {
      * Maps <code>i</code>, an index in the space of <code>a</code>, to an index in the space of <code>b</code>.
      *
      * @param i an index in the space of <code>a</code>
-     * @param a0 the alignment of a
-     * @param b0 the alignment of b
+     * @param a2 the alignment of a
+     * @param a1 the alignment of b
      * @return an index in the space of <code>b</code>
      */
-    public static int mapAtoB(int i, int a0, int b0){
-        return(i - (a0-b0));
+    public static int mapAtoB(int i, int a2, int a1){
+        return(i - (a1-a2));
     }
 
     public void fromNode(AlignedVintageNode node){
@@ -83,20 +83,17 @@ public class AlignedVintageNode  {
     }
 
     /**
-     * Check for equality with <code>node</code> contemporaneously.
+     * Check for approximate equality with <code>node</code> contemporaneously.
      *
      * @param node     Node for comparison
      * @return  True if nodes match on all contemporaneous characteristics.
      */
     public boolean equalTo(AlignedVintageNode node){
-        if(this.s_hash==node.s_hash){
-            if(this.align==node.align){
-                if(this.offset==node.offset){
-                    return Arrays.equals(this.delta,node.delta);
-                }
-            }
-        }
-        return false;
+        if(this.s_hash!=node.s_hash) return false;
+        if(this.align!=node.align) return false;
+        if(this.offset!=node.offset) return false;
+        if(this.delta==null ^ node.delta==null) return false;
+        return Arrays.equals(this.delta,node.delta);
     }
 
 
@@ -209,11 +206,13 @@ public class AlignedVintageNode  {
         // check case where delta should be empty and still saved
         // ie, when the start date shifts forward, but all values are identical to previous vintage
         int last_i = n2-1;
-        j = mapAtoB(last_i,a2,a1);
-        if(a2>a1 & !found_offset & (0 <= j & j < n1) ){
-            delta = new double[0];
-            offset = last_i;
-            found_offset = true;
+        if(last_i>=0){
+            j = mapAtoB(last_i,a2,a1);
+            if(a2>a1 & !found_offset & (0 <= j & j < n1) ){
+                delta = new double[0];
+                offset = last_i;
+                found_offset = true;
+            }
         }
 
         if (found_offset) {

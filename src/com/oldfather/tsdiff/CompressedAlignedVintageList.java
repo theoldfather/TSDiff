@@ -1,11 +1,11 @@
 package com.oldfather.tsdiff;
 
 import com.oldfather.datetime.DateParser;
-
 import java.time.LocalDate;
 import java.time.ZoneId;
 import java.time.temporal.ChronoUnit;
 import java.util.*;
+
 /**
  * Created by theoldfather on 4/8/17.
  */
@@ -20,6 +20,13 @@ public class CompressedAlignedVintageList {
      */
     public CompressedAlignedVintageList(){
 
+    }
+
+    /**
+     * Constructs an empty CompressedAlignedVintageList with a defined Aligner.
+     */
+    public CompressedAlignedVintageList(Date startDate, String freq){
+        this.aligner = new Aligner(startDate,freq);
     }
 
     /**
@@ -75,20 +82,50 @@ public class CompressedAlignedVintageList {
         return false;
     }
 
+    /**
+     *  Inserts a previously encoded node from DB and checks to make sure the Aligned is defined for the root node.
+     * @param s_hash
+     * @param align
+     * @param offset
+     * @param delta
+     * @param isCompressed
+     * @return
+     */
+    public void insert(long s_hash, int align, int offset, double[] delta, boolean isCompressed, Date startDate, String freq){
+        if(isEmpty()){
+            this.aligner = new Aligner(startDate,freq);
+            this.head = new CompressedAlignedVintageNode(s_hash,align,offset,delta,isCompressed);
+        }else{
+            this.head = new CompressedAlignedVintageNode(s_hash,align,offset,delta,isCompressed,this.head);
+        }
+    }
+
+    /**
+     * Inserts a previously encoded node from DB
+     * @param s_hash
+     * @param align
+     * @param offset
+     * @param delta
+     * @param isCompressed
+     */
+    public void insert(long s_hash, int align, int offset, double[] delta, boolean isCompressed){
+        if(isEmpty()){
+            this.head = new CompressedAlignedVintageNode(s_hash,align,offset,delta,isCompressed);
+        }else{
+            this.head = new CompressedAlignedVintageNode(s_hash,align,offset,delta,isCompressed,this.head);
+        }
+    }
+
     public boolean isValidHash(long s_hash){
         return s_hash >= head.s_hash;
     }
 
     public boolean moveHead(CompressedAlignedVintageNode node, double[] series){
-        if(node!=null){
-            if(node.hasChanges()){
-                if(!this.isEmpty()){
-                    if(!this.head.equalTo(node)){
-                        this.setHead(node,series);
-                        return true;
-                    }
-                    return false;
-                }
+        if(node!=null && node.hasChanges()){
+            if(this.isEmpty()){
+                this.setHead(node,series);
+                return true;
+            }else if(!this.getHead().equalTo(node)){
                 this.setHead(node,series);
                 return true;
             }
