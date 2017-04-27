@@ -1,11 +1,9 @@
 package com.oldfather.tsdiff;
 
-import com.oldfather.TSDiff.RLE;
-
 import java.util.Arrays;
 
 /**
- * VintageNode that maintains alignment
+ * A VintageNode that maintains alignment
  */
 public class AlignedVintageNode  {
 
@@ -32,12 +30,23 @@ public class AlignedVintageNode  {
         this.fromNode(node);
     }
 
-
+    /**
+     * Constructor that initializes a root node from a series
+     * @param s_hash a sortable hash
+     * @param s a series
+     */
     public AlignedVintageNode(long s_hash, double[] s) {
         this.encodeDelta(s);
         this.s_hash = s_hash;
     }
 
+    /**
+     * Constructor that initializes a non-root node from a raw series
+     * @param s_hash
+     * @param align
+     * @param s
+     * @param parent
+     */
     public AlignedVintageNode(long s_hash, int align, double[] s, AlignedVintageNode parent) {
         this.s_hash = s_hash; // must set s_hash first so we can check it during collapse
         this.parent = parent.cleanup();
@@ -49,6 +58,13 @@ public class AlignedVintageNode  {
         }
     }
 
+    /**
+     * Constructor that initializes a root node that has already been encoded
+     * @param s_hash
+     * @param align
+     * @param offset
+     * @param delta
+     */
     public AlignedVintageNode(long s_hash, int align, int offset, double[] delta) {
         this.s_hash = s_hash;
         this.align = align;
@@ -56,6 +72,14 @@ public class AlignedVintageNode  {
         this.delta = delta;
     }
 
+    /**
+     * Constructor that initializes a non-root node that has already been encoded
+     * @param s_hash
+     * @param align
+     * @param offset
+     * @param delta
+     * @param parent
+     */
     public AlignedVintageNode(long s_hash, int align, int offset, double[] delta, AlignedVintageNode parent) {
         this(s_hash, align, offset, delta);
         this.parent = parent;
@@ -74,6 +98,11 @@ public class AlignedVintageNode  {
         return(i - (a1-a2));
     }
 
+
+    /**
+     * Initializes node properties from another AlignedVintageNode
+     * @param node an AlignedVintageNode
+     */
     public void fromNode(AlignedVintageNode node){
         this.s_hash = node.s_hash;
         this.align = node.align;
@@ -96,7 +125,10 @@ public class AlignedVintageNode  {
         return Arrays.equals(this.delta,node.delta);
     }
 
-
+    /**
+     * Collapses (deletes and replaces) the parent node when <code>s_hash</code> equals <code>parent.s_hash</code>
+     * @return true if a collapse happened
+     */
     public boolean collapseParent(){
         boolean collapsed = false;
         if(this.hasParent()){
@@ -294,6 +326,11 @@ public class AlignedVintageNode  {
         return delta;
     }
 
+    /**
+     * Get the first node where <code>queryHash >= s_hash</code>
+     * @param queryHash the s_hash used in the query
+     * @return the first AlignedVintageNode where the condition is met, otherwise <code>null</code>.
+     */
     public AlignedVintageNode getVintage(long queryHash){
         if(queryHash >= s_hash){
             return this;
@@ -307,17 +344,16 @@ public class AlignedVintageNode  {
         }
     }
 
+    /**
+     * Get the decoded series from the first node where <code>queryHash >= s_hash</code>
+     * @param queryHash the s_hash used in the query
+     * @return the decoded series
+     */
     public double[] getVintageSeries(long queryHash){
-        if(queryHash >= s_hash){
-            return decodeDelta();
-        }else{
-            if(this.hasParent()){
-                return parent.getVintageSeries(queryHash);
-            }else{
-                return null;
-            }
+        AlignedVintageNode result_node = this.getVintage(queryHash);
+        if(result_node!=null){
+            return result_node.decodeDelta();
         }
+        return null;
     }
-
-
 }
