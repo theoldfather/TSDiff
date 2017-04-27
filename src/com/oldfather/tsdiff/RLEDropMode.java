@@ -43,7 +43,7 @@ public class RLEDropMode {
             // i>0
             for (int i = 1; i < a.length; i++) {
                 // identify beginning of runs
-                if(a[i]!=a[i-1]){
+                if(!isEqual(a[i],a[i-1])){
                     if(!equalsMode(a[i])){
                         n_other++;
                     }else{
@@ -69,8 +69,12 @@ public class RLEDropMode {
         return n > 2 & (n_mode + 2*n_other < n);
     }
 
+    private boolean isEqual(double a, double b){
+        return Math.abs(a-b) < this.TOL;
+    }
+
     public boolean equalsMode(double v){
-        return Math.abs(v-mode)<TOL;
+        return isEqual(v,mode);
     }
 
     /**
@@ -101,7 +105,7 @@ public class RLEDropMode {
         // i>0
         for(int i=1; i<a.length; i++){
             is_mode = equalsMode(a[i]);
-            if(a[i]!=a[i-1]){
+            if(!isEqual(a[i],a[i-1])){
                 jn++;
                 if(!is_mode){
                     jv++;
